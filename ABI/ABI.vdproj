@@ -51,12 +51,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_66A913255F9E48BA9C5AF39908B39A38"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_79DD83944E704800800BF87D1E5BB7E5"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -268,26 +262,6 @@
             {
             "SourcePath" = "8:..\\..\\frmNewClient.resx"
             "TargetName" = "8:frmNewClient.resx"
-            "Tag" = "8:"
-            "Folder" = "8:_C5AB89A1927D40D28C93A5285862A5C5"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_66A913255F9E48BA9C5AF39908B39A38"
-            {
-            "SourcePath" = "8:..\\..\\ABI.sln"
-            "TargetName" = "8:ABI.sln"
             "Tag" = "8:"
             "Folder" = "8:_C5AB89A1927D40D28C93A5285862A5C5"
             "Condition" = "8:"
@@ -541,7 +515,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:ABI"
         "ProductCode" = "8:{345A2E76-90F0-4977-AB2B-48C799FE8B35}"
-        "PackageCode" = "8:{A09E7725-B6B1-4C74-AB84-D75D3D2FCDDF}"
+        "PackageCode" = "8:{BADA6278-4D0C-4EF8-9ECF-5C19490EE53F}"
         "UpgradeCode" = "8:{4EB57AE9-5B4E-4252-B4F3-B6705679F70F}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
