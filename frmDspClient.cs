@@ -114,8 +114,9 @@ namespace ABI
 
         private void btnAfficherTout_Click(object sender, EventArgs e)
         {
+            
             this.txtBxRecherche.Text = null;
-            ((DataView)(this.dgrdClient.DataSource)).RowFilter = null;
+            (dgrdClient.DataSource as DataTable).DefaultView.RowFilter = null;
         }
 
         private void btnQuitter_Click_1(object sender, EventArgs e)
@@ -125,9 +126,9 @@ namespace ABI
 
         private void btnListeRechercheClient_Click(object sender, EventArgs e)
         {
-            if(DataColumn.Equals()
-        }c
-        
+            (dgrdClient.DataSource as DataTable).DefaultView.RowFilter = string.Format("nom ='{0}'", txtBxRecherche.Text);
+        }
+       
         private void cbxChoixrecherche_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             ////            if(txtBxRecherche.Text!=null&&cbxChoixrecherche.Text=="nom")

@@ -20,7 +20,7 @@ namespace ABI
         private String adresseClientPays;
         private String clientTypeTelephone;
         private Int32 clientTelephoneNumero;
-        private Int32 clientCA;
+        private Double clientCA;
         private Int32 clientEffectif;
         private String contactnomPrenom;
         private String contactFonction;
@@ -173,7 +173,7 @@ namespace ABI
             }
         }
 
-        public int ClientCA
+        public double ClientCA
         {
             get
             {

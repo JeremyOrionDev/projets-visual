@@ -85,7 +85,7 @@ namespace ABI
             nouveauClient.NumeroClient = Int32.Parse(tBxAjoutClientNumero.Text.Trim());
             nouveauClient.AdresseClientCodePostal = Int32.Parse(tBxAjoutClientAdresseCodePostal.Text.Trim());
             nouveauClient.AdresseClientNumeroRue = Int32.Parse(tBxAjoutClientAdresseNumero.Text.Trim());
-            nouveauClient.ClientCA = Int32.Parse(tBxChiffreAffaire.Text.Trim());
+            nouveauClient.ClientCA = Convert.ToDouble(tBxChiffreAffaire.Text.ToString());
             nouveauClient.ClientTelephoneNumero = Int32.Parse(tBxClientTelephone.Text.Trim());
             nouveauClient.ClientEffectif = Int32.Parse(tBxClientEffectif.Text.Trim());
             nouveauClient.AdresseClientRue = tBxAjoutClientAdresseTypeNom.Text;

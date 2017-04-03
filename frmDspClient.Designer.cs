@@ -260,6 +260,7 @@
             this.btnAfficherTout.TabIndex = 12;
             this.btnAfficherTout.Text = "Afficher Tout";
             this.btnAfficherTout.UseVisualStyleBackColor = true;
+            this.btnAfficherTout.Click += new System.EventHandler(this.btnAfficherTout_Click);
             // 
             // btnModifierClient
             // 
