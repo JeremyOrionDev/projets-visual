@@ -57,9 +57,11 @@
             this.btnModifierClient = new System.Windows.Forms.Button();
             this.dgrdClient = new System.Windows.Forms.DataGridView();
             this.donneesClientsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgrdClient)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.donneesClientsBindingSource)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -188,7 +190,7 @@
             // 
             // btnQuitter
             // 
-            this.btnQuitter.Location = new System.Drawing.Point(573, 288);
+            this.btnQuitter.Location = new System.Drawing.Point(679, 245);
             this.btnQuitter.Name = "btnQuitter";
             this.btnQuitter.Size = new System.Drawing.Size(75, 23);
             this.btnQuitter.TabIndex = 7;
@@ -198,7 +200,7 @@
             // 
             // btnSupprimerClient
             // 
-            this.btnSupprimerClient.Location = new System.Drawing.Point(219, 288);
+            this.btnSupprimerClient.Location = new System.Drawing.Point(202, 245);
             this.btnSupprimerClient.Name = "btnSupprimerClient";
             this.btnSupprimerClient.Size = new System.Drawing.Size(75, 23);
             this.btnSupprimerClient.TabIndex = 6;
@@ -207,7 +209,7 @@
             // 
             // btnAjouterClient
             // 
-            this.btnAjouterClient.Location = new System.Drawing.Point(36, 288);
+            this.btnAjouterClient.Location = new System.Drawing.Point(19, 245);
             this.btnAjouterClient.Name = "btnAjouterClient";
             this.btnAjouterClient.Size = new System.Drawing.Size(84, 23);
             this.btnAjouterClient.TabIndex = 5;
@@ -218,7 +220,7 @@
             // lblNomRecherche
             // 
             this.lblNomRecherche.AutoSize = true;
-            this.lblNomRecherche.Location = new System.Drawing.Point(31, 77);
+            this.lblNomRecherche.Location = new System.Drawing.Point(14, 34);
             this.lblNomRecherche.Name = "lblNomRecherche";
             this.lblNomRecherche.Size = new System.Drawing.Size(80, 13);
             this.lblNomRecherche.TabIndex = 8;
@@ -226,7 +228,7 @@
             // 
             // txtBxRecherche
             // 
-            this.txtBxRecherche.Location = new System.Drawing.Point(264, 74);
+            this.txtBxRecherche.Location = new System.Drawing.Point(247, 31);
             this.txtBxRecherche.Name = "txtBxRecherche";
             this.txtBxRecherche.Size = new System.Drawing.Size(122, 20);
             this.txtBxRecherche.TabIndex = 9;
@@ -235,7 +237,7 @@
             // 
             this.cbxChoixrecherche.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.cbxChoixrecherche.FormattingEnabled = true;
-            this.cbxChoixrecherche.Location = new System.Drawing.Point(137, 74);
+            this.cbxChoixrecherche.Location = new System.Drawing.Point(120, 31);
             this.cbxChoixrecherche.Name = "cbxChoixrecherche";
             this.cbxChoixrecherche.Size = new System.Drawing.Size(121, 21);
             this.cbxChoixrecherche.TabIndex = 10;
@@ -243,7 +245,7 @@
             // 
             // btnListeRechercheClient
             // 
-            this.btnListeRechercheClient.Location = new System.Drawing.Point(438, 72);
+            this.btnListeRechercheClient.Location = new System.Drawing.Point(421, 29);
             this.btnListeRechercheClient.Name = "btnListeRechercheClient";
             this.btnListeRechercheClient.Size = new System.Drawing.Size(75, 23);
             this.btnListeRechercheClient.TabIndex = 11;
@@ -254,7 +256,7 @@
             // btnAfficherTout
             // 
             this.btnAfficherTout.AutoSize = true;
-            this.btnAfficherTout.Location = new System.Drawing.Point(573, 71);
+            this.btnAfficherTout.Location = new System.Drawing.Point(556, 28);
             this.btnAfficherTout.Name = "btnAfficherTout";
             this.btnAfficherTout.Size = new System.Drawing.Size(78, 23);
             this.btnAfficherTout.TabIndex = 12;
@@ -264,7 +266,7 @@
             // 
             // btnModifierClient
             // 
-            this.btnModifierClient.Location = new System.Drawing.Point(429, 288);
+            this.btnModifierClient.Location = new System.Drawing.Point(412, 245);
             this.btnModifierClient.Name = "btnModifierClient";
             this.btnModifierClient.Size = new System.Drawing.Size(75, 23);
             this.btnModifierClient.TabIndex = 13;
@@ -279,7 +281,7 @@
             this.dgrdClient.AllowUserToResizeRows = false;
             this.dgrdClient.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
             this.dgrdClient.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgrdClient.Location = new System.Drawing.Point(36, 111);
+            this.dgrdClient.Location = new System.Drawing.Point(19, 68);
             this.dgrdClient.Name = "dgrdClient";
             this.dgrdClient.ReadOnly = true;
             this.dgrdClient.Size = new System.Drawing.Size(758, 150);
@@ -292,21 +294,31 @@
             // 
             this.donneesClientsBindingSource.DataSource = typeof(ABI.DonneesClients);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.dgrdClient);
+            this.groupBox1.Controls.Add(this.btnModifierClient);
+            this.groupBox1.Controls.Add(this.btnQuitter);
+            this.groupBox1.Controls.Add(this.btnAfficherTout);
+            this.groupBox1.Controls.Add(this.btnListeRechercheClient);
+            this.groupBox1.Controls.Add(this.cbxChoixrecherche);
+            this.groupBox1.Controls.Add(this.txtBxRecherche);
+            this.groupBox1.Controls.Add(this.lblNomRecherche);
+            this.groupBox1.Controls.Add(this.btnSupprimerClient);
+            this.groupBox1.Controls.Add(this.btnAjouterClient);
+            this.groupBox1.Location = new System.Drawing.Point(12, 27);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(806, 285);
+            this.groupBox1.TabIndex = 15;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Clients";
+            // 
             // frmDspClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(840, 350);
-            this.Controls.Add(this.dgrdClient);
-            this.Controls.Add(this.btnModifierClient);
-            this.Controls.Add(this.btnAfficherTout);
-            this.Controls.Add(this.btnListeRechercheClient);
-            this.Controls.Add(this.cbxChoixrecherche);
-            this.Controls.Add(this.txtBxRecherche);
-            this.Controls.Add(this.lblNomRecherche);
-            this.Controls.Add(this.btnQuitter);
-            this.Controls.Add(this.btnSupprimerClient);
-            this.Controls.Add(this.btnAjouterClient);
+            this.ClientSize = new System.Drawing.Size(840, 675);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmDspClient";
@@ -316,6 +328,8 @@
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgrdClient)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.donneesClientsBindingSource)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -353,6 +367,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn raisonSocialeDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource donneesClientsBindingSource;
         private System.Windows.Forms.DataGridView dgrdClient;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }
 
