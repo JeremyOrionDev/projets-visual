@@ -80,7 +80,9 @@
     <Compile Include="frmUpdClient.Designer.cs">
       <DependentUpon>frmUpdClient.cs</DependentUpon>
     </Compile>
+    <Compile Include="ListProjets.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="Projet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmDspClient.resx">
       <DependentUpon>frmDspClient.cs</DependentUpon>

@@ -55,7 +55,6 @@
             this.frmDspProjBtnSupprimerProjet = new System.Windows.Forms.Button();
             this.frmDspProjBtnModifierProjet = new System.Windows.Forms.Button();
             this.frmDspProjBtnQuitterProjet = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.frmDspProjDgvProjet)).BeginInit();
             this.SuspendLayout();
@@ -167,19 +166,19 @@
             // exportPdfToolStripMenuItem
             // 
             this.exportPdfToolStripMenuItem.Name = "exportPdfToolStripMenuItem";
-            this.exportPdfToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exportPdfToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.exportPdfToolStripMenuItem.Text = "Export pdf";
             // 
             // exportXlsToolStripMenuItem
             // 
             this.exportXlsToolStripMenuItem.Name = "exportXlsToolStripMenuItem";
-            this.exportXlsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exportXlsToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.exportXlsToolStripMenuItem.Text = "export xls";
             // 
             // impressionToolStripMenuItem
             // 
             this.impressionToolStripMenuItem.Name = "impressionToolStripMenuItem";
-            this.impressionToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.impressionToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.impressionToolStripMenuItem.Text = "impression";
             // 
             // frmDspProjDgvProjet
@@ -271,21 +270,11 @@
             this.frmDspProjBtnQuitterProjet.Text = "&Quitter";
             this.frmDspProjBtnQuitterProjet.UseVisualStyleBackColor = true;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(119, 44);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // frmDspProj
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(685, 440);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.frmDspProjBtnQuitterProjet);
             this.Controls.Add(this.frmDspProjBtnModifierProjet);
             this.Controls.Add(this.frmDspProjBtnSupprimerProjet);
@@ -337,6 +326,5 @@
         private System.Windows.Forms.Button frmDspProjBtnSupprimerProjet;
         private System.Windows.Forms.Button frmDspProjBtnModifierProjet;
         private System.Windows.Forms.Button frmDspProjBtnQuitterProjet;
-        private System.Windows.Forms.Button button1;
     }
 }
