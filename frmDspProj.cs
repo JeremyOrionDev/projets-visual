@@ -18,14 +18,14 @@ namespace ABI
         
         public frmDspProj()
         {
-            InitializeComponent(ListProjets leProjet);
-            this.leProjet = unProjet;
+            InitializeComponent();
+            
         }
         private void frmDspProjet_Load(object sender, EventArgs e)
         {
-            this.afficheProjet(unp);
+            this.afficheProjet();
         }
-        private void afficheProjet(Projet unProjet)
+        private void afficheProjet()
         {
             DataTable dt = new DataTable();
             DataRow dr;
