@@ -12,12 +12,20 @@ namespace ABI
 {
     public partial class frmDspProj : Form
     {
+        /// <summary>
+        /// référence du projet à afficher
+        /// </summary>
+        
         public frmDspProj()
         {
-            InitializeComponent();
+            InitializeComponent(ListProjets leProjet);
+            this.leProjet = unProjet;
         }
-
-        private void afficheProjet()
+        private void frmDspProjet_Load(object sender, EventArgs e)
+        {
+            this.afficheProjet(unp);
+        }
+        private void afficheProjet(Projet unProjet)
         {
             DataTable dt = new DataTable();
             DataRow dr;
@@ -35,10 +43,33 @@ namespace ABI
             dt.Columns.Add(new DataColumn("Infos générales", typeof(System.String)));
             dt.Columns.Add(new DataColumn("Collaborateurs", typeof(System.String)));
 
+            for (i = 0; i < ListProjets.ArrayStag.Count; i++)
+            {
+                dr = dt.NewRow();
+                dr[0] = ListProjets.ArrayStag[i].codeProjet;
+                dr[1] = ListProjets.ArrayStag[i].libelleProjetCourt;
+                dr[2] = ListProjets.ArrayStag[i].typeProjet;
+                dr[3] = ListProjets.ArrayStag[i].secteurActiviteprojet;
+                dr[4] = ListProjets.ArrayStag[i].etapeCycleProjet;
+                dr[5] = ListProjets.ArrayStag[i].datePrevue ;
+                dr[6] = ListProjets.ArrayStag[i].dateReelle;
+                dr[7] = ListProjets.ArrayStag[i].chargeInit;
+                dr[8] = ListProjets.ArrayStag[i].remarqueProjet;
+                dr[9] = ListProjets.ArrayStag[i].tailleEquipe;
+                dr[10] = ListProjets.ArrayStag[i].informationsProjet;
+                dr[11] = ListProjets.ArrayStag[i].collaborateursProjet;
+                dt.Rows.Add(dr);
+            }
+            this.frmDspProjDgvProjet.DataSource = dt;
         }
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void frmDspProjBtnQuitterProjet_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

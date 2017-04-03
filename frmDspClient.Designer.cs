@@ -56,12 +56,12 @@
             this.btnAfficherTout = new System.Windows.Forms.Button();
             this.btnModifierClient = new System.Windows.Forms.Button();
             this.dgrdClient = new System.Windows.Forms.DataGridView();
-            this.donneesClientsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.donneesClientsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgrdClient)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.donneesClientsBindingSource)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.donneesClientsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -181,6 +181,7 @@
             this.enCoursToolStripMenuItem.Name = "enCoursToolStripMenuItem";
             this.enCoursToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.enCoursToolStripMenuItem.Text = "En cours";
+            this.enCoursToolStripMenuItem.Click += new System.EventHandler(this.enCoursToolStripMenuItem_Click);
             // 
             // toolStripTextBox1
             // 
@@ -290,10 +291,6 @@
             this.dgrdClient.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgrdClient_CellMouseDoubleClick);
             this.dgrdClient.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgrdClient_MouseDoubleClick);
             // 
-            // donneesClientsBindingSource
-            // 
-            this.donneesClientsBindingSource.DataSource = typeof(ABI.DonneesClients);
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.dgrdClient);
@@ -313,11 +310,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Clients";
             // 
+            // donneesClientsBindingSource
+            // 
+            this.donneesClientsBindingSource.DataSource = typeof(ABI.DonneesClients);
+            // 
             // frmDspClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(840, 675);
+            this.ClientSize = new System.Drawing.Size(840, 350);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -327,9 +328,9 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgrdClient)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.donneesClientsBindingSource)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.donneesClientsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

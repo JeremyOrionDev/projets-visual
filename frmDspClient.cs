@@ -154,12 +154,18 @@ namespace ABI
 
         private void dgrdClient_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            Int32 iClient;
-            iClient = this.dgrdClient.CurrentRow.Index;
-            Client leclient = DonneesClients.ArrayStag[iClient];
-            frmUpdClient frmUC = new frmUpdClient(leclient);
-            frmUC.ShowDialog();
-            this.afficheClient();
+            frmDspProj frmDP;
+            frmDP = new frmDspProj();
+            if (frmDP.ShowDialog() == DialogResult.OK)
+            {
+                this.btnSupprimerClient.Enabled = true;
+                
+            }
+        }
+
+        private void enCoursToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           
         }
     }
 }

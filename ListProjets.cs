@@ -9,6 +9,7 @@ namespace ABI
     class ListProjets
     {
         public static List<Projet> ArrayStag = new List<Projet>();
-        public static Int32 NProjet;
+        public static Int32 nProjet;
+        private ListProjets leProjet;
     }
 }

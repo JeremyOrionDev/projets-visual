@@ -269,6 +269,7 @@
             this.frmDspProjBtnQuitterProjet.TabIndex = 10;
             this.frmDspProjBtnQuitterProjet.Text = "&Quitter";
             this.frmDspProjBtnQuitterProjet.UseVisualStyleBackColor = true;
+            this.frmDspProjBtnQuitterProjet.Click += new System.EventHandler(this.frmDspProjBtnQuitterProjet_Click);
             // 
             // frmDspProj
             // 

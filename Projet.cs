@@ -6,23 +6,23 @@ using System.Threading.Tasks;
 
 namespace ABI
 {
-    class Projet
+    public class Projet
     {
-        private Int32 codeProjet;
-        private String libelleProjetCourt;
-        private String libelleProjetLong;
-        private String typeProjet;
-        private String secteurActiviteprojet;
-        private String etapeCycleProjet;
-        private DateTime datePrevue;
-        private DateTime dateReelle;
-        private Int32 chargeInit;
-        private Int32 chargeProduc;
-        private Int32 chargeValid;
-        private String remarqueProjet;
-        private Int32 tailleEquipe;
-        private String informationsProjet;
-        private String collaborateursProjet;
+        public Int32 codeProjet;
+        public String libelleProjetCourt;
+        public String libelleProjetLong;
+        public String typeProjet;
+        public String secteurActiviteprojet;
+        public String etapeCycleProjet;
+        public DateTime datePrevue;
+        public DateTime dateReelle;
+        public Int32 chargeInit;
+        public Int32 chargeProduc;
+        public Int32 chargeValid;
+        public String remarqueProjet;
+        public Int32 tailleEquipe;
+        public String informationsProjet;
+        public String collaborateursProjet;
 
         public int CodeProjet
         {
