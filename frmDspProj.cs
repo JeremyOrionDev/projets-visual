@@ -91,7 +91,7 @@ namespace ABI
         {
             frmNewProjet frmNP;
             frmNP = new frmNewProjet();
-            frmNP.ShowDialog() == DialogResult.OK)
+            if(frmNP.ShowDialog() == DialogResult.OK)
             {
                 afficheProjet();
             }

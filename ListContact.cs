@@ -8,7 +8,7 @@ namespace ABI
 {
     class ListContact
     {
-        public static List<Contacts> ArrayStag = new List<Contacts>();
+        public static List<Contact> ArrayStag = new List<Contact>();
         public static Int32 nContact;
 
     }

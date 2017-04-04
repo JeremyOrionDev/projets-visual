@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ABI
 {
-    class Contacts
+    class Contact
     {
         private String contactnomPrenom;
         private String contactFonction;

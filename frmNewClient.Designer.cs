@@ -74,7 +74,7 @@
             this.lblAjoutClientNature = new System.Windows.Forms.Label();
             this.tBxNature = new System.Windows.Forms.TextBox();
             this.frmNewClientBtnAjoutContact = new System.Windows.Forms.Button();
-            this.frmNewClientBtnSupprimerContact = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.gbxAjoutClientAdresse.SuspendLayout();
             this.gBxFicheContact.SuspendLayout();
             this.gbxType.SuspendLayout();
@@ -476,7 +476,7 @@
             // 
             // frmNewClientBtnAjoutContact
             // 
-            this.frmNewClientBtnAjoutContact.Location = new System.Drawing.Point(539, 330);
+            this.frmNewClientBtnAjoutContact.Location = new System.Drawing.Point(541, 337);
             this.frmNewClientBtnAjoutContact.Name = "frmNewClientBtnAjoutContact";
             this.frmNewClientBtnAjoutContact.Size = new System.Drawing.Size(118, 23);
             this.frmNewClientBtnAjoutContact.TabIndex = 23;
@@ -484,20 +484,21 @@
             this.frmNewClientBtnAjoutContact.UseVisualStyleBackColor = true;
             this.frmNewClientBtnAjoutContact.Click += new System.EventHandler(this.frmNewClientBtnAjoutContact_Click);
             // 
-            // frmNewClientBtnSupprimerContact
+            // button1
             // 
-            this.frmNewClientBtnSupprimerContact.Location = new System.Drawing.Point(539, 415);
-            this.frmNewClientBtnSupprimerContact.Name = "frmNewClientBtnSupprimerContact";
-            this.frmNewClientBtnSupprimerContact.Size = new System.Drawing.Size(117, 23);
-            this.frmNewClientBtnSupprimerContact.TabIndex = 24;
-            this.frmNewClientBtnSupprimerContact.Text = "&Supprimer Contact";
-            this.frmNewClientBtnSupprimerContact.UseVisualStyleBackColor = true;
+            this.button1.Location = new System.Drawing.Point(541, 372);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 24;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // frmNewClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(683, 638);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.frmNewClientBtnAjoutContact);
             this.Controls.Add(this.tBxNature);
             this.Controls.Add(this.lblAjoutClientNature);
@@ -569,7 +570,6 @@
         public System.Windows.Forms.TextBox tBxAjoutClientNumero;
         private System.Windows.Forms.Label lblAjoutClientNature;
         private System.Windows.Forms.Button frmNewClientBtnAjoutContact;
-        private System.Windows.Forms.Button frmNewClientBtnSupprimerContact;
         public System.Windows.Forms.RadioButton rBtnAjoutClientTypePublic;
         public System.Windows.Forms.RadioButton rbtnAjoutClientTypePrivé;
         public System.Windows.Forms.TextBox tBxAjoutClientAdresseVille;
@@ -586,5 +586,6 @@
         public System.Windows.Forms.GroupBox gbxType;
         public System.Windows.Forms.TextBox tBxNature;
         public System.Windows.Forms.Button btnAjoutClientValider;
+        private System.Windows.Forms.Button button1;
     }
 }
