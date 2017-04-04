@@ -21,7 +21,7 @@ namespace ABI
         private Int32 clientTelephoneNumero;
         private Double clientCA;
         private Int32 clientEffectif;
-
+        private Int32 idClient;
         private String clientCommentaire;
         private String clientNature;
 
@@ -230,5 +230,17 @@ namespace ABI
             }
         }
 
+        public int IdClient
+        {
+            get
+            {
+                return idClient;
+            }
+
+            set
+            {
+                idClient = value;
+            }
+        }
     }
 }

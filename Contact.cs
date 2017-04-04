@@ -13,7 +13,7 @@ namespace ABI
         private Int32 contactTelephonePro;
         private Int32 contactTelephonePortable;
         private String contactNumeroClientLier;
-
+        private Int32 iClient;
         public string ContactNomPrenom
         {
             get
@@ -76,6 +76,19 @@ namespace ABI
             set
             {
                 contactNumeroClientLier = value;
+            }
+        }
+
+        public  int IClient
+        {
+            get
+            {
+                return iClient;
+            }
+
+            set
+            {
+                iClient = value;
             }
         }
     }

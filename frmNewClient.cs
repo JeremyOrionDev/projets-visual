@@ -50,6 +50,7 @@ namespace ABI
                     "Timor Oriental","Togo","Tonga","Trinité et Tobago","Tunisie","Turkmenistan",
                     "Turquie","Tuvalu","Ukraine","Uruguay","Vanuatu","Vatican","Vénézuéla","Vietnam",
                     "Yémen","Yougoslavie","Zambie","Zimbabwe" });
+            
         }
 
 
@@ -60,13 +61,14 @@ namespace ABI
            // this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
-
+        
 
         String mbText;
         private void btnValider_Click(object sender, EventArgs e)
         {
             Client nouveauClient = new Client();
             Contact contactClient = new Contact();
+            
             if (tBxAjoutClientNumero.Text != "")
             {
                 nouveauClient.NumeroClient = Int32.Parse(tBxAjoutClientNumero.Text.Trim());
@@ -218,6 +220,9 @@ namespace ABI
             gBxFicheContact.Enabled = false;
         }
 
+        private void lBxContact_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
+        }
     }
 }

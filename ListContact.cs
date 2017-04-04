@@ -9,6 +9,7 @@ namespace ABI
     class ListContact
     {
         public static List<Contact> ArrayStag = new List<Contact>();
+        
         public static Int32 nContact;
 
     }
