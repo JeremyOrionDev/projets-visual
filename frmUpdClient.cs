@@ -63,10 +63,16 @@ namespace ABI
         {
             this.Close();
         }
-
+        String mbText;
         private void frmNewClientBtnEnregistrer_Click(object sender, EventArgs e)
         {
-            if (tBxAjoutClientAdresseCodePostal.Text != leClient.AdresseClientCodePostal.ToString()) leClient.AdresseClientCodePostal =Convert.ToInt32(tBxAjoutClientAdresseCodePostal.Text);
+             
+            if (tBxAjoutClientAdresseCodePostal.Text != leClient.AdresseClientCodePostal.ToString())
+            {
+               mbText  = "Le code postal " + "0"+ leClient.AdresseClientCodePostal.ToString() + " sera remplacé par " + tBxAjoutClientAdresseCodePostal.Text;
+            }
+            MessageBox.Show("Validation des modifications éffectuées :" + "\n"+ mbText , "Valider ?", MessageBoxButtons.OKCancel);
+            if (tBxAjoutClientAdresseCodePostal.Text != leClient.AdresseClientCodePostal.ToString()) leClient.AdresseClientCodePostal = Convert.ToInt32(tBxAjoutClientAdresseCodePostal.Text);
 
         }
     }
