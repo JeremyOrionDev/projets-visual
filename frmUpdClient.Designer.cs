@@ -28,21 +28,39 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.btnEnregistrer = new System.Windows.Forms.Button();
             this.gbxType.SuspendLayout();
             this.SuspendLayout();
             // 
-            // frmNewClientBtnEnregistrer
+            // btnEnregistrer
             // 
-            this.frmNewClientBtnEnregistrer.Click += new System.EventHandler(this.frmNewClientBtnEnregistrer_Click);
+            this.btnEnregistrer.Location = new System.Drawing.Point(26, 592);
+            this.btnEnregistrer.Name = "btnEnregistrer";
+            this.btnEnregistrer.Size = new System.Drawing.Size(75, 23);
+            this.btnEnregistrer.TabIndex = 24;
+            this.btnEnregistrer.Text = "&Enregistrer";
+            this.btnEnregistrer.UseVisualStyleBackColor = true;
             // 
             // frmUpdClient
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(733, 638);
+            this.Controls.Add(this.btnEnregistrer);
             this.Name = "frmUpdClient";
             this.Text = "frmUpdClient";
             this.Load += new System.EventHandler(this.frmUpdClient_Load);
+            this.Controls.SetChildIndex(this.btnAjoutClientValider, 0);
+            this.Controls.SetChildIndex(this.tBxAjoutClientNumero, 0);
+            this.Controls.SetChildIndex(this.tBxClientRaisonSociale, 0);
+            this.Controls.SetChildIndex(this.tbxDomaineActivité, 0);
+            this.Controls.SetChildIndex(this.tBxClientTelephone, 0);
+            this.Controls.SetChildIndex(this.cBxClientTypeTelephone, 0);
+            this.Controls.SetChildIndex(this.tBxChiffreAffaire, 0);
+            this.Controls.SetChildIndex(this.tBxClientEffectif, 0);
+            this.Controls.SetChildIndex(this.gbxType, 0);
+            this.Controls.SetChildIndex(this.tBxNature, 0);
+            this.Controls.SetChildIndex(this.btnEnregistrer, 0);
             this.gbxType.ResumeLayout(false);
             this.gbxType.PerformLayout();
             this.ResumeLayout(false);
@@ -51,5 +69,7 @@
         }
 
         #endregion
+
+        private System.Windows.Forms.Button btnEnregistrer;
     }
 }

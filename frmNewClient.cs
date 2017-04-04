@@ -16,7 +16,7 @@ namespace ABI
         {
             InitializeComponent();
             gBxFicheContact.Enabled = false;
-            this.frmNewClientBtnEnregistrer.Visible = false;
+            //this.frmNewClientBtnEnregistrer.Visible = false;
             this.btnAjoutClientValider.Visible = true;
             this.cBxClientTypeTelephone.Items.AddRange(new String[]
                 { "Société","Portable","Privé"});
@@ -57,8 +57,8 @@ namespace ABI
 
         private void btnQuitter_Click(object sender, EventArgs e)
         {
+           // this.DialogResult = DialogResult.Cancel;
             this.Close();
-
         }
 
         private void rbtnPublic_CheckedChanged(object sender, EventArgs e)
@@ -116,10 +116,25 @@ namespace ABI
         private void btnValider_Click(object sender, EventArgs e)
         {
             Client nouveauClient = new Client();
-            
 
-            nouveauClient.NumeroClient = Int32.Parse(tBxAjoutClientNumero.Text.Trim());
-            nouveauClient.ClientRaisonSociale = tBxClientRaisonSociale.Text;
+            if (tBxAjoutClientNumero.Text != "")
+            {
+                nouveauClient.NumeroClient = Int32.Parse(tBxAjoutClientNumero.Text.Trim());
+            }
+            else
+            {
+                MessageBox.Show("Erreur Numero client", "Attention le numero de client ne peut être vide", MessageBoxButtons.OK);
+                DialogResult = DialogResult.Cancel;
+            }
+            if(tBxClientRaisonSociale.Text!="")
+            {
+                nouveauClient.ClientRaisonSociale = tBxClientRaisonSociale.Text;
+            }
+            else
+            {
+                MessageBox.Show("Erreur Raison sociale", "Attention la raison sociale ne peut être vide", MessageBoxButtons.OK);
+                DialogResult = DialogResult.Cancel;
+            }
             if (rbtnAjoutClientTypePrivé.Checked)
             {
                 nouveauClient.TypeActivité = "privé";
@@ -128,12 +143,29 @@ namespace ABI
             {
                 nouveauClient.TypeActivité = "public";
             }
-            nouveauClient.ClientDomaineActivite = tbxDomaineActivité.Text;
+            if(!rbtnAjoutClientTypePrivé.Checked&&!rBtnAjoutClientTypePublic.Checked)
+            {
+                MessageBox.Show("Erreur type client", "Attention vous devez choisir le type de client à ajouter", MessageBoxButtons.OK);
+                DialogResult = DialogResult.Cancel;
+            }
+            if (tbxDomaineActivité.Text != null)
+            {
+                nouveauClient.ClientDomaineActivite = tbxDomaineActivité.Text;
+            }
+            else
+            {
+                MessageBox.Show("Erreur domaine d'activité", "Attention le domaine d'activité du client ne peut être vide", MessageBoxButtons.OK);
+                DialogResult = DialogResult.Cancel;
+            }
+            if(tbxDomaineActivité.Text == "")
+            {
+                MessageBox.Show("Erreur domaine activité", "le domaine d'activité ne doit pas etre vide", MessageBoxButtons.OK);
+            }
             nouveauClient.AdresseClientNumeroRue = Int32.Parse(tBxAjoutClientAdresseNumero.Text.Trim());
             nouveauClient.AdresseClientRue = tBxAjoutClientAdresseTypeNom.Text;
             nouveauClient.AdresseClientCodePostal = Int32.Parse(tBxAjoutClientAdresseCodePostal.Text.Trim());
             nouveauClient.AdresseClientVille = tBxAjoutClientAdresseVille.Text;
-            nouveauClient.AdresseClientPays = cbxAjoutClientPays.SelectedItem.ToString();
+            if(cbxAjoutClientPays.SelectedItem!=null) nouveauClient.AdresseClientPays = cbxAjoutClientPays.SelectedItem.ToString();
             nouveauClient.ClientTypeTelephone = cBxClientTypeTelephone.SelectedItem.ToString();
             nouveauClient.ClientTelephoneNumero = Int32.Parse(tBxClientTelephone.Text.Trim());
             nouveauClient.ClientCA = Convert.ToDouble(tBxChiffreAffaire.Text.ToString());
@@ -142,7 +174,7 @@ namespace ABI
             nouveauClient.ClientNature = tBxNature.Text;
             nouveauClient.ClientCommentaire = tBxCommentaire.Text;
             DonneesClients.ArrayStag.Add(nouveauClient);
-            DonneesClients.NClient += 1;
+            DonneesClients.NClient++;
             this.DialogResult = DialogResult.OK;
 
         }
@@ -170,6 +202,7 @@ namespace ABI
             nouveauContact.ContactTelephonePortable = Int32.Parse(tBxFicheContactPortable.Text.Trim());
             nouveauContact.ContactTelephonePro = Int32.Parse(tBxFicheContactProfessionel.Text.Trim());
             nouveauContact.ContactNumeroClientLier = this.tBxAjoutClientNumero.Text;
+            gBxFicheContact.Enabled = false;
         }
     }
 }

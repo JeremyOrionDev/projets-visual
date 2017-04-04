@@ -75,8 +75,6 @@
             this.tBxNature = new System.Windows.Forms.TextBox();
             this.frmNewClientBtnAjoutContact = new System.Windows.Forms.Button();
             this.frmNewClientBtnSupprimerContact = new System.Windows.Forms.Button();
-            this.frmNewClientBtnEnregistrerContact = new System.Windows.Forms.Button();
-            this.frmNewClientBtnEnregistrer = new System.Windows.Forms.Button();
             this.gbxAjoutClientAdresse.SuspendLayout();
             this.gBxFicheContact.SuspendLayout();
             this.gbxType.SuspendLayout();
@@ -245,7 +243,7 @@
             // 
             // btnAjoutClientValider
             // 
-            this.btnAjoutClientValider.Location = new System.Drawing.Point(36, 592);
+            this.btnAjoutClientValider.Location = new System.Drawing.Point(26, 592);
             this.btnAjoutClientValider.Name = "btnAjoutClientValider";
             this.btnAjoutClientValider.Size = new System.Drawing.Size(75, 23);
             this.btnAjoutClientValider.TabIndex = 21;
@@ -453,7 +451,7 @@
             // btnAjoutClientImportContact
             // 
             this.btnAjoutClientImportContact.AutoSize = true;
-            this.btnAjoutClientImportContact.Location = new System.Drawing.Point(185, 592);
+            this.btnAjoutClientImportContact.Location = new System.Drawing.Point(237, 592);
             this.btnAjoutClientImportContact.Name = "btnAjoutClientImportContact";
             this.btnAjoutClientImportContact.Size = new System.Drawing.Size(94, 23);
             this.btnAjoutClientImportContact.TabIndex = 0;
@@ -503,33 +501,11 @@
             this.frmNewClientBtnSupprimerContact.Text = "&Supprimer Contact";
             this.frmNewClientBtnSupprimerContact.UseVisualStyleBackColor = true;
             // 
-            // frmNewClientBtnEnregistrerContact
-            // 
-            this.frmNewClientBtnEnregistrerContact.Location = new System.Drawing.Point(539, 372);
-            this.frmNewClientBtnEnregistrerContact.Name = "frmNewClientBtnEnregistrerContact";
-            this.frmNewClientBtnEnregistrerContact.Size = new System.Drawing.Size(118, 23);
-            this.frmNewClientBtnEnregistrerContact.TabIndex = 25;
-            this.frmNewClientBtnEnregistrerContact.Text = "&Enregistrer Contact";
-            this.frmNewClientBtnEnregistrerContact.UseVisualStyleBackColor = true;
-            this.frmNewClientBtnEnregistrerContact.Click += new System.EventHandler(this.frmNewClientBtnEnregistrerContact_Click);
-            // 
-            // frmNewClientBtnEnregistrer
-            // 
-            this.frmNewClientBtnEnregistrer.Location = new System.Drawing.Point(36, 592);
-            this.frmNewClientBtnEnregistrer.Name = "frmNewClientBtnEnregistrer";
-            this.frmNewClientBtnEnregistrer.Size = new System.Drawing.Size(75, 23);
-            this.frmNewClientBtnEnregistrer.TabIndex = 27;
-            this.frmNewClientBtnEnregistrer.Text = "&Enregistrer";
-            this.frmNewClientBtnEnregistrer.UseVisualStyleBackColor = true;
-            // 
             // frmNewClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(683, 638);
-            this.Controls.Add(this.frmNewClientBtnEnregistrer);
-            this.Controls.Add(this.frmNewClientBtnEnregistrerContact);
-            this.Controls.Add(this.frmNewClientBtnSupprimerContact);
             this.Controls.Add(this.frmNewClientBtnAjoutContact);
             this.Controls.Add(this.tBxNature);
             this.Controls.Add(this.lblAjoutClientNature);
@@ -603,7 +579,6 @@
         private System.Windows.Forms.Label lblAjoutClientNature;
         private System.Windows.Forms.Button frmNewClientBtnAjoutContact;
         private System.Windows.Forms.Button frmNewClientBtnSupprimerContact;
-        private System.Windows.Forms.Button frmNewClientBtnEnregistrerContact;
         public System.Windows.Forms.RadioButton rBtnAjoutClientTypePublic;
         public System.Windows.Forms.RadioButton rbtnAjoutClientTypePrivé;
         public System.Windows.Forms.TextBox tBxAjoutClientAdresseVille;
@@ -620,6 +595,5 @@
         public System.Windows.Forms.GroupBox gbxType;
         public System.Windows.Forms.TextBox tBxNature;
         public System.Windows.Forms.Button btnAjoutClientValider;
-        public System.Windows.Forms.Button frmNewClientBtnEnregistrer;
     }
 }
