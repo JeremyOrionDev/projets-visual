@@ -118,7 +118,7 @@ namespace ABI
 
         private void frmNewClient_Load(object sender, EventArgs e)
         {
-
+            //
         }
     }
 }
