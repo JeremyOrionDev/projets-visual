@@ -19,6 +19,25 @@ namespace ABI
         public frmDspProj()
         {
             InitializeComponent();
+            Projet Test = new Projet();
+            Test.chargeInit = 2323;
+            Test.chargeProduc = 2324;
+            Test.codeProjet = 111;
+            Test.LibelleProjetCourt = "Libellé court";
+            Test.LibelleProjetLong = "Libellé Looooooooooooonnnnnnnggggggg";
+            Test.typeProjet = "forfait";
+            Test.secteurActiviteprojet = "Agroalimentaire";
+            Test.etapeCycleProjet = "2e etape";
+            Test.DatePrevue.AddDays(21);
+            Test.datePrevue.AddMonths(03);
+            Test.datePrevue.AddYears(2018);
+            Test.DateReelle.AddDays(10);
+            Test.DateReelle.AddMonths(12);
+            Test.DateReelle.AddYears(2055);
+            Test.tailleEquipe = 2;
+            Test.collaborateursProjet = "lui,elle,nous";
+            ListProjets.ArrayStag.Add(Test);
+            ListProjets.iProjet++;
             afficheProjet();
         }
         private void frmDspProjet_Load(object sender, EventArgs e)
@@ -70,7 +89,12 @@ namespace ABI
 
         private void frmDspProjBtnAjouterProjet_Click(object sender, EventArgs e)
         {
-
+            frmNewProjet frmNP;
+            frmNP = new frmNewProjet();
+            if (frmNP.ShowDialog() == DialogResult.OK)
+            {
+                afficheProjet();
+            }
         }
     }
 }
