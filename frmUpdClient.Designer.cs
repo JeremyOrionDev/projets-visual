@@ -31,6 +31,10 @@
             this.gbxType.SuspendLayout();
             this.SuspendLayout();
             // 
+            // frmNewClientBtnEnregistrer
+            // 
+            this.frmNewClientBtnEnregistrer.Click += new System.EventHandler(this.frmNewClientBtnEnregistrer_Click);
+            // 
             // frmUpdClient
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;

@@ -165,16 +165,7 @@ namespace ABI
         private DonneesClients leClient;
         private void dgrdClient_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            Int32 iClient;
-            iClient = this.dgrdClient.CurrentRow.Index;
-            Client leClient = DonneesClients.ArrayStag[iClient];
-            frmUpdClient frmUC = new frmUpdClient(leClient);
-            frmUC.ShowDialog();
-            if (frmUC.ShowDialog() == DialogResult.OK)
-            {
-                this.btnSupprimerClient.Enabled = true;
-                this.afficheClient();
-            }
+
         }
 
         private void dgrdClient_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -194,6 +185,20 @@ namespace ABI
             Int32 iClient;
             iClient = this.dgrdClient.CurrentRow.Index;
             MessageBox.Show("numero client : ",iClient.ToString());
+        }
+
+        private void dgrdClient_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Int32 iClient;
+            iClient = this.dgrdClient.CurrentRow.Index;
+            Client leClient = DonneesClients.ArrayStag[iClient];
+            frmUpdClient frmUC = new frmUpdClient(leClient);
+            frmUC.ShowDialog();
+            if (frmUC.ShowDialog() == DialogResult.OK)
+            {
+                this.btnSupprimerClient.Enabled = true;
+                this.afficheClient();
+            }
         }
     }
 }

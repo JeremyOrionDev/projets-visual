@@ -8,8 +8,8 @@ namespace ABI
 {
     public class Client
     {
-        private static Int32 nClient;
-        private Int32 numeroClient=0;
+        private static int nClient;
+        private Int32 numeroClient =0;
         private String clientRaisonSociale;
         private String typeActivité;
         private String clientDomaineActivite;
@@ -87,7 +87,7 @@ namespace ABI
             }
         }
 
-        public int AdresseClientNumeroRue
+        public Int32 AdresseClientNumeroRue
         {
             get
             {
@@ -113,7 +113,7 @@ namespace ABI
             }
         }
 
-        public int AdresseClientCodePostal
+        public Int32 AdresseClientCodePostal
         {
             get
             {
@@ -165,7 +165,7 @@ namespace ABI
             }
         }
 
-        public int ClientTelephoneNumero
+        public Int32 ClientTelephoneNumero
         {
             get
             {
@@ -191,7 +191,7 @@ namespace ABI
             }
         }
 
-        public int ClientEffectif
+        public Int32 ClientEffectif
         {
             get
             {

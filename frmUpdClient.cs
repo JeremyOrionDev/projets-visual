@@ -30,7 +30,11 @@ namespace ABI
             tBxAjoutClientAdresseNumero.Text = leClient.AdresseClientNumeroRue.ToString();
             tBxAjoutClientAdresseTypeNom.Text = leClient.AdresseClientRue;
             tBxAjoutClientAdresseVille.Text = leClient.AdresseClientVille;
-            tBxAjoutClientAdresseCodePostal.Text = leClient.AdresseClientCodePostal.ToString();
+            if (leClient.AdresseClientCodePostal.ToString().Length == 5)
+            {
+                tBxAjoutClientAdresseCodePostal.Text = leClient.AdresseClientCodePostal.ToString();
+            }
+            else tBxAjoutClientAdresseCodePostal.Text = "0" + leClient.AdresseClientCodePostal;
             cbxAjoutClientPays.SelectedItem = leClient.AdresseClientPays;
             cBxClientTypeTelephone.SelectedItem = leClient.ClientTypeTelephone;
             tBxClientEffectif.Text = leClient.ClientEffectif.ToString();
@@ -58,6 +62,12 @@ namespace ABI
         private void btnAjoutClientAnnuler_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void frmNewClientBtnEnregistrer_Click(object sender, EventArgs e)
+        {
+            if (tBxAjoutClientAdresseCodePostal.Text != leClient.AdresseClientCodePostal.ToString()) leClient.AdresseClientCodePostal =Convert.ToInt32(tBxAjoutClientAdresseCodePostal.Text);
+
         }
     }
 }

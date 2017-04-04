@@ -288,6 +288,7 @@
             this.dgrdClient.Size = new System.Drawing.Size(758, 150);
             this.dgrdClient.TabIndex = 14;
             this.dgrdClient.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrdClient_CellContentClick);
+            this.dgrdClient.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrdClient_CellDoubleClick);
             this.dgrdClient.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgrdClient_CellMouseDoubleClick);
             this.dgrdClient.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgrdClient_MouseDoubleClick);
             // 
