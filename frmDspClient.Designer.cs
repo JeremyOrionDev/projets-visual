@@ -287,10 +287,7 @@
             this.dgrdClient.ReadOnly = true;
             this.dgrdClient.Size = new System.Drawing.Size(758, 150);
             this.dgrdClient.TabIndex = 14;
-            this.dgrdClient.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrdClient_CellContentClick);
             this.dgrdClient.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrdClient_CellDoubleClick);
-            this.dgrdClient.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgrdClient_CellMouseDoubleClick);
-            this.dgrdClient.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgrdClient_MouseDoubleClick);
             // 
             // groupBox1
             // 
@@ -366,8 +363,6 @@
         private System.Windows.Forms.Button btnModifierClient;
         private System.Windows.Forms.ToolStripMenuItem enCoursToolStripMenuItem;
         private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn numeroClientDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn raisonSocialeDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource donneesClientsBindingSource;
         private System.Windows.Forms.DataGridView dgrdClient;
         private System.Windows.Forms.GroupBox groupBox1;

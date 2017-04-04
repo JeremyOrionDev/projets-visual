@@ -17,7 +17,6 @@ namespace ABI
     {
 
 
-        private IBindingList blist;
         public frmDspClient()
         {
             InitializeComponent();
@@ -95,34 +94,6 @@ namespace ABI
             
         }
 
-
-        private void cbxChoixrecherche_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblNomRecherche_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtBxRecherche_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-
-
-        private void dGrdListeClient_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            
-        }
-
-        private void toolStripTextBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnQuitter_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -157,27 +128,14 @@ namespace ABI
             //    ((DataView)(this.dgrdClient.DataSource)).RowFilter = "NumeroClient like'%" + Int32.Parse(txtBxRecherche.Text) + "%'";
             //}
         }
-
-        private void dgrdClient_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-        private DonneesClients leClient;
-        private void dgrdClient_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-
-        }
-
-        private void dgrdClient_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-
-        }
-
         private void enCoursToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmDspProj frmDP;
             frmDP = new frmDspProj();
-
+            if (frmDP.ShowDialog() == DialogResult.OK)
+            {
+               
+            }
         }
 
         private void frmDspClient_DoubleClick(object sender, EventArgs e)

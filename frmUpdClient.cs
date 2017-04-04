@@ -57,11 +57,6 @@ namespace ABI
 
         }
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         String mbText;
         private void btnEnregistrer_Click(object sender, EventArgs e)
         {

@@ -8,7 +8,6 @@ namespace ABI
 {
     public class Client
     {
-        private static int nClient;
         private Int32 numeroClient =0;
         private String clientRaisonSociale;
         private String typeActivité;

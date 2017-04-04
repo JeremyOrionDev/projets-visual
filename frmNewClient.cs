@@ -61,58 +61,8 @@ namespace ABI
             this.Close();
         }
 
-        private void rbtnPublic_CheckedChanged(object sender, EventArgs e)
-        {
 
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-
-
-        private void rbtnPrivé_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblRaisonSociale_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tbxDomaineActivité_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void gbxAdresse_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void folderBrowserDialog1_HelpRequest(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnParcourir_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void folderBrowserDialog1_HelpRequest_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tBxNumero_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
+        String mbText;
         private void btnValider_Click(object sender, EventArgs e)
         {
             Client nouveauClient = new Client();
@@ -123,8 +73,9 @@ namespace ABI
             }
             else
             {
-                MessageBox.Show("Attention le numero de client ne peut être vide", "Erreur Numero client", MessageBoxButtons.OK);
-                DialogResult = DialogResult.Cancel;
+                mbText += "Attention le numero de client ne peut être vide \n";
+                //MessageBox.Show("Attention le numero de client ne peut être vide", "Erreur Numero client", MessageBoxButtons.OK);
+                //DialogResult = DialogResult.Cancel;
             }
             if(tBxClientRaisonSociale.Text!="")
             {
@@ -132,8 +83,9 @@ namespace ABI
             }
             else
             {
-                MessageBox.Show("Attention la raison sociale ne peut être vide", "Erreur Raison sociale", MessageBoxButtons.OK);
-                DialogResult = DialogResult.Cancel;
+                mbText += "Attention la raison sociale ne peut être vide \n";
+                //MessageBox.Show("Attention la raison sociale ne peut être vide", "Erreur Raison sociale", MessageBoxButtons.OK);
+                //DialogResult = DialogResult.Cancel;
             }
             if (rbtnAjoutClientTypePrivé.Checked)
             {
@@ -145,8 +97,9 @@ namespace ABI
             }
             if(!rbtnAjoutClientTypePrivé.Checked&&!rBtnAjoutClientTypePublic.Checked)
             {
-                MessageBox.Show("Attention vous devez choisir le type de client à ajouter", "Erreur type client",  MessageBoxButtons.OK);
-                DialogResult = DialogResult.Cancel;
+                mbText += "Attention le type du client ne peut être vide \n";
+                //MessageBox.Show("Attention vous devez choisir le type de client à ajouter", "Erreur type client",  MessageBoxButtons.OK);
+                //DialogResult = DialogResult.Cancel;
             }
             if (tbxDomaineActivité.Text != "")
             {
@@ -154,8 +107,9 @@ namespace ABI
             }
             else
             {
-                MessageBox.Show("Attention le domaine d'activité du client ne peut être vide", "Erreur domaine d'activité", MessageBoxButtons.OK);
-                DialogResult = DialogResult.Cancel;
+                mbText += "Attention le domaine d'activité ne peut être vide \n";
+                //MessageBox.Show("Attention le domaine d'activité du client ne peut être vide", "Erreur domaine d'activité", MessageBoxButtons.OK);
+                //DialogResult = DialogResult.Cancel;
             }
             if(tBxAjoutClientAdresseNumero.Text!="")
             {
@@ -163,8 +117,9 @@ namespace ABI
             }
             else
             {
-                MessageBox.Show("Attention le numéro de rue est vide", "Erreur Numéro de rue", MessageBoxButtons.OK);
-                DialogResult = DialogResult.Cancel;
+                mbText += "Attention le numero de rue ne peut être vide \n";
+                //MessageBox.Show("Attention le numéro de rue est vide", "Erreur Numéro de rue", MessageBoxButtons.OK);
+                //DialogResult = DialogResult.Cancel;
             }
             if(tBxAjoutClientAdresseTypeNom.Text!="")
             {
@@ -172,8 +127,9 @@ namespace ABI
             }
             else
             {
-                MessageBox.Show("Attention le nom de la rue est vide", "Erreur de voie", MessageBoxButtons.OK);
-                DialogResult = DialogResult.Cancel;
+                mbText += "Attention l'adresse ne peut être vide \n";
+                //MessageBox.Show("Attention le nom de la rue est vide", "Erreur de voie", MessageBoxButtons.OK);
+                //DialogResult = DialogResult.Cancel;
             }
             if(tBxAjoutClientAdresseCodePostal.Text!="")
             {
@@ -181,8 +137,9 @@ namespace ABI
             }
             else
             {
-                MessageBox.Show("Attention le code postal est vide", "Erreur Code Postal", MessageBoxButtons.OK);
-                DialogResult = DialogResult.Cancel;
+                mbText += "Attention le code postal ne peut être vide \n";
+                //MessageBox.Show("Attention le code postal est vide", "Erreur Code Postal", MessageBoxButtons.OK);
+                //DialogResult = DialogResult.Cancel;
             }
             if(tBxAjoutClientAdresseVille.Text!="")
             {
@@ -190,8 +147,9 @@ namespace ABI
             }
             else
             {
-                MessageBox.Show("Attention la ville est vide", "Erreur de ville",  MessageBoxButtons.OK);
-                DialogResult = DialogResult.Cancel;
+                mbText += "Attention la ville ne peut être vide \n";
+                //MessageBox.Show("Attention la ville est vide", "Erreur de ville",  MessageBoxButtons.OK);
+                //DialogResult = DialogResult.Cancel;
             }
             if (cbxAjoutClientPays.SelectedItem != null)
             {
@@ -199,8 +157,9 @@ namespace ABI
             }
             else
             {
-                MessageBox.Show("Attention le pays n'a pas été selectionné", "Erreur Pays", MessageBoxButtons.OK);
-                DialogResult = DialogResult.Cancel;
+                mbText += "Attention le pays ne peut être vide \n";
+                //MessageBox.Show("Attention le pays n'a pas été selectionné", "Erreur Pays", MessageBoxButtons.OK);
+                //DialogResult = DialogResult.Cancel;
             }
             if(cBxClientTypeTelephone.SelectedItem!=null)
             {
@@ -208,8 +167,9 @@ namespace ABI
             }
             else
             {
-                MessageBox.Show("Attention le type de téléphone n'a pas été selectionné", "Erreur Type téléphone", MessageBoxButtons.OK);
-                DialogResult = DialogResult.Cancel;
+                mbText += "Attention le type de téléphone ne peut être vide \n";
+                //MessageBox.Show("Attention le type de téléphone n'a pas été selectionné", "Erreur Type téléphone", MessageBoxButtons.OK);
+                //DialogResult = DialogResult.Cancel;
             }
             if(tBxClientTelephone.Text.ToString()!="")
             {
@@ -217,8 +177,9 @@ namespace ABI
             }
             else
             {
-                MessageBox.Show("Attention le numéro de téléphone est vide", "Erreur Type téléphone", MessageBoxButtons.OK);
-                DialogResult = DialogResult.Cancel;
+                mbText += "Attention le numéro de téléphone ne peut être vide \n";
+                //MessageBox.Show("Attention le numéro de téléphone est vide", "Erreur Type téléphone", MessageBoxButtons.OK);
+                //DialogResult = DialogResult.Cancel;
             }
             if(tBxChiffreAffaire.Text.ToString()!="")
             {
@@ -226,17 +187,19 @@ namespace ABI
             }
             else
             {
-                MessageBox.Show("Attention le chiffre d'affaire est vide", "Erreur Chiffre d'affaire", MessageBoxButtons.OK);
-                DialogResult = DialogResult.Cancel;
+                mbText += "Attention le chiffre d'affaire ne peut être vide \n";
+                //MessageBox.Show("Attention le chiffre d'affaire est vide", "Erreur Chiffre d'affaire", MessageBoxButtons.OK);
+                //DialogResult = DialogResult.Cancel;
             }
-            if(tBxClientEffectif.Text.ToString()!="")
+            if (tBxClientEffectif.Text.ToString()!="")
             {
                 nouveauClient.ClientEffectif = Int32.Parse(tBxClientEffectif.Text.Trim());
             }
             else
             {
-                MessageBox.Show("Attention l'effectif du client n'a pas été entré", "Erreur Effectif client", MessageBoxButtons.OK);
-                DialogResult = DialogResult.Cancel;
+                mbText += "Attention l'effectif ne peut être vide \n";
+                //MessageBox.Show("Attention l'effectif du client n'a pas été entré", "Erreur Effectif client", MessageBoxButtons.OK);
+                //DialogResult = DialogResult.Cancel;
             }
             nouveauClient.ClientCommentaire = tBxCommentaire.Text;
             if(tBxNature.Text!="")
@@ -245,22 +208,21 @@ namespace ABI
             }
             else
             {
-                MessageBox.Show("Attention la nature du client est vide", "Erreur nature client", MessageBoxButtons.OK);
-                DialogResult = DialogResult.Cancel;
+                mbText += "Attention la nature du client ne peut être vide \n";
+                //MessageBox.Show("Attention la nature du client est vide", "Erreur nature client", MessageBoxButtons.OK);
+                //DialogResult = DialogResult.Cancel;
             }
-            DonneesClients.ArrayStag.Add(nouveauClient);
-            DonneesClients.NClient++;
-            this.DialogResult = DialogResult.OK;
+            if (mbText.Length != 0)
+            {
+                MessageBox.Show(mbText,"Erreur dans le formulaire", MessageBoxButtons.OK);
+            }
+            else
+            {
+                DonneesClients.ArrayStag.Add(nouveauClient);
+                DonneesClients.NClient++;
+                this.DialogResult = DialogResult.OK;
+            }
 
-        }
-
-        private void tBxChiffreAffaire_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void frmNewClient_Load(object sender, EventArgs e)
-        {
 
         }
 

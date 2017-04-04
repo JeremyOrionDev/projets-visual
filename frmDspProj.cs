@@ -19,13 +19,13 @@ namespace ABI
         public frmDspProj()
         {
             InitializeComponent();
-            
+            afficheProjet();
         }
         private void frmDspProjet_Load(object sender, EventArgs e)
         {
-            this.afficheProjet();
+           
         }
-        private void afficheProjet()
+        public void afficheProjet()
         {
             DataTable dt = new DataTable();
             DataRow dr;
@@ -62,14 +62,15 @@ namespace ABI
             }
             this.frmDspProjDgvProjet.DataSource = dt;
         }
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void frmDspProjBtnQuitterProjet_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void frmDspProjBtnAjouterProjet_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

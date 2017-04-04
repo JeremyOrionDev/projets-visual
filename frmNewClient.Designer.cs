@@ -97,7 +97,6 @@
             this.lblAjoutClientRaisonSociale.Size = new System.Drawing.Size(76, 13);
             this.lblAjoutClientRaisonSociale.TabIndex = 0;
             this.lblAjoutClientRaisonSociale.Text = "Raison sociale";
-            this.lblAjoutClientRaisonSociale.Click += new System.EventHandler(this.lblRaisonSociale_Click);
             // 
             // lblAjoutClientType
             // 
@@ -118,7 +117,6 @@
             this.rBtnAjoutClientTypePublic.TabStop = true;
             this.rBtnAjoutClientTypePublic.Text = "public";
             this.rBtnAjoutClientTypePublic.UseVisualStyleBackColor = true;
-            this.rBtnAjoutClientTypePublic.CheckedChanged += new System.EventHandler(this.rbtnPublic_CheckedChanged);
             // 
             // rbtnAjoutClientTypePrivé
             // 
@@ -130,7 +128,6 @@
             this.rbtnAjoutClientTypePrivé.TabStop = true;
             this.rbtnAjoutClientTypePrivé.Text = "privé";
             this.rbtnAjoutClientTypePrivé.UseVisualStyleBackColor = true;
-            this.rbtnAjoutClientTypePrivé.CheckedChanged += new System.EventHandler(this.rbtnPrivé_CheckedChanged);
             // 
             // lblAjoutClientDomaineActivite
             // 
@@ -160,7 +157,6 @@
             this.gbxAjoutClientAdresse.TabIndex = 6;
             this.gbxAjoutClientAdresse.TabStop = false;
             this.gbxAjoutClientAdresse.Text = "Adresse Client";
-            this.gbxAjoutClientAdresse.Enter += new System.EventHandler(this.gbxAdresse_Enter);
             // 
             // cbxAjoutClientPays
             // 
@@ -276,7 +272,6 @@
             this.tBxAjoutClientNumero.Name = "tBxAjoutClientNumero";
             this.tBxAjoutClientNumero.Size = new System.Drawing.Size(100, 20);
             this.tBxAjoutClientNumero.TabIndex = 1;
-            this.tBxAjoutClientNumero.TextChanged += new System.EventHandler(this.tBxNumero_TextChanged);
             // 
             // tBxClientRaisonSociale
             // 
@@ -291,7 +286,6 @@
             this.tbxDomaineActivité.Name = "tbxDomaineActivité";
             this.tbxDomaineActivité.Size = new System.Drawing.Size(100, 20);
             this.tbxDomaineActivité.TabIndex = 5;
-            this.tbxDomaineActivité.TextChanged += new System.EventHandler(this.tbxDomaineActivité_TextChanged);
             // 
             // tBxClientTelephone
             // 
@@ -322,7 +316,6 @@
             this.tBxChiffreAffaire.Name = "tBxChiffreAffaire";
             this.tBxChiffreAffaire.Size = new System.Drawing.Size(100, 20);
             this.tBxChiffreAffaire.TabIndex = 13;
-            this.tBxChiffreAffaire.TextChanged += new System.EventHandler(this.tBxChiffreAffaire_TextChanged);
             // 
             // lblAjoutClientEffectif
             // 
@@ -356,7 +349,6 @@
             this.gBxFicheContact.TabIndex = 16;
             this.gBxFicheContact.TabStop = false;
             this.gBxFicheContact.Text = "Fiche Contact";
-            this.gBxFicheContact.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // tBxFicheContactProfessionel
             // 
@@ -534,7 +526,6 @@
             this.Controls.Add(this.lblAjoutClientIdNumero);
             this.Name = "frmNewClient";
             this.Text = "Ajout client";
-            this.Load += new System.EventHandler(this.frmNewClient_Load);
             this.gbxAjoutClientAdresse.ResumeLayout(false);
             this.gbxAjoutClientAdresse.PerformLayout();
             this.gBxFicheContact.ResumeLayout(false);

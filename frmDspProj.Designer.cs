@@ -197,7 +197,6 @@
             this.frmDspProjLblRecherche.Size = new System.Drawing.Size(66, 13);
             this.frmDspProjLblRecherche.TabIndex = 2;
             this.frmDspProjLblRecherche.Text = "Recherche :";
-            this.frmDspProjLblRecherche.Click += new System.EventHandler(this.label1_Click);
             // 
             // frmDspProjCbxChoixTypeProjet
             // 
@@ -242,6 +241,7 @@
             this.frmDspProjBtnAjouterProjet.TabIndex = 7;
             this.frmDspProjBtnAjouterProjet.Text = "&Ajouter";
             this.frmDspProjBtnAjouterProjet.UseVisualStyleBackColor = true;
+            this.frmDspProjBtnAjouterProjet.Click += new System.EventHandler(this.frmDspProjBtnAjouterProjet_Click);
             // 
             // frmDspProjBtnSupprimerProjet
             // 
