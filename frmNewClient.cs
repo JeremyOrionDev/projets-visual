@@ -15,7 +15,7 @@ namespace ABI
         public frmNewClient()
         {
             InitializeComponent();
-            
+            gBxFicheContact.Enabled = false;
         }
 
       
@@ -112,6 +112,11 @@ namespace ABI
         }
 
         private void tBxChiffreAffaire_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void frmNewClient_Load(object sender, EventArgs e)
         {
 
         }
