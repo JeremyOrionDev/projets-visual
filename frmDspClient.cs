@@ -21,10 +21,28 @@ namespace ABI
         public frmDspClient()
         {
             InitializeComponent();
-            btnModifierClient.Enabled = false;
-            afficheClient();
+            if(dgrdClient.RowCount!=0) btnModifierClient.Enabled = false;
             this.cbxChoixrecherche.Items.AddRange(new String[]
-                { "nom ", "numero", "nature", "raison sociale" }); 
+                { "nom ", "numero", "nature", "raison sociale" });
+            Client jean= new Client();
+            jean.AdresseClientCodePostal = 06300;
+            jean.AdresseClientNumeroRue = 244;
+            jean.AdresseClientPays = "France";
+            jean.AdresseClientRue="Route de turin";
+            jean.AdresseClientVille = "nice";
+            jean.ClientCA = 2;
+            jean.ClientCommentaire = "sympa";
+            jean.ClientDomaineActivite = "afpa";
+            jean.ClientEffectif = 2;
+            jean.ClientNature = "ancienne";
+            jean.ClientRaisonSociale = "SARL";
+            jean.ClientTelephoneNumero = 0493254123;
+            jean.ClientTypeTelephone = "société";
+            jean.NumeroClient = 1;
+            jean.TypeActivité = "privé";
+            DonneesClients.ArrayStag.Add(jean);
+            DonneesClients.NClient++;
+            afficheClient();
         }
 
         private void frmDspClient_Load(object sender, EventArgs e)
@@ -52,8 +70,7 @@ namespace ABI
             DataRow dr;
             Int32 i;
             dt.Columns.Add(new DataColumn("NumeroClient", typeof(System.Int32)));
-            dt.Columns.Add(new DataColumn("nom", typeof(System.String)));
-            dt.Columns.Add(new DataColumn("Raison sociale", typeof(System.String)));
+            dt.Columns.Add(new DataColumn("Raison sociale", typeof(System.String)));            
             dt.Columns.Add(new DataColumn("type", typeof(System.String)));
             dt.Columns.Add(new DataColumn("Domaine d'activité", typeof(System.String)));
             dt.Columns.Add(new DataColumn("Adresse", typeof(System.String)));
@@ -145,26 +162,38 @@ namespace ABI
         {
 
         }
-
+        private DonneesClients leClient;
         private void dgrdClient_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-
+            Int32 iClient;
+            iClient = this.dgrdClient.CurrentRow.Index;
+            Client leClient = DonneesClients.ArrayStag[iClient];
+            frmUpdClient frmUC = new frmUpdClient(leClient);
+            frmUC.ShowDialog();
+            if (frmUC.ShowDialog() == DialogResult.OK)
+            {
+                this.btnSupprimerClient.Enabled = true;
+                this.afficheClient();
+            }
         }
 
         private void dgrdClient_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            frmDspProj frmDP;
-            frmDP = new frmDspProj();
-            if (frmDP.ShowDialog() == DialogResult.OK)
-            {
-                this.btnSupprimerClient.Enabled = true;
-                
-            }
+
         }
 
         private void enCoursToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           
+            frmDspProj frmDP;
+            frmDP = new frmDspProj();
+
+        }
+
+        private void frmDspClient_DoubleClick(object sender, EventArgs e)
+        {
+            Int32 iClient;
+            iClient = this.dgrdClient.CurrentRow.Index;
+            MessageBox.Show("numero client : ",iClient.ToString());
         }
     }
 }

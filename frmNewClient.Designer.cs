@@ -76,6 +76,7 @@
             this.frmNewClientBtnAjoutContact = new System.Windows.Forms.Button();
             this.frmNewClientBtnSupprimerContact = new System.Windows.Forms.Button();
             this.frmNewClientBtnEnregistrerContact = new System.Windows.Forms.Button();
+            this.frmNewClientBtnEnregistrer = new System.Windows.Forms.Button();
             this.gbxAjoutClientAdresse.SuspendLayout();
             this.gBxFicheContact.SuspendLayout();
             this.gbxType.SuspendLayout();
@@ -166,204 +167,6 @@
             // cbxAjoutClientPays
             // 
             this.cbxAjoutClientPays.FormattingEnabled = true;
-            this.cbxAjoutClientPays.Items.AddRange(new object[] {
-            "Afghanistan",
-            "Afrique du Sud",
-            "Albanie",
-            "Algérie",
-            "Allemagne",
-            "Andorre",
-            "Angola",
-            "Antigua et Barbuda",
-            "Arabie saoudite",
-            "Argentine",
-            "Arménie",
-            "Australie",
-            "Autriche",
-            "Azerbaïdjan",
-            "Bahamas",
-            "Bahrein",
-            "Bangladesh",
-            "Barbade",
-            "Belgique",
-            "Bélize",
-            "Benin",
-            "Bhoutan",
-            "Biélorussie",
-            "Bolivie",
-            "Bosnie-Herzégovine",
-            "Botswana",
-            "Brésil",
-            "Brunei",
-            "Bulgarie",
-            "Burkina Faso",
-            "Burundi",
-            "Cambodge",
-            "Cameroun",
-            "Canada",
-            "Cap Vert",
-            "Centrafrique",
-            "Chili",
-            "Chine",
-            "Chypre",
-            "Colombie",
-            "Comores",
-            "Congo démocratique",
-            "Congo",
-            "Corée du Nord",
-            "Corée du Sud",
-            "Costa Rica",
-            "Côte d\'Ivoire",
-            "Croatie",
-            "Cuba",
-            "Danemark",
-            "Djibouti",
-            "Dominique",
-            "RépubliqueDominicaine",
-            "Egypte",
-            "Emirats Arabes Unis",
-            "Equateur",
-            "Erythrée",
-            "Espagne",
-            "Estonie",
-            "Etats-Unis",
-            "Ethiopie",
-            "Fidji",
-            "Finlande",
-            "France",
-            "Gabon",
-            "Gambie",
-            "Géorgie",
-            "Ghana",
-            "Grèce",
-            "Grenade",
-            "Groenland",
-            "Guatémala",
-            "Guinée",
-            "Guinée Bissau",
-            "Guinée équatoriale",
-            "Guyana",
-            "Haïti",
-            "Honduras",
-            "Hong Kong",
-            "Hongrie",
-            "Inde",
-            "Indonésie",
-            "Irak",
-            "Iran",
-            "Irlande",
-            "Islande",
-            "Israël",
-            "Italie",
-            "Jamaïque",
-            "Japon",
-            "Jordanie",
-            "Kazakhstan",
-            "Kenya",
-            "Kirghizstan",
-            "Kiribati",
-            "Koweït",
-            "Laos",
-            "Lesotho",
-            "Lettonie",
-            "Liban",
-            "Liberia",
-            "Libye",
-            "Liechtenstein",
-            "Lituanie",
-            "Luxembourg",
-            "Macédoine",
-            "Madagascar",
-            "Malaisie",
-            "Malawi",
-            "Maldives",
-            "Mali",
-            "Malte",
-            "Maroc",
-            "Marshall",
-            "Maurice",
-            "Mauritanie",
-            "Mexique",
-            "Micronésie",
-            "Moldavie",
-            "Monaco",
-            "Mongolie",
-            "Mozambique",
-            "Myanmar",
-            "Namibie",
-            "Népal",
-            "Nicaragua",
-            "Niger",
-            "Nigeria",
-            "Norvège",
-            "Nouvelle Zélande",
-            "Oman",
-            "Ouganda",
-            "Ouzbekistan",
-            "Pakistan",
-            "Palau",
-            "Palestine",
-            "Panama",
-            "Papouasie - Nouvelle Guinée",
-            "Paraguay",
-            "Pays-Bas",
-            "Pérou",
-            "Philippines",
-            "Pologne",
-            "Porto Rico",
-            "Portugal",
-            "Qatar",
-            "Roumanie",
-            "Royaume-Uni",
-            "Russie",
-            "Rwanda",
-            "Saint Christophe et Nevis",
-            "Saint Vincent et les Grenadines",
-            "Sainte Lucie",
-            "Salomon",
-            "Salvador",
-            "Samoa",
-            "São Tomé et Príncipe",
-            "Sénégal",
-            "Seychelles",
-            "Sierra Leone",
-            "Singapour",
-            "Slovaquie",
-            "Slovénie",
-            "Somalie",
-            "Somaliland",
-            "Soudan",
-            "Sri Lanka",
-            "Suède",
-            "Suisse",
-            "Surinam",
-            "Syrie",
-            "Swaziland",
-            "Tadjikistan",
-            "Taïwan",
-            "Tanzanie",
-            "Tchad",
-            "Tchéquie",
-            "Thaïlande",
-            "Tibet",
-            "Timor Oriental",
-            "Togo",
-            "Tonga",
-            "Trinité et Tobago",
-            "Tunisie",
-            "Turkmenistan",
-            "Turquie",
-            "Tuvalu",
-            "Ukraine",
-            "Uruguay",
-            "Vanuatu",
-            "Vatican",
-            "Vénézuéla",
-            "Vietnam",
-            "Yémen",
-            "Yougoslavie",
-            "Zambie",
-            "Zimbabwe"});
             this.cbxAjoutClientPays.Location = new System.Drawing.Point(76, 138);
             this.cbxAjoutClientPays.Name = "cbxAjoutClientPays";
             this.cbxAjoutClientPays.Size = new System.Drawing.Size(121, 21);
@@ -502,10 +305,6 @@
             // cBxClientTypeTelephone
             // 
             this.cBxClientTypeTelephone.FormattingEnabled = true;
-            this.cBxClientTypeTelephone.Items.AddRange(new object[] {
-            "Société",
-            "Portable",
-            "Privé\t"});
             this.cBxClientTypeTelephone.Location = new System.Drawing.Point(442, 28);
             this.cBxClientTypeTelephone.Name = "cBxClientTypeTelephone";
             this.cBxClientTypeTelephone.Size = new System.Drawing.Size(72, 21);
@@ -712,12 +511,23 @@
             this.frmNewClientBtnEnregistrerContact.TabIndex = 25;
             this.frmNewClientBtnEnregistrerContact.Text = "&Enregistrer Contact";
             this.frmNewClientBtnEnregistrerContact.UseVisualStyleBackColor = true;
+            this.frmNewClientBtnEnregistrerContact.Click += new System.EventHandler(this.frmNewClientBtnEnregistrerContact_Click);
+            // 
+            // frmNewClientBtnEnregistrer
+            // 
+            this.frmNewClientBtnEnregistrer.Location = new System.Drawing.Point(36, 592);
+            this.frmNewClientBtnEnregistrer.Name = "frmNewClientBtnEnregistrer";
+            this.frmNewClientBtnEnregistrer.Size = new System.Drawing.Size(75, 23);
+            this.frmNewClientBtnEnregistrer.TabIndex = 27;
+            this.frmNewClientBtnEnregistrer.Text = "&Enregistrer";
+            this.frmNewClientBtnEnregistrer.UseVisualStyleBackColor = true;
             // 
             // frmNewClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(683, 638);
+            this.Controls.Add(this.frmNewClientBtnEnregistrer);
             this.Controls.Add(this.frmNewClientBtnEnregistrerContact);
             this.Controls.Add(this.frmNewClientBtnSupprimerContact);
             this.Controls.Add(this.frmNewClientBtnAjoutContact);
@@ -765,31 +575,17 @@
         private System.Windows.Forms.Label lblAjoutClientIdNumero;
         private System.Windows.Forms.Label lblAjoutClientRaisonSociale;
         private System.Windows.Forms.Label lblAjoutClientType;
-        private System.Windows.Forms.RadioButton rBtnAjoutClientTypePublic;
-        private System.Windows.Forms.RadioButton rbtnAjoutClientTypePrivé;
         private System.Windows.Forms.Label lblAjoutClientDomaineActivite;
         private System.Windows.Forms.GroupBox gbxAjoutClientAdresse;
         private System.Windows.Forms.Label lblAjoutClientAdressePays;
-        private System.Windows.Forms.TextBox tBxAjoutClientAdresseVille;
         private System.Windows.Forms.Label lblAjoutClientAdresseVille;
-        private System.Windows.Forms.TextBox tBxAjoutClientAdresseCodePostal;
         private System.Windows.Forms.Label lblAjoutClientAdresseCodePostal;
-        private System.Windows.Forms.TextBox tBxAjoutClientAdresseTypeNom;
         private System.Windows.Forms.Label lblAjoutClientAdresseTypeNom;
-        private System.Windows.Forms.TextBox tBxAjoutClientAdresseNumero;
         private System.Windows.Forms.Label lblAjoutClientAdresseNumero;
-        private System.Windows.Forms.ComboBox cbxAjoutClientPays;
-        private System.Windows.Forms.Button btnAjoutClientValider;
         private System.Windows.Forms.Button btnAjoutClientAnnuler;
         private System.Windows.Forms.Label lblAjoutClientTelephone;
-        private System.Windows.Forms.TextBox tBxClientRaisonSociale;
-        private System.Windows.Forms.TextBox tbxDomaineActivité;
-        private System.Windows.Forms.TextBox tBxClientTelephone;
-        private System.Windows.Forms.ComboBox cBxClientTypeTelephone;
         private System.Windows.Forms.Label lblAjoutClientChiffreAffaire;
-        private System.Windows.Forms.TextBox tBxChiffreAffaire;
         private System.Windows.Forms.Label lblAjoutClientEffectif;
-        private System.Windows.Forms.TextBox tBxClientEffectif;
         private System.Windows.Forms.GroupBox gBxFicheContact;
         private System.Windows.Forms.TextBox tBxFicheContactProfessionel;
         private System.Windows.Forms.TextBox tBxFicheContactPortable;
@@ -801,14 +597,29 @@
         private System.Windows.Forms.Label lblFicheContactNomPrenom;
         private System.Windows.Forms.Label lblCommentaire;
         private System.Windows.Forms.TextBox tBxCommentaire;
-        private System.Windows.Forms.GroupBox gbxType;
         private System.Windows.Forms.Button btnAjoutClientImportContact;
         private System.Windows.Forms.ListBox lBxContact;
         public System.Windows.Forms.TextBox tBxAjoutClientNumero;
         private System.Windows.Forms.Label lblAjoutClientNature;
-        private System.Windows.Forms.TextBox tBxNature;
         private System.Windows.Forms.Button frmNewClientBtnAjoutContact;
         private System.Windows.Forms.Button frmNewClientBtnSupprimerContact;
         private System.Windows.Forms.Button frmNewClientBtnEnregistrerContact;
+        public System.Windows.Forms.RadioButton rBtnAjoutClientTypePublic;
+        public System.Windows.Forms.RadioButton rbtnAjoutClientTypePrivé;
+        public System.Windows.Forms.TextBox tBxAjoutClientAdresseVille;
+        public System.Windows.Forms.TextBox tBxAjoutClientAdresseCodePostal;
+        public System.Windows.Forms.TextBox tBxAjoutClientAdresseTypeNom;
+        public System.Windows.Forms.TextBox tBxAjoutClientAdresseNumero;
+        public System.Windows.Forms.ComboBox cbxAjoutClientPays;
+        public System.Windows.Forms.TextBox tBxClientRaisonSociale;
+        public System.Windows.Forms.TextBox tbxDomaineActivité;
+        public System.Windows.Forms.TextBox tBxClientTelephone;
+        public System.Windows.Forms.ComboBox cBxClientTypeTelephone;
+        public System.Windows.Forms.TextBox tBxChiffreAffaire;
+        public System.Windows.Forms.TextBox tBxClientEffectif;
+        public System.Windows.Forms.GroupBox gbxType;
+        public System.Windows.Forms.TextBox tBxNature;
+        public System.Windows.Forms.Button btnAjoutClientValider;
+        public System.Windows.Forms.Button frmNewClientBtnEnregistrer;
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.gbxType.SuspendLayout();
             this.SuspendLayout();
             // 
             // frmUpdClient
@@ -38,6 +39,8 @@
             this.Name = "frmUpdClient";
             this.Text = "frmUpdClient";
             this.Load += new System.EventHandler(this.frmUpdClient_Load);
+            this.gbxType.ResumeLayout(false);
+            this.gbxType.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

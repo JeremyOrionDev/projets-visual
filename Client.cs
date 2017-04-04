@@ -9,7 +9,7 @@ namespace ABI
     public class Client
     {
         private static Int32 nClient;
-        private Int32 numeroClient;
+        private Int32 numeroClient=0;
         private String clientRaisonSociale;
         private String typeActivité;
         private String clientDomaineActivite;
@@ -27,7 +27,7 @@ namespace ABI
         private String clientNature;
 
 
-        public int NumeroClient
+        public Int32 NumeroClient
         {
             get
             {
@@ -36,7 +36,15 @@ namespace ABI
 
             set
             {
-                numeroClient = value;
+                if(value!=0)
+                {
+                    numeroClient = value;
+                }
+                else
+                {
+                    System.Windows.Forms.MessageBox.Show("le numéro ne peut être vide", "Erreur Classe Client", System.Windows.Forms.MessageBoxButtons.OK);
+                }
+                
             }
         }
 

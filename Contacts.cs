@@ -66,5 +66,17 @@ namespace ABI
             }
         }
 
+        public string ContactNumeroClientLier
+        {
+            get
+            {
+                return contactNumeroClientLier;
+            }
+
+            set
+            {
+                contactNumeroClientLier = value;
+            }
+        }
     }
 }
