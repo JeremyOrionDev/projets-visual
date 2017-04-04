@@ -18,7 +18,7 @@ namespace ABI
             gBxFicheContact.Enabled = false;
         }
 
-      
+
 
         private void btnQuitter_Click(object sender, EventArgs e)
         {
@@ -28,7 +28,7 @@ namespace ABI
 
         private void rbtnPublic_CheckedChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -75,12 +75,13 @@ namespace ABI
 
         private void tBxNumero_TextChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void btnValider_Click(object sender, EventArgs e)
         {
             Client nouveauClient = new Client();
+            Contacts nouveauContact = new Contacts();
 
             nouveauClient.NumeroClient = Int32.Parse(tBxAjoutClientNumero.Text.Trim());
             nouveauClient.AdresseClientCodePostal = Int32.Parse(tBxAjoutClientAdresseCodePostal.Text.Trim());
@@ -91,16 +92,16 @@ namespace ABI
             nouveauClient.AdresseClientRue = tBxAjoutClientAdresseTypeNom.Text;
             nouveauClient.AdresseClientVille = tBxAjoutClientAdresseVille.Text;
             nouveauClient.ClientCommentaire = tBxCommentaire.Text;
-            nouveauClient.ContactFonction = tBxFicheContactFonction.Text;
-            nouveauClient.ContactNomPrenom = tBxFicheContactNomPrenom.Text;
-            nouveauClient.ContactTelephonePortable = Int32.Parse(tBxFicheContactPortable.Text.Trim());
-            nouveauClient.ContactTelephonePro = Int32.Parse(tBxFicheContactProfessionel.Text.Trim());
+            nouveauContact.ContactFonction = tBxFicheContactFonction.Text;
+            nouveauContact.ContactNomPrenom = tBxFicheContactNomPrenom.Text;
+            nouveauContact.ContactTelephonePortable = Int32.Parse(tBxFicheContactPortable.Text.Trim());
+            nouveauContact.ContactTelephonePro = Int32.Parse(tBxFicheContactProfessionel.Text.Trim());
             nouveauClient.ClientNature = tBxNature.Text;
             if (rbtnAjoutClientTypePrivé.Checked)
             {
-            nouveauClient.TypeActivité = "privé";
+                nouveauClient.TypeActivité = "privé";
             }
-            if(rBtnAjoutClientTypePublic.Checked)
+            if (rBtnAjoutClientTypePublic.Checked)
             {
                 nouveauClient.TypeActivité = "public";
             }
@@ -118,7 +119,12 @@ namespace ABI
 
         private void frmNewClient_Load(object sender, EventArgs e)
         {
-            //
+
+        }
+
+        private void frmNewClientBtnAjoutContact_Click(object sender, EventArgs e)
+        {
+            gBxFicheContact.Enabled = true;
         }
     }
 }

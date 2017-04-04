@@ -18,6 +18,7 @@ namespace ABI
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new frmDspClient());
             DonneesClients.NClient = 0;
+            ListContact.nContact = 0;
 
         }
     }

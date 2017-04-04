@@ -22,10 +22,7 @@ namespace ABI
         private Int32 clientTelephoneNumero;
         private Double clientCA;
         private Int32 clientEffectif;
-        private String contactnomPrenom;
-        private String contactFonction;
-        private Int32 contactTelephonePro;
-        private Int32 contactTelephonePortable;
+
         private String clientCommentaire;
         private String clientNature;
 
@@ -199,58 +196,7 @@ namespace ABI
             }
         }
 
-        public string ContactNomPrenom
-        {
-            get
-            {
-                return contactnomPrenom;
-            }
-
-            set
-            {
-                contactnomPrenom = value;
-            }
-        }
-
-        public string ContactFonction
-        {
-            get
-            {
-                return contactFonction;
-            }
-
-            set
-            {
-                contactFonction = value;
-            }
-        }
-
-        public int ContactTelephonePro
-        {
-            get
-            {
-                return contactTelephonePro;
-            }
-
-            set
-            {
-                contactTelephonePro = value;
-            }
-        }
-
-        public int ContactTelephonePortable
-        {
-            get
-            {
-                return contactTelephonePortable;
-            }
-
-            set
-            {
-                contactTelephonePortable = value;
-            }
-        }
-
+      
         public string ClientCommentaire
         {
             get

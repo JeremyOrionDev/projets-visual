@@ -65,14 +65,13 @@ namespace ABI
             {
                 dr = dt.NewRow();
                 dr[0] = DonneesClients.ArrayStag[i].NumeroClient;
-                dr[1] = DonneesClients.ArrayStag[i].ContactNomPrenom;
-                dr[2] = DonneesClients.ArrayStag[i].ClientRaisonSociale;
-                dr[3] = DonneesClients.ArrayStag[i].TypeActivité;
-                dr[4] = DonneesClients.ArrayStag[i].ClientDomaineActivite;
-                dr[5] = DonneesClients.ArrayStag[i].AdresseClientNumeroRue + DonneesClients.ArrayStag[i].AdresseClientRue + DonneesClients.ArrayStag[i].AdresseClientCodePostal + DonneesClients.ArrayStag[i].AdresseClientVille;
-                dr[6] = DonneesClients.ArrayStag[i].ClientNature;
-                dr[7] = DonneesClients.ArrayStag[i].ClientCA;
-                dr[8] = DonneesClients.ArrayStag[i].ClientEffectif;
+                dr[1] = DonneesClients.ArrayStag[i].ClientRaisonSociale;
+                dr[2] = DonneesClients.ArrayStag[i].TypeActivité;
+                dr[3] = DonneesClients.ArrayStag[i].ClientDomaineActivite;
+                dr[4] = DonneesClients.ArrayStag[i].AdresseClientNumeroRue + DonneesClients.ArrayStag[i].AdresseClientRue + DonneesClients.ArrayStag[i].AdresseClientCodePostal + DonneesClients.ArrayStag[i].AdresseClientVille;
+                dr[5] = DonneesClients.ArrayStag[i].ClientNature;
+                dr[6] = DonneesClients.ArrayStag[i].ClientCA;
+                dr[7] = DonneesClients.ArrayStag[i].ClientEffectif;
                 dt.Rows.Add(dr);
             }
             this.dgrdClient.DataSource = dt;

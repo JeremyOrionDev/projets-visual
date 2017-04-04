@@ -75,6 +75,7 @@
             this.tBxNature = new System.Windows.Forms.TextBox();
             this.frmNewClientBtnAjoutContact = new System.Windows.Forms.Button();
             this.frmNewClientBtnSupprimerContact = new System.Windows.Forms.Button();
+            this.frmNewClientBtnEnregistrerContact = new System.Windows.Forms.Button();
             this.gbxAjoutClientAdresse.SuspendLayout();
             this.gBxFicheContact.SuspendLayout();
             this.gbxType.SuspendLayout();
@@ -552,9 +553,9 @@
             this.gBxFicheContact.Controls.Add(this.lblFicheContactPortable);
             this.gBxFicheContact.Controls.Add(this.lblFicheContactFonction);
             this.gBxFicheContact.Controls.Add(this.lblFicheContactNomPrenom);
-            this.gBxFicheContact.Location = new System.Drawing.Point(376, 193);
+            this.gBxFicheContact.Location = new System.Drawing.Point(26, 330);
             this.gBxFicheContact.Name = "gBxFicheContact";
-            this.gBxFicheContact.Size = new System.Drawing.Size(235, 134);
+            this.gBxFicheContact.Size = new System.Drawing.Size(488, 108);
             this.gBxFicheContact.TabIndex = 16;
             this.gBxFicheContact.TabStop = false;
             this.gBxFicheContact.Text = "Fiche Contact";
@@ -562,14 +563,14 @@
             // 
             // tBxFicheContactProfessionel
             // 
-            this.tBxFicheContactProfessionel.Location = new System.Drawing.Point(118, 105);
+            this.tBxFicheContactProfessionel.Location = new System.Drawing.Point(343, 49);
             this.tBxFicheContactProfessionel.Name = "tBxFicheContactProfessionel";
             this.tBxFicheContactProfessionel.Size = new System.Drawing.Size(100, 20);
             this.tBxFicheContactProfessionel.TabIndex = 19;
             // 
             // tBxFicheContactPortable
             // 
-            this.tBxFicheContactPortable.Location = new System.Drawing.Point(118, 76);
+            this.tBxFicheContactPortable.Location = new System.Drawing.Point(343, 16);
             this.tBxFicheContactPortable.Name = "tBxFicheContactPortable";
             this.tBxFicheContactPortable.Size = new System.Drawing.Size(100, 20);
             this.tBxFicheContactPortable.TabIndex = 18;
@@ -591,20 +592,20 @@
             // lblFichecontactProfessionel
             // 
             this.lblFichecontactProfessionel.AutoSize = true;
-            this.lblFichecontactProfessionel.Location = new System.Drawing.Point(16, 108);
+            this.lblFichecontactProfessionel.Location = new System.Drawing.Point(241, 52);
             this.lblFichecontactProfessionel.Name = "lblFichecontactProfessionel";
-            this.lblFichecontactProfessionel.Size = new System.Drawing.Size(63, 13);
+            this.lblFichecontactProfessionel.Size = new System.Drawing.Size(82, 13);
             this.lblFichecontactProfessionel.TabIndex = 0;
-            this.lblFichecontactProfessionel.Text = "professionel";
+            this.lblFichecontactProfessionel.Text = "Tel Professionel";
             // 
             // lblFicheContactPortable
             // 
             this.lblFicheContactPortable.AutoSize = true;
-            this.lblFicheContactPortable.Location = new System.Drawing.Point(16, 79);
+            this.lblFicheContactPortable.Location = new System.Drawing.Point(241, 23);
             this.lblFicheContactPortable.Name = "lblFicheContactPortable";
-            this.lblFicheContactPortable.Size = new System.Drawing.Size(46, 13);
+            this.lblFicheContactPortable.Size = new System.Drawing.Size(64, 13);
             this.lblFicheContactPortable.TabIndex = 0;
-            this.lblFicheContactPortable.Text = "Portable";
+            this.lblFicheContactPortable.Text = "Tel Portable";
             // 
             // lblFicheContactFonction
             // 
@@ -626,7 +627,7 @@
             // lblCommentaire
             // 
             this.lblCommentaire.AutoSize = true;
-            this.lblCommentaire.Location = new System.Drawing.Point(33, 432);
+            this.lblCommentaire.Location = new System.Drawing.Point(23, 441);
             this.lblCommentaire.Name = "lblCommentaire";
             this.lblCommentaire.Size = new System.Drawing.Size(68, 13);
             this.lblCommentaire.TabIndex = 0;
@@ -634,7 +635,7 @@
             // 
             // tBxCommentaire
             // 
-            this.tBxCommentaire.Location = new System.Drawing.Point(37, 455);
+            this.tBxCommentaire.Location = new System.Drawing.Point(26, 457);
             this.tBxCommentaire.Multiline = true;
             this.tBxCommentaire.Name = "tBxCommentaire";
             this.tBxCommentaire.Size = new System.Drawing.Size(631, 115);
@@ -663,9 +664,9 @@
             // lBxContact
             // 
             this.lBxContact.FormattingEnabled = true;
-            this.lBxContact.Location = new System.Drawing.Point(376, 346);
+            this.lBxContact.Location = new System.Drawing.Point(360, 164);
             this.lBxContact.Name = "lBxContact";
-            this.lBxContact.Size = new System.Drawing.Size(275, 82);
+            this.lBxContact.Size = new System.Drawing.Size(249, 134);
             this.lBxContact.TabIndex = 0;
             // 
             // lblAjoutClientNature
@@ -686,27 +687,38 @@
             // 
             // frmNewClientBtnAjoutContact
             // 
-            this.frmNewClientBtnAjoutContact.Location = new System.Drawing.Point(395, 158);
+            this.frmNewClientBtnAjoutContact.Location = new System.Drawing.Point(539, 330);
             this.frmNewClientBtnAjoutContact.Name = "frmNewClientBtnAjoutContact";
-            this.frmNewClientBtnAjoutContact.Size = new System.Drawing.Size(97, 23);
+            this.frmNewClientBtnAjoutContact.Size = new System.Drawing.Size(118, 23);
             this.frmNewClientBtnAjoutContact.TabIndex = 23;
             this.frmNewClientBtnAjoutContact.Text = "&Ajouter contact";
             this.frmNewClientBtnAjoutContact.UseVisualStyleBackColor = true;
+            this.frmNewClientBtnAjoutContact.Click += new System.EventHandler(this.frmNewClientBtnAjoutContact_Click);
             // 
             // frmNewClientBtnSupprimerContact
             // 
-            this.frmNewClientBtnSupprimerContact.Location = new System.Drawing.Point(510, 158);
+            this.frmNewClientBtnSupprimerContact.Location = new System.Drawing.Point(539, 415);
             this.frmNewClientBtnSupprimerContact.Name = "frmNewClientBtnSupprimerContact";
-            this.frmNewClientBtnSupprimerContact.Size = new System.Drawing.Size(126, 23);
+            this.frmNewClientBtnSupprimerContact.Size = new System.Drawing.Size(117, 23);
             this.frmNewClientBtnSupprimerContact.TabIndex = 24;
             this.frmNewClientBtnSupprimerContact.Text = "&Supprimer Contact";
             this.frmNewClientBtnSupprimerContact.UseVisualStyleBackColor = true;
+            // 
+            // frmNewClientBtnEnregistrerContact
+            // 
+            this.frmNewClientBtnEnregistrerContact.Location = new System.Drawing.Point(539, 372);
+            this.frmNewClientBtnEnregistrerContact.Name = "frmNewClientBtnEnregistrerContact";
+            this.frmNewClientBtnEnregistrerContact.Size = new System.Drawing.Size(118, 23);
+            this.frmNewClientBtnEnregistrerContact.TabIndex = 25;
+            this.frmNewClientBtnEnregistrerContact.Text = "&Enregistrer Contact";
+            this.frmNewClientBtnEnregistrerContact.UseVisualStyleBackColor = true;
             // 
             // frmNewClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(683, 638);
+            this.Controls.Add(this.frmNewClientBtnEnregistrerContact);
             this.Controls.Add(this.frmNewClientBtnSupprimerContact);
             this.Controls.Add(this.frmNewClientBtnAjoutContact);
             this.Controls.Add(this.tBxNature);
@@ -797,5 +809,6 @@
         private System.Windows.Forms.TextBox tBxNature;
         private System.Windows.Forms.Button frmNewClientBtnAjoutContact;
         private System.Windows.Forms.Button frmNewClientBtnSupprimerContact;
+        private System.Windows.Forms.Button frmNewClientBtnEnregistrerContact;
     }
 }

@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Client.cs" />
+    <Compile Include="Contacts.cs" />
     <Compile Include="DonneesClients.cs" />
     <Compile Include="frmDspClient.cs">
       <SubType>Form</SubType>
@@ -80,6 +81,7 @@
     <Compile Include="frmUpdClient.Designer.cs">
       <DependentUpon>frmUpdClient.cs</DependentUpon>
     </Compile>
+    <Compile Include="ListContact.cs" />
     <Compile Include="ListProjets.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Projet.cs" />
