@@ -34,7 +34,6 @@
             // 
             // btnAjoutClientValider
             // 
-            this.btnAjoutClientValider.Click += new System.EventHandler(this.btnAjoutClientValider_Click);
             // 
             // btnAjoutClientAnnuler
             // 

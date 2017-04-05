@@ -13,15 +13,19 @@ using System.Reflection;
 
 namespace ABI
 {
+    /// <summary>
+    /// classe partielle d'affichage des clients 
+    /// </summary>
     public partial class frmDspClient : Form
     {
-
-
+        
         public frmDspClient()
         {
             creationClientTest();
             InitializeComponent();
-            if(dgrdClient.RowCount!=0) btnModifierClient.Enabled = false;
+            //si la dataGrid est vide le bouton modifier disparaît
+            if (dgrdClient.RowCount!=0) btnModifierClient.Enabled = false;
+            //On ajoute la selection  de type de recherche dans la ComboBox
             this.cbxChoixrecherche.Items.AddRange(new String[]
                 { "nom ", "numero", "nature", "raison sociale" });
             afficheClient();
@@ -32,6 +36,9 @@ namespace ABI
             
 
         }
+        /// <summary>
+        /// Client test pour remplir la datagrid au démarrage
+        /// </summary>
         private void creationClientTest()
         {
             Client test = new Client();
@@ -73,6 +80,11 @@ namespace ABI
             DonneesClients.ArrayStag.Add(jean);
             DonneesClients.NClient++;
         }
+        /// <summary>
+        /// On veut ajouter un client le form d'ajout de client s'ouvre
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAjouterClient_Click(object sender, EventArgs e)
         {
             frmNewClient frmNC;
@@ -84,6 +96,9 @@ namespace ABI
             }
             
         }
+        /// <summary>
+        /// Constructeur de la datagrid en ajoutant les colonnes
+        /// </summary>
         private void afficheClient()
         {
             //DataTable: pour enregistrer les clients
@@ -100,7 +115,7 @@ namespace ABI
             dt.Columns.Add(new DataColumn("Nature", typeof(System.String)));
             dt.Columns.Add(new DataColumn("Chiffre d'affaire", typeof(System.Int32)));
             dt.Columns.Add(new DataColumn("Effectif", typeof(System.Int32)));
-
+            //rempli les colonnes avec les valeurs du client
             for ( i = 0; i < DonneesClients.ArrayStag.Count; i++)
             {
                 dr = dt.NewRow();
@@ -119,18 +134,21 @@ namespace ABI
             
         }
 
-        private void btnQuitter_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
+        /// <summary>
+        /// on affiche tous les clients dans la datagrid
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAfficherTout_Click(object sender, EventArgs e)
-        {
-            
+        {            
             this.txtBxRecherche.Text = null;
             (dgrdClient.DataSource as DataTable).DefaultView.RowFilter = null;
         }
-
+        /// <summary>
+        /// on ferme le
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnQuitter_Click_1(object sender, EventArgs e)
         {
             Application.Exit();

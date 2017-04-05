@@ -16,6 +16,10 @@ namespace ABI
     public  partial class frmUpdClient : frmNewClient
     {
         /// <summary>
+        /// variable de texte pour la messageBox
+        /// </summary>
+        String mbText;
+        /// <summary>
         /// la réference du client pour lier les contacts
         /// </summary>
         new Int32 referenceClient;
@@ -69,13 +73,17 @@ namespace ABI
         {
 
         }
-        
+        /// <summary>
+        /// On récupère l'idclient auquel on veut ajouter un contact
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAjouterContact_Click(object sender, EventArgs e)
         {
             referenceClient = Convert.ToInt32(tBxIdClient.Text);
 
         }
-        String mbText;
+        
 
         public Client LeClient
         {
@@ -89,10 +97,15 @@ namespace ABI
                 leClient = value;
             }
         }
-
+        /// <summary>
+        /// Ajoute le client dans la Liste de clients et l'affiche dans le form DspClient 
+        /// après avoir validé tous les tests
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnEnregistrer_Click_1(object sender, EventArgs e)
         {
-             
+            //on enregistre les modifications effectuées en rappelant la valeur avant et après modification
             if (tBxAjoutClientAdresseCodePostal.Text != LeClient.AdresseClientCodePostal.ToString())
             {
                mbText  = "Le code postal " + "0"+ LeClient.AdresseClientCodePostal.ToString() + " devient --> " + tBxAjoutClientAdresseCodePostal.Text;
@@ -161,24 +174,19 @@ namespace ABI
                 LeClient.AdresseClientRue = tBxAjoutClientAdresseVille.Text;
                 LeClient.AdresseClientPays = cbxAjoutClientPays.SelectedItem.ToString();
                 LeClient.ClientNature = tBxNature.Text;
-                //frmDspClient.dg
-                //this.Close();
+                
 
             }
             else DialogResult = DialogResult.Cancel;
             this.Close();
         }
 
-        private void toolTip1_Popup(object sender, PopupEventArgs e)
-        {
 
-        }
-
-        private void btnAjoutClientValider_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        /// <summary>
+        /// Si on ne veut pas enregistrer les modifications
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAjoutClientAnnuler_Click(object sender, EventArgs e)
         {
             this.Close();
