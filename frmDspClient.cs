@@ -18,17 +18,22 @@ namespace ABI
     /// </summary>
     public partial class frmDspClient : Form
     {
-        
+        //DataTable: pour enregistrer les clients
+        // liés au DataGridView
+        DataTable dt = new DataTable();
+        DataRow dr;
         public frmDspClient()
         {
-            creationClientTest();
+            
             InitializeComponent();
+            afficheClient();
             //si la dataGrid est vide le bouton modifier disparaît
             if (dgrdClient.RowCount!=0) btnModifierClient.Enabled = false;
             //On ajoute la selection  de type de recherche dans la ComboBox
             this.cbxChoixrecherche.Items.AddRange(new String[]
-                { "nom ", "numero", "nature", "raison sociale" });
-            afficheClient();
+                { "nom client", "NumeroClient", "nature", "raison sociale" });
+            
+            creationClientTest();
         }
 
         private void frmDspClient_Load(object sender, EventArgs e)
@@ -41,6 +46,26 @@ namespace ABI
         /// </summary>
         private void creationClientTest()
         {
+            Client machin = new Client();
+            machin.NumeroClient = 3;
+            machin.NomClient = "nom client";
+            machin.ClientRaisonSociale = "raison sociale";
+            machin.TypeActivité = "public";
+            machin.ClientDomaineActivite = "Domaine";
+            machin.AdresseClientNumeroRue = 12;
+            machin.AdresseClientRue = " rue test";
+            machin.AdresseClientCodePostal = 24500;
+            machin.AdresseClientVille = "VIlle";
+            machin.AdresseClientPays = "France";
+            machin.ClientTypeTelephone = "Société";
+            machin.ClientTelephoneNumero = "0254125485";
+            machin.ClientCA = 1234;
+            machin.ClientEffectif = 456;
+            machin.IdClient = 4;
+            machin.ClientCommentaire = "";
+            machin.ClientNature= "ancienne";
+            DonneesClients.ArrayStag.Add(machin);
+            DonneesClients.NClient++;
             Client test = new Client();
             test.NomClient = "papa";
             test.AdresseClientCodePostal = 06300;
@@ -79,6 +104,7 @@ namespace ABI
             jean.TypeActivité = "public";
             DonneesClients.ArrayStag.Add(jean);
             DonneesClients.NClient++;
+            //ajouteClient();
         }
         /// <summary>
         /// On veut ajouter un client le form d'ajout de client s'ouvre
@@ -92,7 +118,7 @@ namespace ABI
             if (frmNC.ShowDialog()==DialogResult.OK)
             {
                 this.btnSupprimerClient.Enabled = true;
-                afficheClient();
+                ajouteClient();
             }
             
         }
@@ -101,10 +127,7 @@ namespace ABI
         /// </summary>
         private void afficheClient()
         {
-            //DataTable: pour enregistrer les clients
-            // liés au DataGridView
-            DataTable dt = new DataTable();
-            DataRow dr;
+
             Int32 i;
             dt.Columns.Add(new DataColumn("NumeroClient", typeof(System.Int32)));
             dt.Columns.Add(new DataColumn("nom client", typeof(String)));
@@ -116,7 +139,11 @@ namespace ABI
             dt.Columns.Add(new DataColumn("Chiffre d'affaire", typeof(System.Int32)));
             dt.Columns.Add(new DataColumn("Effectif", typeof(System.Int32)));
             //rempli les colonnes avec les valeurs du client
-            for ( i = 0; i < DonneesClients.ArrayStag.Count; i++)
+            ajouteClient();
+        }
+        private void ajouteClient()
+        {
+            for (Int32 i = 0; i < DonneesClients.ArrayStag.Count; i++)
             {
                 dr = dt.NewRow();
                 dr[0] = DonneesClients.ArrayStag[i].NumeroClient;
@@ -131,9 +158,7 @@ namespace ABI
                 dt.Rows.Add(dr);
             }
             this.dgrdClient.DataSource = dt;
-            
         }
-
         /// <summary>
         /// on affiche tous les clients dans la datagrid
         /// </summary>
@@ -142,7 +167,11 @@ namespace ABI
         private void btnAfficherTout_Click(object sender, EventArgs e)
         {            
             this.txtBxRecherche.Text = null;
-            (dgrdClient.DataSource as DataTable).DefaultView.RowFilter = null;
+            foreach(DataGridViewRow row in dgrdClient.Rows)
+            {
+                row.Visible = true;
+                txtBxRecherche.Text = "";
+            }
         }
         /// <summary>
         /// on ferme le
@@ -153,12 +182,31 @@ namespace ABI
         {
             Application.Exit();
         }
-
+        DataSet ds = new DataSet();
         private void btnListeRechercheClient_Click(object sender, EventArgs e)
         {
-            (dgrdClient.DataSource as DataTable).DefaultView.RowFilter = string.Format("nom ='{0}'", txtBxRecherche.Text);
+            string searchValue = txtBxRecherche.Text;
+
+            dgrdClient.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            try
+            {
+                foreach (DataGridViewRow row in dgrdClient.Rows)
+                {
+                    if (!row.Cells[cbxChoixrecherche.SelectedItem.ToString()].Value.ToString().Equals(searchValue))
+                    {
+                        row.Visible=false;
+                        break;
+                    }
+                    //else row.Visible = false;
+                }
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
+            //dt.DefaultView.RowFilter = string.Format(cbxChoixrecherche.SelectedItem.ToString()+ "LIKE'%{0}%'", txtBxRecherche.Text.ToString());
         }
-       
+
         private void cbxChoixrecherche_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             ////            if(txtBxRecherche.Text!=null&&cbxChoixrecherche.Text=="nom")
@@ -220,6 +268,13 @@ namespace ABI
                 this.btnSupprimerClient.Enabled = true;
                 this.afficheClient();
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ajouteClient();
+            creationClientTest();
+            //afficheClient();
         }
     }
 }
