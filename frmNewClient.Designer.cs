@@ -155,7 +155,7 @@
             this.cbxAjoutClientPays.Location = new System.Drawing.Point(76, 138);
             this.cbxAjoutClientPays.Name = "cbxAjoutClientPays";
             this.cbxAjoutClientPays.Size = new System.Drawing.Size(121, 21);
-            this.cbxAjoutClientPays.TabIndex = 10;
+            this.cbxAjoutClientPays.TabIndex = 15;
             // 
             // lblAjoutClientAdressePays
             // 
@@ -170,7 +170,7 @@
             this.tBxAjoutClientAdresseVille.Location = new System.Drawing.Point(76, 108);
             this.tBxAjoutClientAdresseVille.Name = "tBxAjoutClientAdresseVille";
             this.tBxAjoutClientAdresseVille.Size = new System.Drawing.Size(100, 20);
-            this.tBxAjoutClientAdresseVille.TabIndex = 9;
+            this.tBxAjoutClientAdresseVille.TabIndex = 14;
             // 
             // lblAjoutClientAdresseVille
             // 
@@ -186,7 +186,7 @@
             this.tBxAjoutClientAdresseCodePostal.Location = new System.Drawing.Point(76, 76);
             this.tBxAjoutClientAdresseCodePostal.Name = "tBxAjoutClientAdresseCodePostal";
             this.tBxAjoutClientAdresseCodePostal.Size = new System.Drawing.Size(100, 20);
-            this.tBxAjoutClientAdresseCodePostal.TabIndex = 8;
+            this.tBxAjoutClientAdresseCodePostal.TabIndex = 13;
             // 
             // lblAjoutClientAdresseCodePostal
             // 
@@ -202,7 +202,7 @@
             this.tBxAjoutClientAdresseTypeNom.Location = new System.Drawing.Point(76, 46);
             this.tBxAjoutClientAdresseTypeNom.Name = "tBxAjoutClientAdresseTypeNom";
             this.tBxAjoutClientAdresseTypeNom.Size = new System.Drawing.Size(159, 20);
-            this.tBxAjoutClientAdresseTypeNom.TabIndex = 7;
+            this.tBxAjoutClientAdresseTypeNom.TabIndex = 12;
             // 
             // lblAjoutClientAdresseTypeNom
             // 
@@ -217,7 +217,7 @@
             this.tBxAjoutClientAdresseNumero.Location = new System.Drawing.Point(76, 20);
             this.tBxAjoutClientAdresseNumero.Name = "tBxAjoutClientAdresseNumero";
             this.tBxAjoutClientAdresseNumero.Size = new System.Drawing.Size(24, 20);
-            this.tBxAjoutClientAdresseNumero.TabIndex = 6;
+            this.tBxAjoutClientAdresseNumero.TabIndex = 11;
             // 
             // lblAjoutClientAdresseNumero
             // 
@@ -233,7 +233,7 @@
             this.btnAjoutClientValider.Location = new System.Drawing.Point(23, 812);
             this.btnAjoutClientValider.Name = "btnAjoutClientValider";
             this.btnAjoutClientValider.Size = new System.Drawing.Size(75, 23);
-            this.btnAjoutClientValider.TabIndex = 21;
+            this.btnAjoutClientValider.TabIndex = 17;
             this.btnAjoutClientValider.Text = "&Valider";
             this.btnAjoutClientValider.UseVisualStyleBackColor = true;
             this.btnAjoutClientValider.Click += new System.EventHandler(this.btnValider_Click);
@@ -269,21 +269,21 @@
             this.tBxClientRaisonSociale.Location = new System.Drawing.Point(119, 274);
             this.tBxClientRaisonSociale.Name = "tBxClientRaisonSociale";
             this.tBxClientRaisonSociale.Size = new System.Drawing.Size(148, 20);
-            this.tBxClientRaisonSociale.TabIndex = 2;
+            this.tBxClientRaisonSociale.TabIndex = 9;
             // 
             // tbxDomaineActivité
             // 
             this.tbxDomaineActivité.Location = new System.Drawing.Point(109, 74);
             this.tbxDomaineActivité.Name = "tbxDomaineActivité";
             this.tbxDomaineActivité.Size = new System.Drawing.Size(100, 20);
-            this.tbxDomaineActivité.TabIndex = 5;
+            this.tbxDomaineActivité.TabIndex = 3;
             // 
             // tBxClientTelephone
             // 
             this.tBxClientTelephone.Location = new System.Drawing.Point(183, 105);
             this.tBxClientTelephone.Name = "tBxClientTelephone";
             this.tBxClientTelephone.Size = new System.Drawing.Size(100, 20);
-            this.tBxClientTelephone.TabIndex = 12;
+            this.tBxClientTelephone.TabIndex = 5;
             // 
             // cBxClientTypeTelephone
             // 
@@ -291,7 +291,8 @@
             this.cBxClientTypeTelephone.Location = new System.Drawing.Point(89, 105);
             this.cBxClientTypeTelephone.Name = "cBxClientTypeTelephone";
             this.cBxClientTypeTelephone.Size = new System.Drawing.Size(72, 21);
-            this.cBxClientTypeTelephone.TabIndex = 11;
+            this.cBxClientTypeTelephone.TabIndex = 4;
+            this.cBxClientTypeTelephone.SelectedIndexChanged += new System.EventHandler(this.cBxClientTypeTelephone_SelectedIndexChanged);
             // 
             // lblAjoutClientChiffreAffaire
             // 
@@ -306,7 +307,7 @@
             this.tBxChiffreAffaire.Location = new System.Drawing.Point(89, 156);
             this.tBxChiffreAffaire.Name = "tBxChiffreAffaire";
             this.tBxChiffreAffaire.Size = new System.Drawing.Size(100, 20);
-            this.tBxChiffreAffaire.TabIndex = 13;
+            this.tBxChiffreAffaire.TabIndex = 6;
             // 
             // lblAjoutClientEffectif
             // 
@@ -322,7 +323,7 @@
             this.tBxClientEffectif.Location = new System.Drawing.Point(89, 195);
             this.tBxClientEffectif.Name = "tBxClientEffectif";
             this.tBxClientEffectif.Size = new System.Drawing.Size(100, 20);
-            this.tBxClientEffectif.TabIndex = 14;
+            this.tBxClientEffectif.TabIndex = 7;
             // 
             // tBxCommentaire
             // 
@@ -330,7 +331,7 @@
             this.tBxCommentaire.Multiline = true;
             this.tBxCommentaire.Name = "tBxCommentaire";
             this.tBxCommentaire.Size = new System.Drawing.Size(270, 223);
-            this.tBxCommentaire.TabIndex = 20;
+            this.tBxCommentaire.TabIndex = 16;
             // 
             // gbxType
             // 
@@ -339,7 +340,7 @@
             this.gbxType.Location = new System.Drawing.Point(85, 307);
             this.gbxType.Name = "gbxType";
             this.gbxType.Size = new System.Drawing.Size(160, 33);
-            this.gbxType.TabIndex = 3;
+            this.gbxType.TabIndex = 10;
             this.gbxType.TabStop = false;
             // 
             // lblAjoutClientNature
@@ -356,7 +357,7 @@
             this.tBxNature.Location = new System.Drawing.Point(89, 224);
             this.tBxNature.Name = "tBxNature";
             this.tBxNature.Size = new System.Drawing.Size(100, 20);
-            this.tBxNature.TabIndex = 15;
+            this.tBxNature.TabIndex = 8;
             // 
             // groupBox1
             // 
@@ -375,7 +376,7 @@
             this.button3.Location = new System.Drawing.Point(15, 263);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(133, 25);
-            this.button3.TabIndex = 21;
+            this.button3.TabIndex = 0;
             this.button3.Text = "réinitialiser commentaires";
             this.button3.UseVisualStyleBackColor = true;
             // 
@@ -385,7 +386,7 @@
             this.frmNewClientLblNomClient.Location = new System.Drawing.Point(20, 43);
             this.frmNewClientLblNomClient.Name = "frmNewClientLblNomClient";
             this.frmNewClientLblNomClient.Size = new System.Drawing.Size(58, 13);
-            this.frmNewClientLblNomClient.TabIndex = 27;
+            this.frmNewClientLblNomClient.TabIndex = 0;
             this.frmNewClientLblNomClient.Text = "Nom Client";
             // 
             // tBxNomClient
@@ -393,7 +394,7 @@
             this.tBxNomClient.Location = new System.Drawing.Point(109, 43);
             this.tBxNomClient.Name = "tBxNomClient";
             this.tBxNomClient.Size = new System.Drawing.Size(100, 20);
-            this.tBxNomClient.TabIndex = 28;
+            this.tBxNomClient.TabIndex = 2;
             // 
             // btnAjouterContact
             // 
@@ -460,7 +461,6 @@
         private System.Windows.Forms.Label lblAjoutClientAdresseCodePostal;
         private System.Windows.Forms.Label lblAjoutClientAdresseTypeNom;
         private System.Windows.Forms.Label lblAjoutClientAdresseNumero;
-        private System.Windows.Forms.Button btnAjoutClientAnnuler;
         private System.Windows.Forms.Label lblAjoutClientTelephone;
         private System.Windows.Forms.Label lblAjoutClientChiffreAffaire;
         private System.Windows.Forms.Label lblAjoutClientEffectif;
@@ -488,5 +488,6 @@
         private System.Windows.Forms.Label frmNewClientLblNomClient;
         public System.Windows.Forms.TextBox tBxNomClient;
         public System.Windows.Forms.Button btnAjouterContact;
+        protected System.Windows.Forms.Button btnAjoutClientAnnuler;
     }
 }

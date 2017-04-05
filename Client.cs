@@ -19,7 +19,7 @@ namespace ABI
         private String adresseClientVille;
         private String adresseClientPays;
         private String clientTypeTelephone;
-        private Int32 clientTelephoneNumero;
+        private String clientTelephoneNumero;
         private Double clientCA;
         private Int32 clientEffectif;
         private Int32 idClient;
@@ -165,7 +165,7 @@ namespace ABI
             }
         }
 
-        public Int32 ClientTelephoneNumero
+        public String ClientTelephoneNumero
         {
             get
             {

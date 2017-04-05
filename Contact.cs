@@ -12,10 +12,11 @@ namespace ABI
         
         private String contactnomPrenom;
         private String contactFonction;
-        private Int32 contactTelephonePro;
-        private Int32 contactTelephonePortable;
+        private String contactTelephonePro;
+        private String contactTelephonePortable;
         private String contactNumeroClientLier;
         private Int32 iClient;
+        
         public string ContactNomPrenom
         {
             get
@@ -42,7 +43,7 @@ namespace ABI
             }
         }
 
-        public int ContactTelephonePro
+        public String ContactTelephonePro
         {
             get
             {
@@ -55,7 +56,7 @@ namespace ABI
             }
         }
 
-        public int ContactTelephonePortable
+        public String ContactTelephonePortable
         {
             get
             {

@@ -36,6 +36,11 @@
             // 
             this.btnAjoutClientValider.Click += new System.EventHandler(this.btnAjoutClientValider_Click);
             // 
+            // btnAjoutClientAnnuler
+            // 
+            this.btnAjoutClientAnnuler.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnAjoutClientAnnuler.Click += new System.EventHandler(this.btnAjoutClientAnnuler_Click);
+            // 
             // btnEnregistrer
             // 
             this.btnEnregistrer.Location = new System.Drawing.Point(23, 812);
@@ -55,6 +60,9 @@
             this.Name = "frmUpdClient";
             this.Text = " =";
             this.Load += new System.EventHandler(this.frmUpdClient_Load);
+            this.Controls.SetChildIndex(this.btnAjoutClientAnnuler, 0);
+            this.Controls.SetChildIndex(this.tBxNomClient, 0);
+            this.Controls.SetChildIndex(this.btnAjouterContact, 0);
             this.Controls.SetChildIndex(this.btnAjoutClientValider, 0);
             this.Controls.SetChildIndex(this.tBxIdClient, 0);
             this.Controls.SetChildIndex(this.tBxClientRaisonSociale, 0);

@@ -47,7 +47,7 @@ namespace ABI
             test.ClientEffectif = 2;
             test.ClientNature = "ancienne";
             test.ClientRaisonSociale = "SARL";
-            test.ClientTelephoneNumero = 0493254123;
+            test.ClientTelephoneNumero = "0493254123";
             test.ClientTypeTelephone = "société";
             test.NumeroClient = 1;
             test.TypeActivité = "privé";
@@ -66,7 +66,7 @@ namespace ABI
             jean.ClientEffectif = 3;
             jean.ClientNature = "nouveau";
             jean.ClientRaisonSociale = "Test";
-            jean.ClientTelephoneNumero = 055323232;
+            jean.ClientTelephoneNumero = "055323232";
             jean.ClientTypeTelephone = "société";
             jean.NumeroClient = 2;
             jean.TypeActivité = "public";
@@ -76,7 +76,7 @@ namespace ABI
         private void btnAjouterClient_Click(object sender, EventArgs e)
         {
             frmNewClient frmNC;
-            frmNC = new frmNewClient();
+            frmNC = new  frmNewClient();
             if (frmNC.ShowDialog()==DialogResult.OK)
             {
                 this.btnSupprimerClient.Enabled = true;
@@ -188,6 +188,20 @@ namespace ABI
         {
             DonneesClients.ArrayStag.RemoveAt(dgrdClient.CurrentRow.Index);
             afficheClient();
+        }
+
+        private void btnModifierClient_Click(object sender, EventArgs e)
+        {
+            Int32 iClient;
+            iClient = this.dgrdClient.CurrentRow.Index;
+            Client leClient = DonneesClients.ArrayStag[iClient];
+            frmUpdClient frmUC = new frmUpdClient(leClient);
+            frmUC.ShowDialog();
+            if (frmUC.ShowDialog() == DialogResult.OK)
+            {
+                this.btnSupprimerClient.Enabled = true;
+                this.afficheClient();
+            }
         }
     }
 }

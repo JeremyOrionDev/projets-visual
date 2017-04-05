@@ -10,9 +10,12 @@ using System.Windows.Forms;
 
 namespace ABI
 {
-    public partial class frmNewClient : Form
+    public   partial class frmNewClient : Form
     {
         List<string> _items = new List<string>();
+        String mbText="";
+        public Int32 referenceClient;
+       
         public frmNewClient()
         {
             InitializeComponent();
@@ -60,12 +63,12 @@ namespace ABI
 
         private void btnQuitter_Click(object sender, EventArgs e)
         {
-           // this.DialogResult = DialogResult.Cancel;
+            //this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
         
 
-        String mbText;
+        
         private void btnValider_Click(object sender, EventArgs e)
         {
             Client nouveauClient = new Client();
@@ -158,12 +161,13 @@ namespace ABI
             }
             if(tBxClientTelephone.Text.ToString()!="")
             {
-                nouveauClient.ClientTelephoneNumero = Int32.Parse(tBxClientTelephone.Text.Trim());
+                nouveauClient.ClientTelephoneNumero = tBxClientTelephone.Text;
             }
-            else
+            else if(tBxClientTelephone.Text.Length!=10)
             {
-                mbText += "Attention le numéro de téléphone ne peut être vide \n";
+                mbText += "Attention le numéro de téléphone doit avoir 10 chiffres \n";
             }
+            
             if(tBxChiffreAffaire.Text.ToString()!="")
             {
                 nouveauClient.ClientCA = Convert.ToDouble(tBxChiffreAffaire.Text.ToString());
@@ -190,7 +194,7 @@ namespace ABI
                 mbText += "Attention la nature du client ne peut être vide \n";
             }
             
-            if (mbText.Length != 0)
+            if (mbText.ToString() != "")
             {
                 MessageBox.Show(mbText,"Erreur dans le formulaire", MessageBoxButtons.OK);
             }
@@ -218,8 +222,14 @@ namespace ABI
 
         private void btnAjouterContact_Click(object sender, EventArgs e)
         {
-            frmNewContact frmNCC = new frmNewContact();
+            frmNewContact frmNCC = new frmNewContact(this);
+            referenceClient= Convert.ToInt32(tBxIdClient.Text);
             frmNCC.ShowDialog();
+        }
+
+        private void cBxClientTypeTelephone_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

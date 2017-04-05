@@ -93,6 +93,12 @@
     <Compile Include="frmUpdClient.Designer.cs">
       <DependentUpon>frmUpdClient.cs</DependentUpon>
     </Compile>
+    <Compile Include="ImportContact.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImportContact.Designer.cs">
+      <DependentUpon>ImportContact.cs</DependentUpon>
+    </Compile>
     <Compile Include="ListContact.cs" />
     <Compile Include="ListProjets.cs" />
     <Compile Include="Program.cs" />
@@ -115,6 +121,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmUpdClient.resx">
       <DependentUpon>frmUpdClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImportContact.resx">
+      <DependentUpon>ImportContact.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

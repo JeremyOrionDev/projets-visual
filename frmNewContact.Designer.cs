@@ -40,7 +40,7 @@
             this.lblFicheContactFonction = new System.Windows.Forms.Label();
             this.lblFicheContactNomPrenom = new System.Windows.Forms.Label();
             this.frmNewClientSupprimerContact = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnImportContact = new System.Windows.Forms.Button();
             this.btnAnnuler = new System.Windows.Forms.Button();
             this.btnValider = new System.Windows.Forms.Button();
             this.dGvContact = new System.Windows.Forms.DataGridView();
@@ -161,15 +161,16 @@
             this.frmNewClientSupprimerContact.UseVisualStyleBackColor = true;
             this.frmNewClientSupprimerContact.Click += new System.EventHandler(this.frmNewClientSupprimerContact_Click);
             // 
-            // button1
+            // btnImportContact
             // 
-            this.button1.AutoSize = true;
-            this.button1.Location = new System.Drawing.Point(12, 354);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(94, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Importer contact";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnImportContact.AutoSize = true;
+            this.btnImportContact.Location = new System.Drawing.Point(12, 354);
+            this.btnImportContact.Name = "btnImportContact";
+            this.btnImportContact.Size = new System.Drawing.Size(94, 23);
+            this.btnImportContact.TabIndex = 0;
+            this.btnImportContact.Text = "Importer contact";
+            this.btnImportContact.UseVisualStyleBackColor = true;
+            this.btnImportContact.Click += new System.EventHandler(this.btnImportContact_Click);
             // 
             // btnAnnuler
             // 
@@ -208,7 +209,7 @@
             this.Controls.Add(this.btnAnnuler);
             this.Controls.Add(this.frmNewClientSupprimerContact);
             this.Controls.Add(this.frmNewClientBtnEnregistrerContact);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnImportContact);
             this.Controls.Add(this.btnNouveauContact);
             this.Controls.Add(this.gBxFicheContact);
             this.Name = "frmNewContact";
@@ -235,7 +236,7 @@
         private System.Windows.Forms.Label lblFicheContactFonction;
         private System.Windows.Forms.Label lblFicheContactNomPrenom;
         private System.Windows.Forms.Button frmNewClientSupprimerContact;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnImportContact;
         private System.Windows.Forms.Button btnAnnuler;
         private System.Windows.Forms.Button btnValider;
         private System.Windows.Forms.DataGridView dGvContact;
