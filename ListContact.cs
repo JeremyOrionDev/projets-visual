@@ -8,9 +8,10 @@ namespace ABI
 {
     class ListContact
     {
+        private Int32 i;
         public static List<Contact> ArrayStag = new List<Contact>();
         
         public static Int32 nContact;
-
+        
     }
 }

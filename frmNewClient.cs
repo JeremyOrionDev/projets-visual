@@ -12,10 +12,12 @@ namespace ABI
 {
     public partial class frmNewClient : Form
     {
+        List<string> _items = new List<string>();
         public frmNewClient()
         {
             InitializeComponent();
-            gBxFicheContact.Enabled = false;
+
+            
             //this.frmNewClientBtnEnregistrer.Visible = false;
             this.btnAjoutClientValider.Visible = true;
             this.cBxClientTypeTelephone.Items.AddRange(new String[]
@@ -50,7 +52,7 @@ namespace ABI
                     "Timor Oriental","Togo","Tonga","Trinité et Tobago","Tunisie","Turkmenistan",
                     "Turquie","Tuvalu","Ukraine","Uruguay","Vanuatu","Vatican","Vénézuéla","Vietnam",
                     "Yémen","Yougoslavie","Zambie","Zimbabwe" });
-            
+
         }
 
 
@@ -67,11 +69,10 @@ namespace ABI
         private void btnValider_Click(object sender, EventArgs e)
         {
             Client nouveauClient = new Client();
-            Contact contactClient = new Contact();
             
-            if (tBxAjoutClientNumero.Text != "")
+            if (tBxIdClient.Text != "")
             {
-                nouveauClient.NumeroClient = Int32.Parse(tBxAjoutClientNumero.Text.Trim());
+                nouveauClient.NumeroClient = Int32.Parse(tBxIdClient.Text.Trim());
             }
             else
             {
@@ -188,7 +189,7 @@ namespace ABI
             {
                 mbText += "Attention la nature du client ne peut être vide \n";
             }
-
+            
             if (mbText.Length != 0)
             {
                 MessageBox.Show(mbText,"Erreur dans le formulaire", MessageBoxButtons.OK);
@@ -203,26 +204,22 @@ namespace ABI
 
         }
 
-        private void frmNewClientBtnAjoutContact_Click(object sender, EventArgs e)
-        {
-            gBxFicheContact.Enabled = true;
 
-        }
 
         private void frmNewClientBtnEnregistrerContact_Click(object sender, EventArgs e)
         {
-            Contact nouveauContact = new Contact();
-            nouveauContact.ContactFonction = tBxFicheContactFonction.Text;
-            nouveauContact.ContactNomPrenom = tBxFicheContactNomPrenom.Text;
-            nouveauContact.ContactTelephonePortable = Int32.Parse(tBxFicheContactPortable.Text.Trim());
-            nouveauContact.ContactTelephonePro = Int32.Parse(tBxFicheContactProfessionel.Text.Trim());
-            nouveauContact.ContactNumeroClientLier = this.tBxAjoutClientNumero.Text;
-            gBxFicheContact.Enabled = false;
+
         }
 
         private void lBxContact_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnAjouterContact_Click(object sender, EventArgs e)
+        {
+            frmNewContact frmNCC = new frmNewContact();
+            frmNCC.ShowDialog();
         }
     }
 }

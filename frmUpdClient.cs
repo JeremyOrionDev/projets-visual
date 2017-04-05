@@ -20,11 +20,13 @@ namespace ABI
             InitializeComponent();
             afficheUnClient();
             this.btnAjoutClientValider.Visible = false;
+            this.btnAjouterContact.Text = "Modifier Contact";
             
         }
         private void afficheUnClient()
         {
-            tBxAjoutClientNumero.Text = leClient.NumeroClient.ToString();
+            tBxIdClient.Text = leClient.NumeroClient.ToString();
+            tBxNomClient.Text = leClient.NomClient.ToString();
             tBxClientRaisonSociale.Text = leClient.ClientRaisonSociale;
             if (leClient.TypeActivité == "privé") rbtnAjoutClientTypePrivé.Checked = true;
             if (leClient.TypeActivité == "public") rBtnAjoutClientTypePublic.Checked = true;
@@ -58,7 +60,7 @@ namespace ABI
         }
 
         String mbText;
-        private void btnEnregistrer_Click(object sender, EventArgs e)
+        private void btnEnregistrer_Click_1(object sender, EventArgs e)
         {
              
             if (tBxAjoutClientAdresseCodePostal.Text != leClient.AdresseClientCodePostal.ToString())
@@ -111,7 +113,7 @@ namespace ABI
             if (tBxAjoutClientAdresseCodePostal.Text != leClient.AdresseClientCodePostal.ToString()) leClient.AdresseClientCodePostal = Convert.ToInt32(tBxAjoutClientAdresseCodePostal.Text);
             if (DialogResult == DialogResult.OK)
             {
-                leClient.NumeroClient = Convert.ToInt32(tBxAjoutClientNumero.Text);
+                leClient.NumeroClient = Convert.ToInt32(tBxIdClient.Text);
                 leClient.AdresseClientCodePostal = Convert.ToInt32(tBxAjoutClientAdresseCodePostal.Text);
                 leClient.AdresseClientNumeroRue = Convert.ToInt32(tBxAjoutClientAdresseNumero.Text);
                 leClient.ClientTelephoneNumero = Convert.ToInt32(tBxClientTelephone.Text);
@@ -141,5 +143,12 @@ namespace ABI
         {
 
         }
+
+        private void btnAjoutClientValider_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
     }
 }

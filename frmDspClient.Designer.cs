@@ -207,6 +207,7 @@
             this.btnSupprimerClient.TabIndex = 6;
             this.btnSupprimerClient.Text = "&Supprimer";
             this.btnSupprimerClient.UseVisualStyleBackColor = true;
+            this.btnSupprimerClient.Click += new System.EventHandler(this.btnSupprimerClient_Click);
             // 
             // btnAjouterClient
             // 

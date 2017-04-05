@@ -19,28 +19,11 @@ namespace ABI
 
         public frmDspClient()
         {
+            creationClientTest();
             InitializeComponent();
             if(dgrdClient.RowCount!=0) btnModifierClient.Enabled = false;
             this.cbxChoixrecherche.Items.AddRange(new String[]
                 { "nom ", "numero", "nature", "raison sociale" });
-            Client jean= new Client();
-            jean.AdresseClientCodePostal = 06300;
-            jean.AdresseClientNumeroRue = 244;
-            jean.AdresseClientPays = "France";
-            jean.AdresseClientRue="Route de turin";
-            jean.AdresseClientVille = "nice";
-            jean.ClientCA = 2;
-            jean.ClientCommentaire = "sympa";
-            jean.ClientDomaineActivite = "afpa";
-            jean.ClientEffectif = 2;
-            jean.ClientNature = "ancienne";
-            jean.ClientRaisonSociale = "SARL";
-            jean.ClientTelephoneNumero = 0493254123;
-            jean.ClientTypeTelephone = "société";
-            jean.NumeroClient = 1;
-            jean.TypeActivité = "privé";
-            DonneesClients.ArrayStag.Add(jean);
-            DonneesClients.NClient++;
             afficheClient();
         }
 
@@ -49,7 +32,47 @@ namespace ABI
             
 
         }
-
+        private void creationClientTest()
+        {
+            Client test = new Client();
+            test.NomClient = "papa";
+            test.AdresseClientCodePostal = 06300;
+            test.AdresseClientNumeroRue = 244;
+            test.AdresseClientPays = "France";
+            test.AdresseClientRue = "Route de turin";
+            test.AdresseClientVille = "nice";
+            test.ClientCA = 2;
+            test.ClientCommentaire = "sympa";
+            test.ClientDomaineActivite = "afpa";
+            test.ClientEffectif = 2;
+            test.ClientNature = "ancienne";
+            test.ClientRaisonSociale = "SARL";
+            test.ClientTelephoneNumero = 0493254123;
+            test.ClientTypeTelephone = "société";
+            test.NumeroClient = 1;
+            test.TypeActivité = "privé";
+            DonneesClients.ArrayStag.Add(test);
+            DonneesClients.NClient++;
+            Client jean = new Client();
+            jean.NomClient = "jean";
+            jean.AdresseClientCodePostal = 01234;
+            jean.AdresseClientNumeroRue = 5;
+            jean.AdresseClientPays = "Allemagne";
+            jean.AdresseClientRue = "route test";
+            jean.AdresseClientVille = "Berlin";
+            jean.ClientCA = 2323;
+            jean.ClientCommentaire = "Test";
+            jean.ClientDomaineActivite = "test pierre";
+            jean.ClientEffectif = 3;
+            jean.ClientNature = "nouveau";
+            jean.ClientRaisonSociale = "Test";
+            jean.ClientTelephoneNumero = 055323232;
+            jean.ClientTypeTelephone = "société";
+            jean.NumeroClient = 2;
+            jean.TypeActivité = "public";
+            DonneesClients.ArrayStag.Add(jean);
+            DonneesClients.NClient++;
+        }
         private void btnAjouterClient_Click(object sender, EventArgs e)
         {
             frmNewClient frmNC;
@@ -69,6 +92,7 @@ namespace ABI
             DataRow dr;
             Int32 i;
             dt.Columns.Add(new DataColumn("NumeroClient", typeof(System.Int32)));
+            dt.Columns.Add(new DataColumn("nom client", typeof(String)));
             dt.Columns.Add(new DataColumn("Raison sociale", typeof(System.String)));            
             dt.Columns.Add(new DataColumn("type", typeof(System.String)));
             dt.Columns.Add(new DataColumn("Domaine d'activité", typeof(System.String)));
@@ -81,13 +105,14 @@ namespace ABI
             {
                 dr = dt.NewRow();
                 dr[0] = DonneesClients.ArrayStag[i].NumeroClient;
-                dr[1] = DonneesClients.ArrayStag[i].ClientRaisonSociale;
-                dr[2] = DonneesClients.ArrayStag[i].TypeActivité;
-                dr[3] = DonneesClients.ArrayStag[i].ClientDomaineActivite;
-                dr[4] = DonneesClients.ArrayStag[i].AdresseClientNumeroRue + DonneesClients.ArrayStag[i].AdresseClientRue + DonneesClients.ArrayStag[i].AdresseClientCodePostal + DonneesClients.ArrayStag[i].AdresseClientVille;
-                dr[5] = DonneesClients.ArrayStag[i].ClientNature;
-                dr[6] = DonneesClients.ArrayStag[i].ClientCA;
-                dr[7] = DonneesClients.ArrayStag[i].ClientEffectif;
+                dr[1] = DonneesClients.ArrayStag[i].NomClient;
+                dr[2] = DonneesClients.ArrayStag[i].ClientRaisonSociale;
+                dr[3] = DonneesClients.ArrayStag[i].TypeActivité;
+                dr[4] = DonneesClients.ArrayStag[i].ClientDomaineActivite;
+                dr[5] = DonneesClients.ArrayStag[i].AdresseClientNumeroRue + DonneesClients.ArrayStag[i].AdresseClientRue + DonneesClients.ArrayStag[i].AdresseClientCodePostal + DonneesClients.ArrayStag[i].AdresseClientVille;
+                dr[6] = DonneesClients.ArrayStag[i].ClientNature;
+                dr[7] = DonneesClients.ArrayStag[i].ClientCA;
+                dr[8] = DonneesClients.ArrayStag[i].ClientEffectif;
                 dt.Rows.Add(dr);
             }
             this.dgrdClient.DataSource = dt;
@@ -157,6 +182,12 @@ namespace ABI
                 this.btnSupprimerClient.Enabled = true;
                 this.afficheClient();
             }
+        }
+
+        private void btnSupprimerClient_Click(object sender, EventArgs e)
+        {
+            DonneesClients.ArrayStag.RemoveAt(dgrdClient.CurrentRow.Index);
+            afficheClient();
         }
     }
 }

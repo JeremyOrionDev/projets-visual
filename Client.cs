@@ -9,6 +9,7 @@ namespace ABI
     public class Client
     {
         private Int32 numeroClient =0;
+        private String nomClient;
         private String clientRaisonSociale;
         private String typeActivité;
         private String clientDomaineActivite;
@@ -240,6 +241,19 @@ namespace ABI
             set
             {
                 idClient = value;
+            }
+        }
+
+        public string NomClient
+        {
+            get
+            {
+                return nomClient;
+            }
+
+            set
+            {
+                nomClient = value;
             }
         }
     }

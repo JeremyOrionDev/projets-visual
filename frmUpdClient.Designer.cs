@@ -32,26 +32,31 @@
             this.gbxType.SuspendLayout();
             this.SuspendLayout();
             // 
+            // btnAjoutClientValider
+            // 
+            this.btnAjoutClientValider.Click += new System.EventHandler(this.btnAjoutClientValider_Click);
+            // 
             // btnEnregistrer
             // 
-            this.btnEnregistrer.Location = new System.Drawing.Point(26, 592);
+            this.btnEnregistrer.Location = new System.Drawing.Point(23, 812);
             this.btnEnregistrer.Name = "btnEnregistrer";
             this.btnEnregistrer.Size = new System.Drawing.Size(75, 23);
             this.btnEnregistrer.TabIndex = 24;
             this.btnEnregistrer.Text = "&Enregistrer";
             this.btnEnregistrer.UseVisualStyleBackColor = true;
+            this.btnEnregistrer.Click += new System.EventHandler(this.btnEnregistrer_Click_1);
             // 
             // frmUpdClient
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(733, 638);
+            this.ClientSize = new System.Drawing.Size(733, 881);
             this.Controls.Add(this.btnEnregistrer);
             this.Name = "frmUpdClient";
-            this.Text = "frmUpdClient";
+            this.Text = " =";
             this.Load += new System.EventHandler(this.frmUpdClient_Load);
             this.Controls.SetChildIndex(this.btnAjoutClientValider, 0);
-            this.Controls.SetChildIndex(this.tBxAjoutClientNumero, 0);
+            this.Controls.SetChildIndex(this.tBxIdClient, 0);
             this.Controls.SetChildIndex(this.tBxClientRaisonSociale, 0);
             this.Controls.SetChildIndex(this.tbxDomaineActivité, 0);
             this.Controls.SetChildIndex(this.tBxClientTelephone, 0);

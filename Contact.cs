@@ -8,6 +8,8 @@ namespace ABI
 {
     class Contact
     {
+        
+        
         private String contactnomPrenom;
         private String contactFonction;
         private Int32 contactTelephonePro;
