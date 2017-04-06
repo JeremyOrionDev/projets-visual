@@ -35,7 +35,7 @@ namespace ABI
         {
             
             InitializeComponent();
-            afficheUnClient();           
+            afficheUnClient(leClient);           
             //le bouton ajout contact devient modifier contact
             btnAjouterContact.Text = "Modifier Contact";
             
@@ -44,30 +44,30 @@ namespace ABI
         /// fonction affichage client rempli les textBox avec les valeurs 
         /// correspondantes enregistrées dans la liste de clients
         /// </summary>
-        private void afficheUnClient()
+        private void afficheUnClient(Client leClient)
         {
             tBxClientTelephone.Text = leClient.ClientTelephoneNumero;
-            tBxIdClient.Text = LeClient.NumeroClient.ToString();
-            tBxNomClient.Text = LeClient.NomClient.ToString();
-            tBxClientRaisonSociale.Text = LeClient.ClientRaisonSociale;
+            tBxIdClient.Text = leClient.NumeroClient.ToString();
+            tBxNomClient.Text = leClient.NomClient.ToString();
+            tBxClientRaisonSociale.Text = leClient.ClientRaisonSociale;
             //en fonction du radiobouton selectionné le typeclient est choisi
-            if (LeClient.TypeActivité == "privé") rbtnAjoutClientTypePrivé.Checked = true;
-            if (LeClient.TypeActivité == "public") rBtnAjoutClientTypePublic.Checked = true;
-            tbxDomaineActivité.Text = LeClient.ClientDomaineActivite;
-            tBxAjoutClientAdresseNumero.Text = LeClient.AdresseClientNumeroRue.ToString();
-            tBxAjoutClientAdresseTypeNom.Text = LeClient.AdresseClientRue;
-            tBxAjoutClientAdresseVille.Text = LeClient.AdresseClientVille;
+            if (leClient.TypeActivité == "privé") rbtnAjoutClientTypePrivé.Checked = true;
+            if (leClient.TypeActivité == "public") rBtnAjoutClientTypePublic.Checked = true;
+            tbxDomaineActivité.Text = leClient.ClientDomaineActivite;
+            tBxAjoutClientAdresseNumero.Text = leClient.AdresseClientNumeroRue.ToString();
+            tBxAjoutClientAdresseTypeNom.Text = leClient.AdresseClientRue;
+            tBxAjoutClientAdresseVille.Text = leClient.AdresseClientVille;
             //on vérifie que le code postal contient 5 charactères
-            if (LeClient.AdresseClientCodePostal.ToString().Length == 5)
+            if (leClient.AdresseClientCodePostal.ToString().Length == 5)
             {
-                tBxAjoutClientAdresseCodePostal.Text = LeClient.AdresseClientCodePostal.ToString();
+                tBxAjoutClientAdresseCodePostal.Text = leClient.AdresseClientCodePostal.ToString();
             }            
-            else tBxAjoutClientAdresseCodePostal.Text = "0" + LeClient.AdresseClientCodePostal;
-            cbxAjoutClientPays.SelectedItem = LeClient.AdresseClientPays;
-            cBxClientTypeTelephone.SelectedItem = LeClient.ClientTypeTelephone;
-            tBxClientEffectif.Text = LeClient.ClientEffectif.ToString();           
-            tBxChiffreAffaire.Text = LeClient.ClientCA.ToString();
-            this.tBxClientRaisonSociale.Text = LeClient.ClientRaisonSociale.ToString();
+            else tBxAjoutClientAdresseCodePostal.Text = "0" + leClient.AdresseClientCodePostal;
+            cbxAjoutClientPays.SelectedItem = leClient.AdresseClientPays;
+            cBxClientTypeTelephone.SelectedItem = leClient.ClientTypeTelephone;
+            tBxClientEffectif.Text = leClient.ClientEffectif.ToString();           
+            tBxChiffreAffaire.Text = leClient.ClientCA.ToString();
+            this.tBxClientRaisonSociale.Text = leClient.ClientRaisonSociale.ToString();
             tBxNature.Text = leClient.ClientNature;
             tBxCommentaire.Text = leClient.ClientCommentaire;
         }

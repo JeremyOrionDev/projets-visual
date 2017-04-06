@@ -191,11 +191,7 @@ namespace ABI
         private void btnAfficherTout_Click(object sender, EventArgs e)
         {            
             this.txtBxRecherche.Text = null;
-            foreach(DataGridViewRow row in dgrdClient.Rows)
-            {
-                row.Visible = true;
-                txtBxRecherche.Text = "";
-            }
+            (dgrdClient.DataSource as DataTable).DefaultView.RowFilter = string.Format("");
         }
         /// <summary>
         /// on ferme le
@@ -283,6 +279,7 @@ namespace ABI
             frmUpdClient frmUd;
             frmUd= new frmUpdClient(leClient);
             frmUd.Show();
+            
 
         }
 
@@ -291,9 +288,11 @@ namespace ABI
         
         private void dgrdClient_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            Int32 iClient;
-            iClient = this.dgrdClient.CurrentRow.Index;
-            
+            Int32 iRow;
+            iRow = this.dgrdClient.CurrentRow.Index;
+            Int32 refClient =Convert.ToInt32( dgrdClient.Rows[iRow].Cells[0].Value.ToString());
+
+            leClient = DonneesClients.ArrayStag[refClient];
 
             frmUpdClient frmUC = new frmUpdClient(leClient);
             frmUC.ShowDialog();
