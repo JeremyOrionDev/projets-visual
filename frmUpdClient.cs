@@ -31,9 +31,9 @@ namespace ABI
         /// charge le form Update client pour le client choisi
         /// </summary>
         /// <param name="unClient">le client dont on récupère les données</param>
-        public frmUpdClient(Client unClient)
+        public frmUpdClient(Client leClient)
         {
-            this.LeClient = unClient;
+            
             InitializeComponent();
             afficheUnClient();           
             //le bouton ajout contact devient modifier contact
@@ -46,6 +46,7 @@ namespace ABI
         /// </summary>
         private void afficheUnClient()
         {
+            tBxClientTelephone.Text = leClient.ClientTelephoneNumero;
             tBxIdClient.Text = LeClient.NumeroClient.ToString();
             tBxNomClient.Text = LeClient.NomClient.ToString();
             tBxClientRaisonSociale.Text = LeClient.ClientRaisonSociale;
@@ -67,6 +68,8 @@ namespace ABI
             tBxClientEffectif.Text = LeClient.ClientEffectif.ToString();           
             tBxChiffreAffaire.Text = LeClient.ClientCA.ToString();
             this.tBxClientRaisonSociale.Text = LeClient.ClientRaisonSociale.ToString();
+            tBxNature.Text = leClient.ClientNature;
+            tBxCommentaire.Text = leClient.ClientCommentaire;
         }
         
         private void frmUpdClient_Load(object sender, EventArgs e)

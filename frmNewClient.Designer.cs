@@ -464,7 +464,6 @@
         private System.Windows.Forms.Label lblAjoutClientTelephone;
         private System.Windows.Forms.Label lblAjoutClientChiffreAffaire;
         private System.Windows.Forms.Label lblAjoutClientEffectif;
-        private System.Windows.Forms.TextBox tBxCommentaire;
         public System.Windows.Forms.TextBox tBxIdClient;
         private System.Windows.Forms.Label lblAjoutClientNature;
         public System.Windows.Forms.RadioButton rBtnAjoutClientTypePublic;
@@ -489,5 +488,6 @@
         public System.Windows.Forms.TextBox tBxNomClient;
         public System.Windows.Forms.Button btnAjouterContact;
         protected System.Windows.Forms.Button btnAjoutClientAnnuler;
+        protected System.Windows.Forms.TextBox tBxCommentaire;
     }
 }

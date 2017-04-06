@@ -32,9 +32,6 @@
             this.gbxType.SuspendLayout();
             this.SuspendLayout();
             // 
-            // btnAjoutClientValider
-            // 
-            // 
             // btnAjoutClientAnnuler
             // 
             this.btnAjoutClientAnnuler.DialogResult = System.Windows.Forms.DialogResult.Cancel;
@@ -54,7 +51,7 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(733, 881);
+            this.ClientSize = new System.Drawing.Size(345, 881);
             this.Controls.Add(this.btnEnregistrer);
             this.Name = "frmUpdClient";
             this.Text = " =";
