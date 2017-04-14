@@ -11,6 +11,9 @@ namespace ABI
         public static List<Client> ArrayStag = new List<Client>();
         public static Int32 NClient;
         
-        
+        public static DataSetABI DataSetClient = new DataSetABI() ;
+        public static DataSetABITableAdapters.ClientBDTableAdapter taClient = new DataSetABITableAdapters.ClientBDTableAdapter();
+
+
     }
 }

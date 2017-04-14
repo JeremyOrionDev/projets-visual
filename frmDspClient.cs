@@ -36,9 +36,25 @@ namespace ABI
             //On ajoute la selection  de type de recherche dans la ComboBox
             this.cbxChoixrecherche.Items.AddRange(new String[]
                 { "nom client", "NumeroClient", "nature", "raison sociale" });
-            
-            
-        }
+
+
+
+            ////Donnees.TaStagiaires.Fill(Donnees.DatasetFormation.Stagiaire);
+            ////Donnees.TaStages.Fill(Donnees.DatasetFormation.Stage);
+            ////MStagiaire unStagiaire;
+            ////foreach (DataSet1.StagiaireRow stagiairerow in Donnees.DatasetFormation.Stagiaire)
+            ////{
+            ////    unStagiaire = new MStagiaire();
+            ////    unStagiaire.NumOsia = stagiairerow.numOsiaStagiaire;
+            ////    unStagiaire.Nom = stagiairerow.NomStagiaire;
+            ////    unStagiaire.Prenom = stagiairerow.prenomStagiaire;
+            ////    unStagiaire.CodePostal = stagiairerow.codePostalStagiaire;
+            ////    unStagiaire.Rue = stagiairerow.rueStagiaire;
+            ////    unStagiaire.Ville = stagiairerow.villeStagiaire;
+            ////    ///
+            ////    Donnees.ArrayStag.Add(unStagiaire);
+            ////    afficheStagiaires();
+            }
 
         private void frmDspClient_Load(object sender, EventArgs e)
         {

@@ -10,8 +10,8 @@ namespace ABI
     {
         
         public static List<Contact> ArrayStag = new List<Contact>();
-        
         public static Int32 nContact;
-        
+        public static DataSetABI DataSetContact = new DataSetABI();
+        public static DataSetABITableAdapters.ContactBDTableAdapter taContact = new DataSetABITableAdapters.ContactBDTableAdapter();
     }
 }
