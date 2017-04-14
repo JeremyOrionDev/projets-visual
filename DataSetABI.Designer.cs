@@ -388,6 +388,8 @@ namespace ABI {
             
             private global::System.Data.DataColumn columnNature;
             
+            private global::System.Data.DataColumn columnNumero_Client;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public ClientBDDataTable() {
@@ -551,6 +553,14 @@ namespace ABI {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Numero_ClientColumn {
+                get {
+                    return this.columnNumero_Client;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -602,7 +612,8 @@ namespace ABI {
                         int Effectif, 
                         ContactBDRow parentContactBDRowByFK_ClientBD_ContactBD, 
                         string Commentaire, 
-                        string Nature) {
+                        string Nature, 
+                        int Numero_Client) {
                 ClientBDRow rowClientBDRow = ((ClientBDRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         nom,
@@ -620,7 +631,8 @@ namespace ABI {
                         Effectif,
                         null,
                         Commentaire,
-                        Nature};
+                        Nature,
+                        Numero_Client};
                 if ((parentContactBDRowByFK_ClientBD_ContactBD != null)) {
                     columnValuesArray[13] = parentContactBDRowByFK_ClientBD_ContactBD[5];
                 }
@@ -669,6 +681,7 @@ namespace ABI {
                 this.columnidClient = base.Columns["idClient"];
                 this.columnCommentaire = base.Columns["Commentaire"];
                 this.columnNature = base.Columns["Nature"];
+                this.columnNumero_Client = base.Columns["Numero Client"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -708,6 +721,8 @@ namespace ABI {
                 base.Columns.Add(this.columnCommentaire);
                 this.columnNature = new global::System.Data.DataColumn("Nature", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNature);
+                this.columnNumero_Client = new global::System.Data.DataColumn("Numero Client", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNumero_Client);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnidClient}, true));
                 this.columnnom.AllowDBNull = false;
@@ -736,6 +751,7 @@ namespace ABI {
                 this.columnCommentaire.MaxLength = 2147483647;
                 this.columnNature.AllowDBNull = false;
                 this.columnNature.MaxLength = 2147483647;
+                this.columnNumero_Client.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1859,6 +1875,17 @@ namespace ABI {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int Numero_Client {
+                get {
+                    return ((int)(this[this.tableClientBD.Numero_ClientColumn]));
+                }
+                set {
+                    this[this.tableClientBD.Numero_ClientColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public ContactBDRow ContactBDRow {
                 get {
                     return ((ContactBDRow)(this.GetParentRow(this.Table.ParentRelations["FK_ClientBD_ContactBD"])));
@@ -2431,10 +2458,11 @@ namespace ABI.DataSetABITableAdapters {
             tableMapping.ColumnMappings.Add("idClient", "idClient");
             tableMapping.ColumnMappings.Add("Commentaire", "Commentaire");
             tableMapping.ColumnMappings.Add("Nature", "Nature");
+            tableMapping.ColumnMappings.Add("Numero Client", "Numero Client");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[ClientBD] WHERE (([Adresse numero] = @Original_Adresse_numero) AND ([Adresse Code Postal] = @Original_Adresse_Code_Postal) AND ([Numero Telephone] = @Original_Numero_Telephone) AND ([Chiffre d'Affaire] = @p2) AND ([Effectif] = @Original_Effectif) AND ([idClient] = @Original_idClient))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[ClientBD] WHERE (([Adresse numero] = @Original_Adresse_numero) AND ([Adresse Code Postal] = @Original_Adresse_Code_Postal) AND ([Numero Telephone] = @Original_Numero_Telephone) AND ([Chiffre d'Affaire] = @p2) AND ([Effectif] = @Original_Effectif) AND ([idClient] = @Original_idClient) AND ([Numero Client] = @Original_Numero_Client))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Adresse_numero", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Adresse numero", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Adresse_Code_Postal", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Adresse Code Postal", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -2442,10 +2470,11 @@ namespace ABI.DataSetABITableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p2", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Chiffre d\'Affaire", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Effectif", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Effectif", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_idClient", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idClient", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Numero_Client", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Numero Client", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[ClientBD] ([nom], [raison sociale], [type activité], [domaine activité], [Adresse numero], [Adresse rue], [Adresse Code Postal], [Adresse Ville], [Adresse Pays], [Type Telephone], [Numero Telephone], [Chiffre d'Affaire], [Effectif], [idClient], [Commentaire], [Nature]) VALUES (@nom, @raison_sociale, @type_activité, @domaine_activité, @Adresse_numero, @Adresse_rue, @Adresse_Code_Postal, @Adresse_Ville, @Adresse_Pays, @Type_Telephone, @Numero_Telephone, @p1, @Effectif, @idClient, @Commentaire, @Nature);
-SELECT nom, [raison sociale], [type activité], [domaine activité], [Adresse numero], [Adresse rue], [Adresse Code Postal], [Adresse Ville], [Adresse Pays], [Type Telephone], [Numero Telephone], [Chiffre d'Affaire], Effectif, idClient, Commentaire, Nature FROM ClientBD WHERE (idClient = @idClient)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[ClientBD] ([nom], [raison sociale], [type activité], [domaine activité], [Adresse numero], [Adresse rue], [Adresse Code Postal], [Adresse Ville], [Adresse Pays], [Type Telephone], [Numero Telephone], [Chiffre d'Affaire], [Effectif], [idClient], [Commentaire], [Nature], [Numero Client]) VALUES (@nom, @raison_sociale, @type_activité, @domaine_activité, @Adresse_numero, @Adresse_rue, @Adresse_Code_Postal, @Adresse_Ville, @Adresse_Pays, @Type_Telephone, @Numero_Telephone, @p1, @Effectif, @idClient, @Commentaire, @Nature, @Numero_Client);
+SELECT nom, [raison sociale], [type activité], [domaine activité], [Adresse numero], [Adresse rue], [Adresse Code Postal], [Adresse Ville], [Adresse Pays], [Type Telephone], [Numero Telephone], [Chiffre d'Affaire], Effectif, idClient, Commentaire, Nature, [Numero Client] FROM ClientBD WHERE (idClient = @idClient)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nom", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nom", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@raison_sociale", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "raison sociale", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -2463,10 +2492,11 @@ SELECT nom, [raison sociale], [type activité], [domaine activité], [Adresse nu
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idClient", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idClient", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Commentaire", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Commentaire", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nature", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nature", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Numero_Client", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Numero Client", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[ClientBD] SET [nom] = @nom, [raison sociale] = @raison_sociale, [type activité] = @type_activité, [domaine activité] = @domaine_activité, [Adresse numero] = @Adresse_numero, [Adresse rue] = @Adresse_rue, [Adresse Code Postal] = @Adresse_Code_Postal, [Adresse Ville] = @Adresse_Ville, [Adresse Pays] = @Adresse_Pays, [Type Telephone] = @Type_Telephone, [Numero Telephone] = @Numero_Telephone, [Chiffre d'Affaire] = @p1, [Effectif] = @Effectif, [idClient] = @idClient, [Commentaire] = @Commentaire, [Nature] = @Nature WHERE (([Adresse numero] = @Original_Adresse_numero) AND ([Adresse Code Postal] = @Original_Adresse_Code_Postal) AND ([Numero Telephone] = @Original_Numero_Telephone) AND ([Chiffre d'Affaire] = @p2) AND ([Effectif] = @Original_Effectif) AND ([idClient] = @Original_idClient));
-SELECT nom, [raison sociale], [type activité], [domaine activité], [Adresse numero], [Adresse rue], [Adresse Code Postal], [Adresse Ville], [Adresse Pays], [Type Telephone], [Numero Telephone], [Chiffre d'Affaire], Effectif, idClient, Commentaire, Nature FROM ClientBD WHERE (idClient = @idClient)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[ClientBD] SET [nom] = @nom, [raison sociale] = @raison_sociale, [type activité] = @type_activité, [domaine activité] = @domaine_activité, [Adresse numero] = @Adresse_numero, [Adresse rue] = @Adresse_rue, [Adresse Code Postal] = @Adresse_Code_Postal, [Adresse Ville] = @Adresse_Ville, [Adresse Pays] = @Adresse_Pays, [Type Telephone] = @Type_Telephone, [Numero Telephone] = @Numero_Telephone, [Chiffre d'Affaire] = @p1, [Effectif] = @Effectif, [idClient] = @idClient, [Commentaire] = @Commentaire, [Nature] = @Nature, [Numero Client] = @Numero_Client WHERE (([Adresse numero] = @Original_Adresse_numero) AND ([Adresse Code Postal] = @Original_Adresse_Code_Postal) AND ([Numero Telephone] = @Original_Numero_Telephone) AND ([Chiffre d'Affaire] = @p2) AND ([Effectif] = @Original_Effectif) AND ([idClient] = @Original_idClient) AND ([Numero Client] = @Original_Numero_Client));
+SELECT nom, [raison sociale], [type activité], [domaine activité], [Adresse numero], [Adresse rue], [Adresse Code Postal], [Adresse Ville], [Adresse Pays], [Type Telephone], [Numero Telephone], [Chiffre d'Affaire], Effectif, idClient, Commentaire, Nature, [Numero Client] FROM ClientBD WHERE (idClient = @idClient)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nom", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nom", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@raison_sociale", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "raison sociale", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -2484,12 +2514,14 @@ SELECT nom, [raison sociale], [type activité], [domaine activité], [Adresse nu
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idClient", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idClient", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Commentaire", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Commentaire", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nature", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nature", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Numero_Client", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Numero Client", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Adresse_numero", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Adresse numero", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Adresse_Code_Postal", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Adresse Code Postal", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Numero_Telephone", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Numero Telephone", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p2", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Chiffre d\'Affaire", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Effectif", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Effectif", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_idClient", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idClient", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Numero_Client", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Numero Client", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2505,7 +2537,7 @@ SELECT nom, [raison sociale], [type activité], [domaine activité], [Adresse nu
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT nom, [raison sociale], [type activité], [domaine activité], [Adresse numero], [Adresse rue], [Adresse Code Postal], [Adresse Ville], [Adresse Pays], [Type Telephone], [Numero Telephone], [Chiffre d'Affaire], Effectif, idClient, Commentaire, Nature FROM dbo.ClientBD";
+            this._commandCollection[0].CommandText = @"SELECT nom, [raison sociale], [type activité], [domaine activité], [Adresse numero], [Adresse rue], [Adresse Code Postal], [Adresse Ville], [Adresse Pays], [Type Telephone], [Numero Telephone], [Chiffre d'Affaire], Effectif, idClient, Commentaire, Nature,[Numero Client] FROM dbo.ClientBD";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -2566,13 +2598,14 @@ SELECT nom, [raison sociale], [type activité], [domaine activité], [Adresse nu
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_Adresse_numero, int Original_Adresse_Code_Postal, int Original_Numero_Telephone, int p2, int Original_Effectif, int Original_idClient) {
+        public virtual int Delete(int Original_Adresse_numero, int Original_Adresse_Code_Postal, int Original_Numero_Telephone, int p2, int Original_Effectif, int Original_idClient, int Original_Numero_Client) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_Adresse_numero));
             this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_Adresse_Code_Postal));
             this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_Numero_Telephone));
             this.Adapter.DeleteCommand.Parameters[3].Value = ((int)(p2));
             this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_Effectif));
             this.Adapter.DeleteCommand.Parameters[5].Value = ((int)(Original_idClient));
+            this.Adapter.DeleteCommand.Parameters[6].Value = ((int)(Original_Numero_Client));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -2609,7 +2642,8 @@ SELECT nom, [raison sociale], [type activité], [domaine activité], [Adresse nu
                     int Effectif, 
                     int idClient, 
                     string Commentaire, 
-                    string Nature) {
+                    string Nature, 
+                    int Numero_Client) {
             if ((nom == null)) {
                 throw new global::System.ArgumentNullException("nom");
             }
@@ -2676,6 +2710,7 @@ SELECT nom, [raison sociale], [type activité], [domaine activité], [Adresse nu
             else {
                 this.Adapter.InsertCommand.Parameters[15].Value = ((string)(Nature));
             }
+            this.Adapter.InsertCommand.Parameters[16].Value = ((int)(Numero_Client));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -2713,12 +2748,14 @@ SELECT nom, [raison sociale], [type activité], [domaine activité], [Adresse nu
                     int idClient, 
                     string Commentaire, 
                     string Nature, 
+                    int Numero_Client, 
                     int Original_Adresse_numero, 
                     int Original_Adresse_Code_Postal, 
                     int Original_Numero_Telephone, 
                     int p2, 
                     int Original_Effectif, 
-                    int Original_idClient) {
+                    int Original_idClient, 
+                    int Original_Numero_Client) {
             if ((nom == null)) {
                 throw new global::System.ArgumentNullException("nom");
             }
@@ -2785,12 +2822,14 @@ SELECT nom, [raison sociale], [type activité], [domaine activité], [Adresse nu
             else {
                 this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Nature));
             }
-            this.Adapter.UpdateCommand.Parameters[16].Value = ((int)(Original_Adresse_numero));
-            this.Adapter.UpdateCommand.Parameters[17].Value = ((int)(Original_Adresse_Code_Postal));
-            this.Adapter.UpdateCommand.Parameters[18].Value = ((int)(Original_Numero_Telephone));
-            this.Adapter.UpdateCommand.Parameters[19].Value = ((int)(p2));
-            this.Adapter.UpdateCommand.Parameters[20].Value = ((int)(Original_Effectif));
-            this.Adapter.UpdateCommand.Parameters[21].Value = ((int)(Original_idClient));
+            this.Adapter.UpdateCommand.Parameters[16].Value = ((int)(Numero_Client));
+            this.Adapter.UpdateCommand.Parameters[17].Value = ((int)(Original_Adresse_numero));
+            this.Adapter.UpdateCommand.Parameters[18].Value = ((int)(Original_Adresse_Code_Postal));
+            this.Adapter.UpdateCommand.Parameters[19].Value = ((int)(Original_Numero_Telephone));
+            this.Adapter.UpdateCommand.Parameters[20].Value = ((int)(p2));
+            this.Adapter.UpdateCommand.Parameters[21].Value = ((int)(Original_Effectif));
+            this.Adapter.UpdateCommand.Parameters[22].Value = ((int)(Original_idClient));
+            this.Adapter.UpdateCommand.Parameters[23].Value = ((int)(Original_Numero_Client));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -2827,13 +2866,15 @@ SELECT nom, [raison sociale], [type activité], [domaine activité], [Adresse nu
                     int Effectif, 
                     string Commentaire, 
                     string Nature, 
+                    int Numero_Client, 
                     int Original_Adresse_numero, 
                     int Original_Adresse_Code_Postal, 
                     int Original_Numero_Telephone, 
                     int p2, 
                     int Original_Effectif, 
-                    int Original_idClient) {
-            return this.Update(nom, raison_sociale, type_activité, domaine_activité, Adresse_numero, Adresse_rue, Adresse_Code_Postal, Adresse_Ville, Adresse_Pays, Type_Telephone, Numero_Telephone, p1, Effectif, Original_idClient, Commentaire, Nature, Original_Adresse_numero, Original_Adresse_Code_Postal, Original_Numero_Telephone, p2, Original_Effectif, Original_idClient);
+                    int Original_idClient, 
+                    int Original_Numero_Client) {
+            return this.Update(nom, raison_sociale, type_activité, domaine_activité, Adresse_numero, Adresse_rue, Adresse_Code_Postal, Adresse_Ville, Adresse_Pays, Type_Telephone, Numero_Telephone, p1, Effectif, Original_idClient, Commentaire, Nature, Numero_Client, Original_Adresse_numero, Original_Adresse_Code_Postal, Original_Numero_Telephone, p2, Original_Effectif, Original_idClient, Original_Numero_Client);
         }
     }
     

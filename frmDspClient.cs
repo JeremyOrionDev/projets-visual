@@ -36,25 +36,35 @@ namespace ABI
             //On ajoute la selection  de type de recherche dans la ComboBox
             this.cbxChoixrecherche.Items.AddRange(new String[]
                 { "nom client", "NumeroClient", "nature", "raison sociale" });
+            Client unClient = new Client();
+            DonneesClients.taClient.Fill(DonneesClients.DataSetClient.ClientBD);
+            foreach(DataSetABI.ClientBDRow ClientRow in DonneesClients.DataSetClient.ClientBD)
+            {
+                unClient.NumeroClient = ClientRow.Numero_Client;
+                unClient.NomClient = ClientRow.nom;
+                unClient.ClientRaisonSociale = ClientRow.raison_sociale;
+                unClient.TypeActivité = ClientRow.type_activité;
+                unClient.ClientDomaineActivite = ClientRow.domaine_activité;
+                unClient.AdresseClientNumeroRue = ClientRow.Adresse_numero;
+                unClient.AdresseClientRue = ClientRow.Adresse_rue;
+                unClient.AdresseClientCodePostal = ClientRow.Adresse_Code_Postal;
+                unClient.AdresseClientVille = ClientRow.Adresse_Ville;
+                unClient.AdresseClientPays = ClientRow.Adresse_Pays;
+                unClient.ClientTypeTelephone = ClientRow.Type_Telephone;
+                unClient.ClientTelephoneNumero = ClientRow.Numero_Telephone.ToString();
+                unClient.ClientCA = ClientRow._Chiffre_d_Affaire;
+                unClient.ClientEffectif = ClientRow.Effectif;
+                unClient.IdClient = ClientRow.idClient;
+                unClient.ClientCommentaire = ClientRow.Commentaire;
+                unClient.ClientNature = ClientRow.Nature;
+                unClient.ClientCommentaire = ClientRow.Commentaire;
+                DonneesClients.ArrayStag.Add(unClient);
+                ajouteClient(unClient);
+            }
 
-
-
-            ////Donnees.TaStagiaires.Fill(Donnees.DatasetFormation.Stagiaire);
-            ////Donnees.TaStages.Fill(Donnees.DatasetFormation.Stage);
-            ////MStagiaire unStagiaire;
-            ////foreach (DataSet1.StagiaireRow stagiairerow in Donnees.DatasetFormation.Stagiaire)
-            ////{
-            ////    unStagiaire = new MStagiaire();
-            ////    unStagiaire.NumOsia = stagiairerow.numOsiaStagiaire;
-            ////    unStagiaire.Nom = stagiairerow.NomStagiaire;
-            ////    unStagiaire.Prenom = stagiairerow.prenomStagiaire;
-            ////    unStagiaire.CodePostal = stagiairerow.codePostalStagiaire;
-            ////    unStagiaire.Rue = stagiairerow.rueStagiaire;
-            ////    unStagiaire.Ville = stagiairerow.villeStagiaire;
-            ////    ///
             ////    Donnees.ArrayStag.Add(unStagiaire);
             ////    afficheStagiaires();
-            }
+        }
 
         private void frmDspClient_Load(object sender, EventArgs e)
         {
@@ -81,10 +91,9 @@ namespace ABI
             machin.ClientTelephoneNumero = "0254125485";
             machin.ClientCA = 1234;
             machin.ClientEffectif = 456;
-            machin.IdClient = 4;
+            machin.IdClient = 3;
             machin.ClientCommentaire = "";
             machin.ClientNature= "ancienne";
-            machin.IdClient = 3;
             DonneesClients.ArrayStag.Add(machin);
             DonneesClients.NClient++;
             Client test = new Client();
@@ -183,17 +192,24 @@ namespace ABI
         }
         private void deleteClient()
         {
-            Int32 index =Convert.ToInt32( dgrdClient.CurrentRow.Cells[9].Value);
-            DonneesClients.ArrayStag.RemoveAt(index);
+            
+            foreach(Client C1 in DonneesClients.ArrayStag)
+            {
+                if (C1.IdClient == Convert.ToInt32(dgrdClient.CurrentRow.Cells[9].Value)) DonneesClients.ArrayStag.Remove(C1);
+                
+            }
+            
             
             foreach(Client C in DonneesClients.ArrayStag)
             {
 
-                if (C.IdClient > index)
+                if (C.IdClient > Convert.ToInt32(dgrdClient.CurrentRow.Cells[9].Value))
                 {
                     C.IdClient--;
                     //Juste pour l'affichage le numero client sera géré par le client en fonction de ses normes
-                    C.NumeroClient--;
+                   // C.NumeroClient--;
+                   
+                   //DonneesClients.DataSetClient.ClientBD.RemoveClientBDRow()
                 }
             }
             dgrdClient.DataSource = DonneesClients.ArrayStag ;
