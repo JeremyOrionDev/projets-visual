@@ -208,7 +208,7 @@ namespace ABI
                     C.IdClient--;
                     //Juste pour l'affichage le numero client sera géré par le client en fonction de ses normes
                    // C.NumeroClient--;
-                   //
+                   //test
                    //DonneesClients.DataSetClient.ClientBD.RemoveClientBDRow()
                 }
             }
