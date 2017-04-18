@@ -21,9 +21,9 @@ namespace ABI
         {
             InitializeComponent();
             this.parent = parent;
-            for(Int32 i=0; i<DonneesClients.ArrayStag.Count;i++)
+            for(Int32 i=0; i<DonneesClients.ArrayClient.Count;i++)
             {
-                this.cBxSelectionClient.Items.Add( DonneesClients.ArrayStag[i].NomClient);
+                this.cBxSelectionClient.Items.Add( DonneesClients.ArrayClient[i].NomClient);
             }
             for(Int32 j=0;j<ListContact.ArrayStag.Count;j++)
                 {

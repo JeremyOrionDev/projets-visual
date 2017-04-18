@@ -57,7 +57,7 @@ namespace ABI
                 dr[1] = ListContact.ArrayStag[i].ContactFonction;
                 dr[2] = ListContact.ArrayStag[i].ContactTelephonePortable;
                 dr[3] = ListContact.ArrayStag[i].ContactTelephonePro;
-                dr[4] = DonneesClients.ArrayStag[Iclient1].NomClient;
+                dr[4] = DonneesClients.ArrayClient[Iclient1].NomClient;
                 dt.Rows.Add(dr);
             }
             dGvContact.DataSource = dt;

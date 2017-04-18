@@ -50,21 +50,21 @@ namespace ABI
                 leClient.NomClient = ClientRow.nom;
                 leClient.ClientRaisonSociale = ClientRow.raison_sociale;
                 leClient.TypeActivité = ClientRow._type_d_activité;
-                leClient.ClientDomaineActivite = ClientRow.domaine_activité;
-                leClient.AdresseClientNumeroRue = ClientRow.Adresse_numero;
-                leClient.AdresseClientRue = ClientRow.Adresse_rue;
-                leClient.AdresseClientCodePostal = ClientRow.Adresse_Code_Postal;
-                leClient.AdresseClientVille = ClientRow.Adresse_Ville;
-                leClient.AdresseClientPays = ClientRow.Adresse_Pays;
-                leClient.ClientTypeTelephone = ClientRow.Type_Telephone;
-                leClient.ClientTelephoneNumero = ClientRow.Numero_Telephone.ToString();
-                leClient.ClientCA = ClientRow._Chiffre_d_Affaire;
-                leClient.ClientEffectif = ClientRow.Effectif;
+                leClient.ClientDomaineActivite = ClientRow._domaine_d_activité;
+                leClient.AdresseClientNumeroRue = ClientRow.adresse_numéro;
+                leClient.AdresseClientRue = ClientRow.adresse_rue;
+                leClient.AdresseClientCodePostal = ClientRow.adresse_code_postal;
+                leClient.AdresseClientVille = ClientRow.adresse_ville;
+                leClient.AdresseClientPays = ClientRow.adresse_pays;
+                leClient.ClientTypeTelephone = ClientRow.type_tel;
+                leClient.ClientTelephoneNumero = ClientRow.numero_telephone.ToString();
+                leClient.ClientCA = ClientRow._chiffre_d_affaire;
+                leClient.ClientEffectif = ClientRow.effectif;
                 leClient.IdClient = ClientRow.idClient;
-                leClient.ClientCommentaire = ClientRow.Commentaire;
-                leClient.ClientNature = ClientRow.Nature;
-                leClient.ClientCommentaire = ClientRow.Commentaire;
-                DonneesClients.ArrayStag.Add(leClient);
+                leClient.ClientCommentaire = ClientRow.Commentaires;
+                leClient.ClientNature = ClientRow.nature;
+                
+                DonneesClients.ArrayClient.Add(leClient);
                 afficheClient();
             }
 
@@ -106,19 +106,19 @@ namespace ABI
             dt.Columns.Add(new DataColumn("Chiffre d'affaire", typeof(System.Int32)));
             dt.Columns.Add(new DataColumn("Effectif", typeof(System.Int32)));
             dt.Columns.Add(new DataColumn("IdClient", typeof(Int32)));
-            for (i=0;i < DonneesClients.ArrayStag.Count;i++)
+            for (i=0;i < DonneesClients.ArrayClient.Count;i++)
             {
                 dr = dt.NewRow();
-                dr[0] = DonneesClients.ArrayStag[i].NumeroClient;
-                dr[1] = DonneesClients.ArrayStag[i].NomClient;
-                dr[2] = DonneesClients.ArrayStag[i].ClientRaisonSociale;
-                dr[3] = DonneesClients.ArrayStag[i].TypeActivité;
-                dr[4] = DonneesClients.ArrayStag[i].ClientDomaineActivite;
-                dr[5] = DonneesClients.ArrayStag[i].AdresseClientNumeroRue.ToString() + DonneesClients.ArrayStag[i].AdresseClientRue + DonneesClients.ArrayStag[i].AdresseClientCodePostal.ToString() + DonneesClients.ArrayStag[i].AdresseClientVille;
-                dr[6] = DonneesClients.ArrayStag[i].ClientNature;
-                dr[7] = DonneesClients.ArrayStag[i].ClientCA;
-                dr[8] = DonneesClients.ArrayStag[i].ClientEffectif;
-                dr[9] = DonneesClients.ArrayStag[i].IdClient;
+                dr[0] = DonneesClients.ArrayClient[i].NumeroClient;
+                dr[1] = DonneesClients.ArrayClient[i].NomClient;
+                dr[2] = DonneesClients.ArrayClient[i].ClientRaisonSociale;
+                dr[3] = DonneesClients.ArrayClient[i].TypeActivité;
+                dr[4] = DonneesClients.ArrayClient[i].ClientDomaineActivite;
+                dr[5] = DonneesClients.ArrayClient[i].AdresseClientNumeroRue.ToString() + DonneesClients.ArrayClient[i].AdresseClientRue + DonneesClients.ArrayClient[i].AdresseClientCodePostal.ToString() + DonneesClients.ArrayClient[i].AdresseClientVille;
+                dr[6] = DonneesClients.ArrayClient[i].ClientNature;
+                dr[7] = DonneesClients.ArrayClient[i].ClientCA;
+                dr[8] = DonneesClients.ArrayClient[i].ClientEffectif;
+                dr[9] = DonneesClients.ArrayClient[i].IdClient;
                 dt.Rows.Add(dr);
             }
 
@@ -129,17 +129,17 @@ namespace ABI
         private void deleteClient()
         {
             
-            foreach(Client C1 in DonneesClients.ArrayStag)
+            foreach(Client C1 in DonneesClients.ArrayClient)
             {
-                if (C1.IdClient == Convert.ToInt32(dgrdClient.CurrentRow.Cells[9].Value)) DonneesClients.ArrayStag.Remove(C1);
+                if (C1.IdClient.ToString() == dgrdClient.CurrentRow.Cells[9].Value.ToString()) DonneesClients.ArrayClient.Remove(C1);
                 
             }
             
             
-            foreach(Client C in DonneesClients.ArrayStag)
+            foreach(Client C in DonneesClients.ArrayClient)
             {
 
-                if (C.IdClient > Convert.ToInt32(dgrdClient.CurrentRow.Cells[9].Value))
+                if (C.IdClient>Convert.ToInt32( dgrdClient.CurrentRow.Cells[9].Value.ToString()))
                 {
                     C.IdClient--;
                     //Juste pour l'affichage le numero client sera géré par le client en fonction de ses normes
@@ -148,7 +148,7 @@ namespace ABI
                    //DonneesClients.DataSetClient.ClientBD.RemoveClientBDRow()
                 }
             }
-            dgrdClient.DataSource = DonneesClients.ArrayStag ;
+            dgrdClient.DataSource = DonneesClients.ArrayClient;
 
         }
         /// <summary>
@@ -201,33 +201,7 @@ namespace ABI
 
         private void cbxChoixrecherche_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-            ////            if(txtBxRecherche.Text!=null&&cbxChoixrecherche.Text=="nom")
-            //{            string searchValue = txtBxRecherche.Text;
 
-            //dgrdClient.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            //try
-            //{
-            //    foreach (DataGridViewRow row in dgrdClient.Rows)
-            //    {
-            //        if (!row.Cells[cbxChoixrecherche.SelectedItem.ToString()].Value.ToString().Equals(searchValue))
-            //        {
-            //            row;
-            //            //break;
-            //        }
-
-            //    }
-            //}
-            //catch (Exception exc)
-            //{
-            //    MessageBox.Show(exc.Message);
-            //}
-
-            //    (dgrdClient.DataSource as DataTable).DefaultView.RowFilter = string.Format("nom ='{0}'", txtBxRecherche.Text);
-            //}
-            //if (txtBxRecherche.Text != null && cbxChoixrecherche.Text == "numero")
-            //{
-            //    ((DataView)(this.dgrdClient.DataSource)).RowFilter = "[nom client] like'%" + Int32.Parse(txtBxRecherche.Text) + "%'";
-            //}
         }
         private void enCoursToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -240,16 +214,7 @@ namespace ABI
         }
         
          
-        private void frmDspClient_DoubleClick(object sender, EventArgs e)
-        {
-
-
-            frmUpdClient frmUd;
-            frmUd= new frmUpdClient(leClient);
-            frmUd.Show();
-            
-
-        }
+       
 
         
         
@@ -257,12 +222,13 @@ namespace ABI
         private void dgrdClient_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             Int32 iRow;
-            iRow = this.dgrdClient.CurrentRow.Index;
-            Int32 refClient =Convert.ToInt32( dgrdClient.Rows[iRow].Cells[0].Value.ToString());
+            iRow = this.dgrdClient.CurrentRow.Index-1;
+            Int32 refClient =Convert.ToInt32( dgrdClient.Rows[iRow].Cells[9].Value.ToString());
 
-            leClient = DonneesClients.ArrayStag[refClient];
+            
+            this.leClient = DonneesClients.ArrayClient[refClient];
 
-            frmUpdClient frmUC = new frmUpdClient(leClient);
+            frmUpdClient frmUC = new frmUpdClient(this.leClient);
             frmUC.ShowDialog();
             if (frmUC.ShowDialog() == DialogResult.OK)
             {
@@ -295,7 +261,7 @@ namespace ABI
         {
             
             iClient = this.dgrdClient.CurrentRow.Index;
-            Client leClient = DonneesClients.ArrayStag[iClient];
+            Client leClient = DonneesClients.ArrayClient[iClient];
             frmUpdClient frmUC = new frmUpdClient(leClient);
             frmUC.ShowDialog();
             if (frmUC.ShowDialog() == DialogResult.OK)

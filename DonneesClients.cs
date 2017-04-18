@@ -8,11 +8,12 @@ namespace ABI
 {
     public class DonneesClients
     {
-        public static List<Client> ArrayStag = new List<Client>();
+        public static List<Client> ArrayClient = new List<Client>();
         public static Int32 NClient;
         
-        public static DataSetABI DataSetClient = new DataSetABI() ;
-        public static DataSetABITableAdapters.ClientBDDTableAdapter taClient = new DataSetABITableAdapters.ClientBDDTableAdapter();
+        public static ABI.DataSetABI DataSetClient = new DataSetABI();
+        
+        public static ABI.DataSetABITableAdapters.ClientBDDTableAdapter taClient = new DataSetABITableAdapters.ClientBDDTableAdapter();
 
 
     }

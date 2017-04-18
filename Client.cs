@@ -15,14 +15,14 @@ namespace ABI
         private String clientDomaineActivite;
         private String adresseClientNumeroRue;
         private String adresseClientRue;
-        private String adresseClientCodePostal;
+        private Int32 adresseClientCodePostal;
         private String adresseClientVille;
         private String adresseClientPays;
         private String clientTypeTelephone;
         private String clientTelephoneNumero;
         private String clientCA;
-        private String clientEffectif;
-        private String idClient;
+        private int clientEffectif;
+        private int idClient;
         private String clientCommentaire;
         private String clientNature;
 
@@ -113,7 +113,7 @@ namespace ABI
             }
         }
 
-        public String AdresseClientCodePostal
+        public Int32 AdresseClientCodePostal
         {
             get
             {
@@ -191,7 +191,7 @@ namespace ABI
             }
         }
 
-        public String ClientEffectif
+        public int ClientEffectif
         {
             get
             {
@@ -231,7 +231,7 @@ namespace ABI
             }
         }
 
-        public string IdClient
+        public int IdClient
         {
             get
             {

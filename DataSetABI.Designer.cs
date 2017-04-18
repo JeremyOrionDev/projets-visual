@@ -28,8 +28,6 @@ namespace ABI {
         
         private ContactsBDDDataTable tableContactsBDD;
         
-        private global::System.Data.DataRelation relationClientBDD_ContactsBDD;
-        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -220,7 +218,6 @@ namespace ABI {
                     this.tableContactsBDD.InitVars();
                 }
             }
-            this.relationClientBDD_ContactsBDD = this.Relations["ClientBDD_ContactsBDD"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -235,10 +232,6 @@ namespace ABI {
             base.Tables.Add(this.tableClientBDD);
             this.tableContactsBDD = new ContactsBDDDataTable();
             base.Tables.Add(this.tableContactsBDD);
-            this.relationClientBDD_ContactsBDD = new global::System.Data.DataRelation("ClientBDD_ContactsBDD", new global::System.Data.DataColumn[] {
-                        this.tableClientBDD.idClientColumn}, new global::System.Data.DataColumn[] {
-                        this.tableContactsBDD.IdClientLierColumn}, false);
-            this.Relations.Add(this.relationClientBDD_ContactsBDD);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -973,7 +966,7 @@ namespace ABI {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ContactsBDDRow AddContactsBDDRow(string Nom, string Prénom, string Fonction, string Téléphone_pro, string Téléphone_portable, ClientBDDRow parentClientBDDRowByClientBDD_ContactsBDD) {
+            public ContactsBDDRow AddContactsBDDRow(string Nom, string Prénom, string Fonction, string Téléphone_pro, string Téléphone_portable, int IdClientLier) {
                 ContactsBDDRow rowContactsBDDRow = ((ContactsBDDRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Nom,
@@ -981,10 +974,7 @@ namespace ABI {
                         Fonction,
                         Téléphone_pro,
                         Téléphone_portable,
-                        null};
-                if ((parentClientBDDRowByClientBDD_ContactsBDD != null)) {
-                    columnValuesArray[5] = parentClientBDDRowByClientBDD_ContactsBDD[13];
-                }
+                        IdClientLier};
                 rowContactsBDDRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowContactsBDDRow);
                 return rowContactsBDDRow;
@@ -1384,17 +1374,6 @@ namespace ABI {
             public void SetCommentairesNull() {
                 this[this.tableClientBDD.CommentairesColumn] = global::System.Convert.DBNull;
             }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ContactsBDDRow[] GetContactsBDDRows() {
-                if ((this.Table.ChildRelations["ClientBDD_ContactsBDD"] == null)) {
-                    return new ContactsBDDRow[0];
-                }
-                else {
-                    return ((ContactsBDDRow[])(base.GetChildRows(this.Table.ChildRelations["ClientBDD_ContactsBDD"])));
-                }
-            }
         }
         
         /// <summary>
@@ -1474,17 +1453,6 @@ namespace ABI {
                 }
                 set {
                     this[this.tableContactsBDD.IdClientLierColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ClientBDDRow ClientBDDRow {
-                get {
-                    return ((ClientBDDRow)(this.GetParentRow(this.Table.ParentRelations["ClientBDD_ContactsBDD"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["ClientBDD_ContactsBDD"]);
                 }
             }
         }

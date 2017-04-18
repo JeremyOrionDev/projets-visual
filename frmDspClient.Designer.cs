@@ -368,7 +368,6 @@
             this.Name = "frmDspClient";
             this.Text = "Affichage liste client";
             this.Load += new System.EventHandler(this.frmDspClient_Load);
-            this.DoubleClick += new System.EventHandler(this.frmDspClient_DoubleClick);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgrdClient)).EndInit();

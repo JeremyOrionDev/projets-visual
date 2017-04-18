@@ -245,9 +245,4 @@
       </xs:choice>
     </xs:complexType>
   </xs:element>
-  <xs:annotation>
-    <xs:appinfo>
-      <msdata:Relationship name="ClientBDD_ContactsBDD" msdata:parent="ClientBDD" msdata:child="ContactsBDD" msdata:parentkey="idClient" msdata:childkey="IdClientLier" msprop:Generator_UserChildTable="ContactsBDD" msprop:Generator_ChildPropName="GetContactsBDDRows" msprop:Generator_UserRelationName="ClientBDD_ContactsBDD" msprop:Generator_ParentPropName="ClientBDDRow" msprop:Generator_RelationVarName="relationClientBDD_ContactsBDD" msprop:Generator_UserParentTable="ClientBDD" />
-    </xs:appinfo>
-  </xs:annotation>
 </xs:schema>
