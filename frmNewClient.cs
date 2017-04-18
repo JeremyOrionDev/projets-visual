@@ -72,10 +72,13 @@ namespace ABI
         private void btnValider_Click(object sender, EventArgs e)
         {
             Client nouveauClient = new Client();
-            
+            DataSetABI.ClientBDRow ClientRow;
+            ClientRow = DonneesClients.DataSetClient.ClientBD.NewClientBDRow();
             if (tBxIdClient.Text != "")
             {
                 nouveauClient.NumeroClient = Int32.Parse(tBxIdClient.Text.Trim());
+                ClientRow.Numero_Client = nouveauClient.NumeroClient;
+
             }
             else
             {
@@ -84,6 +87,8 @@ namespace ABI
             if(tBxClientRaisonSociale.Text!="")
             {
                 nouveauClient.ClientRaisonSociale = tBxClientRaisonSociale.Text;
+                ClientRow.raison_sociale = nouveauClient.ClientRaisonSociale;
+
             }
             else
             {
@@ -92,18 +97,24 @@ namespace ABI
             if (rbtnAjoutClientTypePrivé.Checked)
             {
                 nouveauClient.TypeActivité = "privé";
+                ClientRow.type_activité = nouveauClient.TypeActivité;
+
             }
             if (rBtnAjoutClientTypePublic.Checked)
             {
                 nouveauClient.TypeActivité = "public";
+                ClientRow.type_activité = nouveauClient.TypeActivité;
+
             }
-            if(!rbtnAjoutClientTypePrivé.Checked&&!rBtnAjoutClientTypePublic.Checked)
+            if (!rbtnAjoutClientTypePrivé.Checked&&!rBtnAjoutClientTypePublic.Checked)
             {
                 mbText += "Attention le type du client ne peut être vide \n";
             }
             if (tbxDomaineActivité.Text != "")
             {
                 nouveauClient.ClientDomaineActivite = tbxDomaineActivité.Text;
+                ClientRow.domaine_activité = nouveauClient.ClientDomaineActivite;
+
             }
             else
             {
@@ -112,6 +123,8 @@ namespace ABI
             if(tBxAjoutClientAdresseNumero.Text!="")
             {
                 nouveauClient.AdresseClientNumeroRue = Int32.Parse(tBxAjoutClientAdresseNumero.Text.Trim());
+                ClientRow.Adresse_numero = nouveauClient.AdresseClientNumeroRue;
+
             }
             else
             {
@@ -120,6 +133,8 @@ namespace ABI
             if(tBxAjoutClientAdresseTypeNom.Text!="")
             {
                 nouveauClient.AdresseClientRue = tBxAjoutClientAdresseTypeNom.Text;
+                ClientRow.Adresse_rue = nouveauClient.AdresseClientRue;
+
             }
             else
             {
@@ -128,6 +143,8 @@ namespace ABI
             if(tBxAjoutClientAdresseCodePostal.Text!="")
             {
                 nouveauClient.AdresseClientCodePostal = Int32.Parse(tBxAjoutClientAdresseCodePostal.Text.Trim());
+                ClientRow.Adresse_Code_Postal = nouveauClient.AdresseClientCodePostal;
+
             }
             else
             {
@@ -137,6 +154,8 @@ namespace ABI
             if(tBxAjoutClientAdresseVille.Text!="")
             {
                 nouveauClient.AdresseClientVille = tBxAjoutClientAdresseVille.Text;
+                ClientRow.Adresse_Ville = nouveauClient.AdresseClientVille;
+
             }
             else
             {
@@ -146,6 +165,8 @@ namespace ABI
             if (cbxAjoutClientPays.SelectedItem != null)
             {
                 nouveauClient.AdresseClientPays = cbxAjoutClientPays.SelectedItem.ToString();
+                ClientRow.Adresse_Pays = nouveauClient.AdresseClientPays;
+
             }
             else
             {
@@ -154,6 +175,8 @@ namespace ABI
             if(cBxClientTypeTelephone.SelectedItem!=null)
             {
                 nouveauClient.ClientTypeTelephone = cBxClientTypeTelephone.SelectedItem.ToString();
+                ClientRow.Type_Telephone = nouveauClient.ClientTypeTelephone;
+
             }
             else
             {
@@ -162,6 +185,8 @@ namespace ABI
             if(tBxClientTelephone.Text.ToString()!="")
             {
                 nouveauClient.ClientTelephoneNumero = tBxClientTelephone.Text;
+                ClientRow.Numero_Telephone =Convert.ToInt32( nouveauClient.ClientTelephoneNumero);
+
             }
             else if(tBxClientTelephone.Text.Length!=10)
             {
@@ -171,6 +196,8 @@ namespace ABI
             if(tBxChiffreAffaire.Text.ToString()!="")
             {
                 nouveauClient.ClientCA = Convert.ToDouble(tBxChiffreAffaire.Text.ToString());
+                ClientRow._Chiffre_d_Affaire =Convert.ToInt32( nouveauClient.ClientCA);
+
             }
             else
             {
@@ -179,6 +206,8 @@ namespace ABI
             if (tBxClientEffectif.Text.ToString() != "")
             {
                 nouveauClient.ClientEffectif = Int32.Parse(tBxClientEffectif.Text.Trim());
+                ClientRow.Effectif = nouveauClient.ClientEffectif;
+
             }
             else
             {
@@ -188,6 +217,8 @@ namespace ABI
             if (tBxNature.Text != "")
             {
                 nouveauClient.ClientNature = tBxNature.Text;
+                ClientRow.Nature = nouveauClient.ClientNature;
+
             }
             else
             {
@@ -202,6 +233,7 @@ namespace ABI
             {
                 DonneesClients.ArrayStag.Add(nouveauClient);
                 DonneesClients.NClient++;
+                DonneesClients.DataSetClient.ClientBD.AddClientBDRow(ClientRow)
                 this.DialogResult = DialogResult.OK;
             }
 
