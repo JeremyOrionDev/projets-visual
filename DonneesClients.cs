@@ -12,7 +12,7 @@ namespace ABI
         public static Int32 NClient;
         
         public static DataSetABI DataSetClient = new DataSetABI() ;
-        public static DataSetABITableAdapters.ClientBDTableAdapter taClient = new DataSetABITableAdapters.ClientBDTableAdapter();
+        public static DataSetABITableAdapters.ClientBDDTableAdapter taClient = new DataSetABITableAdapters.ClientBDDTableAdapter();
 
 
     }

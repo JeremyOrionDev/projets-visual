@@ -32,5 +32,15 @@ namespace ABI.Properties {
                 return ((string)(this["AbiBDConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=BIP8;Initial Catalog=AbiBDD;Integrated Security=True")]
+        public string AbiBDDConnectionString {
+            get {
+                return ((string)(this["AbiBDDConnectionString"]));
+            }
+        }
     }
 }

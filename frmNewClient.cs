@@ -185,7 +185,7 @@ namespace ABI
             if(tBxClientTelephone.Text.ToString()!="")
             {
                 nouveauClient.ClientTelephoneNumero = tBxClientTelephone.Text;
-                ClientRow.Numero_Telephone =Convert.ToInt32( nouveauClient.ClientTelephoneNumero);
+                ClientRow.Numero_Telephone = nouveauClient.ClientTelephoneNumero;
 
             }
             else if(tBxClientTelephone.Text.Length!=10)
@@ -195,8 +195,8 @@ namespace ABI
             
             if(tBxChiffreAffaire.Text.ToString()!="")
             {
-                nouveauClient.ClientCA = Convert.ToDouble(tBxChiffreAffaire.Text.ToString());
-                ClientRow._Chiffre_d_Affaire =Convert.ToInt32( nouveauClient.ClientCA);
+                nouveauClient.ClientCA = tBxChiffreAffaire.Text;
+                ClientRow._Chiffre_d_Affaire =nouveauClient.ClientCA;
 
             }
             else
@@ -205,7 +205,7 @@ namespace ABI
             }
             if (tBxClientEffectif.Text.ToString() != "")
             {
-                nouveauClient.ClientEffectif = Int32.Parse(tBxClientEffectif.Text.Trim());
+                nouveauClient.ClientEffectif = tBxClientEffectif.Text;
                 ClientRow.Effectif = nouveauClient.ClientEffectif;
 
             }
@@ -233,7 +233,8 @@ namespace ABI
             {
                 DonneesClients.ArrayStag.Add(nouveauClient);
                 DonneesClients.NClient++;
-                DonneesClients.DataSetClient.ClientBD.AddClientBDRow(ClientRow)
+                DonneesClients.DataSetClient.ClientBD.AddClientBDRow(ClientRow);
+                DonneesClients.taClient.Update(DonneesClients.DataSetClient.ClientBD);
                 this.DialogResult = DialogResult.OK;
             }
 
