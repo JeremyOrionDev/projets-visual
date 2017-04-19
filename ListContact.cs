@@ -11,7 +11,7 @@ namespace ABI
         
         public static List<Contact> ArrayStag = new List<Contact>();
         public static Int32 nContact;
-        public static DataSetABI DataSetContact = new DataSetABI();
-        public static DataSetABITableAdapters.ContactsBDDTableAdapter taContact = new DataSetABITableAdapters.ContactsBDDTableAdapter();
+        public static DataSetAbi DataSetContact = new DataSetAbi();
+        public static DataSetAbiTableAdapters.ContactsBDDTableAdapter taContact = new DataSetAbiTableAdapters.ContactsBDDTableAdapter();
     }
 }

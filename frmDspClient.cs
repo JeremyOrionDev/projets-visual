@@ -43,7 +43,7 @@ namespace ABI
         {
             //Client unClient; 
             DonneesClients.taClient.Fill(DonneesClients.DataSetClient.ClientBDD);
-            foreach (DataSetABI.ClientBDDRow ClientRow in DonneesClients.DataSetClient.ClientBDD)
+            foreach (DataSetAbi.ClientBDDRow ClientRow in DonneesClients.DataSetClient.ClientBDD)
             {
                 leClient = new Client();
                 leClient.NumeroClient = ClientRow.numéro_Client;
@@ -53,7 +53,7 @@ namespace ABI
                 leClient.ClientDomaineActivite = ClientRow._domaine_d_activité;
                 leClient.AdresseClientNumeroRue = ClientRow.adresse_numéro;
                 leClient.AdresseClientRue = ClientRow.adresse_rue;
-                leClient.AdresseClientCodePostal = ClientRow.adresse_code_postal;
+                leClient.AdresseClientCodePostal =Convert.ToInt32( ClientRow.adresse_code_postal);
                 leClient.AdresseClientVille = ClientRow.adresse_ville;
                 leClient.AdresseClientPays = ClientRow.adresse_pays;
                 leClient.ClientTypeTelephone = ClientRow.type_tel;

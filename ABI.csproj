@@ -48,13 +48,10 @@
   <ItemGroup>
     <Compile Include="Client.cs" />
     <Compile Include="Contact.cs" />
-    <Compile Include="DataSetABI.cs">
-      <DependentUpon>DataSetABI.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="DataSetABI.Designer.cs">
+    <Compile Include="DataSetAbi.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DataSetABI.xsd</DependentUpon>
+      <DependentUpon>DataSetAbi.xsd</DependentUpon>
     </Compile>
     <Compile Include="DonneesClients.cs" />
     <Compile Include="frmDspClient.cs">
@@ -134,16 +131,16 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="DataSetABI.xsc">
-      <DependentUpon>DataSetABI.xsd</DependentUpon>
+    <None Include="DataSetAbi.xsc">
+      <DependentUpon>DataSetAbi.xsd</DependentUpon>
     </None>
-    <None Include="DataSetABI.xsd">
+    <None Include="DataSetAbi.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataSetABI.Designer.cs</LastGenOutput>
+      <LastGenOutput>DataSetAbi.Designer.cs</LastGenOutput>
     </None>
-    <None Include="DataSetABI.xss">
-      <DependentUpon>DataSetABI.xsd</DependentUpon>
+    <None Include="DataSetAbi.xss">
+      <DependentUpon>DataSetAbi.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\DonneesClients.datasource" />

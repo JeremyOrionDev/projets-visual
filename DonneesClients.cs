@@ -11,10 +11,9 @@ namespace ABI
     {
         public static List<Client> ArrayClient = new List<Client>();
         public static Int32 NClient;
-        public SqlDataAdapter ClientSqlAdapt = new SqlDataAdapter();
-        public static ABI.DataSetABI DataSetClient = new DataSetABI();
+        public static ABI.DataSetAbi DataSetClient = new DataSetAbi();
         
-        public static ABI.DataSetABITableAdapters.ClientBDDTableAdapter taClient = new DataSetABITableAdapters.ClientBDDTableAdapter();
+        public static ABI.DataSetAbiTableAdapters.ClientBDDTableAdapter taClient = new DataSetAbiTableAdapters.ClientBDDTableAdapter();
 
 
     }

@@ -20,9 +20,9 @@ namespace ABI {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("DataSetABI")]
+    [global::System.Xml.Serialization.XmlRootAttribute("DataSetAbi")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class DataSetABI : global::System.Data.DataSet {
+    public partial class DataSetAbi : global::System.Data.DataSet {
         
         private ClientBDDDataTable tableClientBDD;
         
@@ -32,7 +32,7 @@ namespace ABI {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public DataSetABI() {
+        public DataSetAbi() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -43,7 +43,7 @@ namespace ABI {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected DataSetABI(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected DataSetAbi(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -142,7 +142,7 @@ namespace ABI {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            DataSetABI cln = ((DataSetABI)(base.Clone()));
+            DataSetAbi cln = ((DataSetAbi)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -223,9 +223,9 @@ namespace ABI {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "DataSetABI";
+            this.DataSetName = "DataSetAbi";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/DataSetABI.xsd";
+            this.Namespace = "http://tempuri.org/DataSetAbi.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.tableClientBDD = new ClientBDDDataTable();
@@ -257,7 +257,7 @@ namespace ABI {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            DataSetABI ds = new DataSetABI();
+            DataSetAbi ds = new DataSetAbi();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -347,8 +347,6 @@ namespace ABI {
             private global::System.Data.DataColumn columnnature;
             
             private global::System.Data.DataColumn columnnuméro_Client;
-            
-            private global::System.Data.DataColumn columnadresse_code_postal1;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -521,14 +519,6 @@ namespace ABI {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn adresse_code_postal1Column {
-                get {
-                    return this.columnadresse_code_postal1;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -571,7 +561,7 @@ namespace ABI {
                         string _domaine_d_activité, 
                         string adresse_numéro, 
                         string adresse_rue, 
-                        int adresse_code_postal, 
+                        string adresse_code_postal, 
                         string adresse_ville, 
                         string adresse_pays, 
                         string type_tel, 
@@ -581,8 +571,7 @@ namespace ABI {
                         int idClient, 
                         string Commentaires, 
                         string nature, 
-                        int numéro_Client, 
-                        string adresse_code_postal1) {
+                        int numéro_Client) {
                 ClientBDDRow rowClientBDDRow = ((ClientBDDRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         nom,
@@ -601,8 +590,7 @@ namespace ABI {
                         idClient,
                         Commentaires,
                         nature,
-                        numéro_Client,
-                        adresse_code_postal1};
+                        numéro_Client};
                 rowClientBDDRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowClientBDDRow);
                 return rowClientBDDRow;
@@ -642,7 +630,6 @@ namespace ABI {
                 this.columnCommentaires = base.Columns["Commentaires"];
                 this.columnnature = base.Columns["nature"];
                 this.columnnuméro_Client = base.Columns["numéro Client"];
-                this.columnadresse_code_postal1 = base.Columns["adresse code postal1"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -664,7 +651,7 @@ namespace ABI {
                 base.Columns.Add(this.columnadresse_numéro);
                 this.columnadresse_rue = new global::System.Data.DataColumn("adresse rue", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnadresse_rue);
-                this.columnadresse_code_postal = new global::System.Data.DataColumn("adresse code postal", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnadresse_code_postal = new global::System.Data.DataColumn("adresse code postal", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnadresse_code_postal);
                 this.columnadresse_ville = new global::System.Data.DataColumn("adresse ville", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnadresse_ville);
@@ -688,8 +675,6 @@ namespace ABI {
                 base.Columns.Add(this.columnnature);
                 this.columnnuméro_Client = new global::System.Data.DataColumn("numéro Client", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnuméro_Client);
-                this.columnadresse_code_postal1 = new global::System.Data.DataColumn("adresse code postal1", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnadresse_code_postal1);
                 this.columnnom.AllowDBNull = false;
                 this.columnnom.MaxLength = 2147483647;
                 this.columnraison_sociale.AllowDBNull = false;
@@ -703,6 +688,7 @@ namespace ABI {
                 this.columnadresse_rue.AllowDBNull = false;
                 this.columnadresse_rue.MaxLength = 2147483647;
                 this.columnadresse_code_postal.AllowDBNull = false;
+                this.columnadresse_code_postal.MaxLength = 5;
                 this.columnadresse_ville.AllowDBNull = false;
                 this.columnadresse_ville.MaxLength = 2147483647;
                 this.columnadresse_pays.AllowDBNull = false;
@@ -718,9 +704,6 @@ namespace ABI {
                 this.columnnature.AllowDBNull = false;
                 this.columnnature.MaxLength = 2147483647;
                 this.columnnuméro_Client.AllowDBNull = false;
-                this.columnadresse_code_postal1.AllowDBNull = false;
-                this.columnadresse_code_postal1.Caption = "adresse code postal";
-                this.columnadresse_code_postal1.MaxLength = 5;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -788,7 +771,7 @@ namespace ABI {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                DataSetABI ds = new DataSetABI();
+                DataSetAbi ds = new DataSetAbi();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -1116,7 +1099,7 @@ namespace ABI {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                DataSetABI ds = new DataSetABI();
+                DataSetAbi ds = new DataSetAbi();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -1257,9 +1240,9 @@ namespace ABI {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int adresse_code_postal {
+            public string adresse_code_postal {
                 get {
-                    return ((int)(this[this.tableClientBDD.adresse_code_postalColumn]));
+                    return ((string)(this[this.tableClientBDD.adresse_code_postalColumn]));
                 }
                 set {
                     this[this.tableClientBDD.adresse_code_postalColumn] = value;
@@ -1378,17 +1361,6 @@ namespace ABI {
                 }
                 set {
                     this[this.tableClientBDD.numéro_ClientColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string adresse_code_postal1 {
-                get {
-                    return ((string)(this[this.tableClientBDD.adresse_code_postal1Column]));
-                }
-                set {
-                    this[this.tableClientBDD.adresse_code_postal1Column] = value;
                 }
             }
             
@@ -1555,7 +1527,7 @@ namespace ABI {
         }
     }
 }
-namespace ABI.DataSetABITableAdapters {
+namespace ABI.DataSetAbiTableAdapters {
     
     
     /// <summary>
@@ -1685,6 +1657,7 @@ namespace ABI.DataSetABITableAdapters {
             tableMapping.ColumnMappings.Add("domaine d\'activité", "domaine d\'activité");
             tableMapping.ColumnMappings.Add("adresse numéro", "adresse numéro");
             tableMapping.ColumnMappings.Add("adresse rue", "adresse rue");
+            tableMapping.ColumnMappings.Add("adresse code postal", "adresse code postal");
             tableMapping.ColumnMappings.Add("adresse ville", "adresse ville");
             tableMapping.ColumnMappings.Add("adresse pays", "adresse pays");
             tableMapping.ColumnMappings.Add("type tel", "type tel");
@@ -1695,7 +1668,6 @@ namespace ABI.DataSetABITableAdapters {
             tableMapping.ColumnMappings.Add("Commentaires", "Commentaires");
             tableMapping.ColumnMappings.Add("nature", "nature");
             tableMapping.ColumnMappings.Add("numéro Client", "numéro Client");
-            tableMapping.ColumnMappings.Add("adresse code postal", "adresse code postal1");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
@@ -1741,7 +1713,7 @@ namespace ABI.DataSetABITableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(DataSetABI.ClientBDDDataTable dataTable) {
+        public virtual int Fill(DataSetAbi.ClientBDDDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -1754,9 +1726,9 @@ namespace ABI.DataSetABITableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual DataSetABI.ClientBDDDataTable GetData() {
+        public virtual DataSetAbi.ClientBDDDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            DataSetABI.ClientBDDDataTable dataTable = new DataSetABI.ClientBDDDataTable();
+            DataSetAbi.ClientBDDDataTable dataTable = new DataSetAbi.ClientBDDDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -1764,14 +1736,14 @@ namespace ABI.DataSetABITableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(DataSetABI.ClientBDDDataTable dataTable) {
+        public virtual int Update(DataSetAbi.ClientBDDDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(DataSetABI dataSet) {
+        public virtual int Update(DataSetAbi dataSet) {
             return this.Adapter.Update(dataSet, "ClientBDD");
         }
         
@@ -2075,7 +2047,7 @@ namespace ABI.DataSetABITableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(DataSetABI.ContactsBDDDataTable dataTable) {
+        public virtual int Fill(DataSetAbi.ContactsBDDDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -2088,9 +2060,9 @@ namespace ABI.DataSetABITableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual DataSetABI.ContactsBDDDataTable GetData() {
+        public virtual DataSetAbi.ContactsBDDDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            DataSetABI.ContactsBDDDataTable dataTable = new DataSetABI.ContactsBDDDataTable();
+            DataSetAbi.ContactsBDDDataTable dataTable = new DataSetAbi.ContactsBDDDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -2098,14 +2070,14 @@ namespace ABI.DataSetABITableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(DataSetABI.ContactsBDDDataTable dataTable) {
+        public virtual int Update(DataSetAbi.ContactsBDDDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(DataSetABI dataSet) {
+        public virtual int Update(DataSetAbi dataSet) {
             return this.Adapter.Update(dataSet, "ContactsBDD");
         }
         
@@ -2291,7 +2263,7 @@ namespace ABI.DataSetABITableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateUpdatedRows(DataSetABI dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(DataSetAbi dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._clientBDDTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.ClientBDD.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
@@ -2319,7 +2291,7 @@ namespace ABI.DataSetABITableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateInsertedRows(DataSetABI dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(DataSetAbi dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._clientBDDTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.ClientBDD.Select(null, null, global::System.Data.DataViewRowState.Added);
@@ -2345,7 +2317,7 @@ namespace ABI.DataSetABITableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateDeletedRows(DataSetABI dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(DataSetAbi dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             if ((this._contactsBDDTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.ContactsBDD.Select(null, null, global::System.Data.DataViewRowState.Deleted);
@@ -2395,7 +2367,7 @@ namespace ABI.DataSetABITableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public virtual int UpdateAll(DataSetABI dataSet) {
+        public virtual int UpdateAll(DataSetAbi dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }

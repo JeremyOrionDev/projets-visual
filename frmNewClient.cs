@@ -71,7 +71,7 @@ namespace ABI
         private void btnValider_Click(object sender, EventArgs e)
         {
             Client nouveauClient = new Client();
-            DataSetABI.ClientBDDRow ClientRow;
+            DataSetAbi.ClientBDDRow ClientRow;
             ClientRow = DonneesClients.DataSetClient.ClientBDD.NewClientBDDRow();
             if (tBxIdClient.Text != "")
             {
@@ -82,6 +82,15 @@ namespace ABI
             else
             {
                 mbText += "Attention le numero de client ne peut être vide \n";
+            }
+            if(tBxNomClient.Text!="")
+            {
+                nouveauClient.NomClient = tBxNomClient.Text;
+                ClientRow.nom = nouveauClient.NomClient;
+            }
+            else
+            {
+                mbText += " Attention le nom du client ne peut être vide \n";
             }
             if(tBxClientRaisonSociale.Text!="")
             {
@@ -142,7 +151,7 @@ namespace ABI
             if(tBxAjoutClientAdresseCodePostal.Text!="")
             {
                 nouveauClient.AdresseClientCodePostal =Convert.ToInt32( tBxAjoutClientAdresseCodePostal.Text);
-                ClientRow.adresse_code_postal =Convert.ToInt32( nouveauClient.AdresseClientCodePostal);
+                ClientRow.adresse_code_postal = nouveauClient.AdresseClientCodePostal.ToString();
 
             }
             else
@@ -163,7 +172,7 @@ namespace ABI
             }
             if (cbxAjoutClientPays.SelectedItem != null)
             {
-                nouveauClient.AdresseClientPays = cbxAjoutClientPays.SelectedItem.ToString();
+                nouveauClient.AdresseClientPays = cbxAjoutClientPays.Text.ToString();
                 ClientRow.adresse_pays = nouveauClient.AdresseClientPays;
 
             }
@@ -230,6 +239,7 @@ namespace ABI
             }
             else
             {
+                ClientRow.idClient = nouveauClient.NumeroClient;
                 DonneesClients.ArrayClient.Add(nouveauClient);
                 DonneesClients.NClient++;
                 DonneesClients.DataSetClient.ClientBDD.AddClientBDDRow(ClientRow);

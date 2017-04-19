@@ -183,7 +183,7 @@ namespace ABI
                     }
                 }
                 DonneesClients.DataSetClient.AcceptChanges();
-                DataSetABI.ClientBDDRow row = (DataSetABI.ClientBDDRow) DonneesClients.DataSetClient.ClientBDD.Rows.Find(leClient);
+                DataSetAbi.ClientBDDRow row = (DataSetAbi.ClientBDDRow) DonneesClients.DataSetClient.ClientBDD.Rows.Find(leClient);
                 DonneesClients.DataSetClient.ClientBDD.RemoveClientBDDRow(row);
                // DonneesClients.DataSetClient.ClientBDD.Rows.RemoveAt(indexRow);
               

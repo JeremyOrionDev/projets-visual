@@ -230,6 +230,7 @@
             // 
             // btnAjoutClientValider
             // 
+            this.btnAjoutClientValider.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnAjoutClientValider.Location = new System.Drawing.Point(23, 812);
             this.btnAjoutClientValider.Name = "btnAjoutClientValider";
             this.btnAjoutClientValider.Size = new System.Drawing.Size(75, 23);

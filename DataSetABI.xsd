@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema id="DataSetABI" targetNamespace="http://tempuri.org/DataSetABI.xsd" xmlns:mstns="http://tempuri.org/DataSetABI.xsd" xmlns="http://tempuri.org/DataSetABI.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+<xs:schema id="DataSetAbi" targetNamespace="http://tempuri.org/DataSetAbi.xsd" xmlns:mstns="http://tempuri.org/DataSetAbi.xsd" xmlns="http://tempuri.org/DataSetAbi.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
@@ -35,7 +35,7 @@
                   </DbCommand>
                 </InsertCommand>
                 <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>SELECT nom, [raison sociale], [type d'activité], [domaine d'activité], [adresse numéro], [adresse rue], [adresse code postal], [adresse ville], [adresse pays], [type tel], [numero telephone], [chiffre d'affaire], effectif, idClient, Commentaires, nature, [numéro Client] FROM dbo.ClientBDD</CommandText>
                     <Parameters />
                   </DbCommand>
@@ -49,6 +49,7 @@
               <Mapping SourceColumn="domaine d'activité" DataSetColumn="domaine d'activité" />
               <Mapping SourceColumn="adresse numéro" DataSetColumn="adresse numéro" />
               <Mapping SourceColumn="adresse rue" DataSetColumn="adresse rue" />
+              <Mapping SourceColumn="adresse code postal" DataSetColumn="adresse code postal" />
               <Mapping SourceColumn="adresse ville" DataSetColumn="adresse ville" />
               <Mapping SourceColumn="adresse pays" DataSetColumn="adresse pays" />
               <Mapping SourceColumn="type tel" DataSetColumn="type tel" />
@@ -59,7 +60,6 @@
               <Mapping SourceColumn="Commentaires" DataSetColumn="Commentaires" />
               <Mapping SourceColumn="nature" DataSetColumn="nature" />
               <Mapping SourceColumn="numéro Client" DataSetColumn="numéro Client" />
-              <Mapping SourceColumn="adresse code postal" DataSetColumn="adresse code postal1" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -102,10 +102,10 @@
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="DataSetABI" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSetABI" msprop:Generator_UserDSName="DataSetABI">
+  <xs:element name="DataSetAbi" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSetAbi" msprop:Generator_UserDSName="DataSetAbi">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="ClientBDD" msprop:Generator_TableClassName="ClientBDDDataTable" msprop:Generator_TableVarName="tableClientBDD" msprop:Generator_RowChangedName="ClientBDDRowChanged" msprop:Generator_TablePropName="ClientBDD" msprop:Generator_RowDeletingName="ClientBDDRowDeleting" msprop:Generator_RowChangingName="ClientBDDRowChanging" msprop:Generator_RowEvHandlerName="ClientBDDRowChangeEventHandler" msprop:Generator_RowDeletedName="ClientBDDRowDeleted" msprop:Generator_RowClassName="ClientBDDRow" msprop:Generator_UserTableName="ClientBDD" msprop:Generator_RowEvArgName="ClientBDDRowChangeEvent">
+        <xs:element name="ClientBDD" msprop:Generator_TableClassName="ClientBDDDataTable" msprop:Generator_TableVarName="tableClientBDD" msprop:Generator_TablePropName="ClientBDD" msprop:Generator_RowDeletingName="ClientBDDRowDeleting" msprop:Generator_RowChangingName="ClientBDDRowChanging" msprop:Generator_RowEvHandlerName="ClientBDDRowChangeEventHandler" msprop:Generator_RowDeletedName="ClientBDDRowDeleted" msprop:Generator_UserTableName="ClientBDD" msprop:Generator_RowChangedName="ClientBDDRowChanged" msprop:Generator_RowEvArgName="ClientBDDRowChangeEvent" msprop:Generator_RowClassName="ClientBDDRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="nom" msprop:Generator_ColumnVarNameInTable="columnnom" msprop:Generator_ColumnPropNameInRow="nom" msprop:Generator_ColumnPropNameInTable="nomColumn" msprop:Generator_UserColumnName="nom">
@@ -150,7 +150,13 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="adresse_x0020_code_x0020_postal" msprop:Generator_ColumnVarNameInTable="columnadresse_code_postal" msprop:Generator_ColumnPropNameInRow="adresse_code_postal" msprop:Generator_ColumnPropNameInTable="adresse_code_postalColumn" msprop:Generator_UserColumnName="adresse code postal" type="xs:int" />
+              <xs:element name="adresse_x0020_code_x0020_postal" msprop:Generator_ColumnVarNameInTable="columnadresse_code_postal" msprop:Generator_ColumnPropNameInRow="adresse_code_postal" msprop:Generator_ColumnPropNameInTable="adresse_code_postalColumn" msprop:Generator_UserColumnName="adresse code postal">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
               <xs:element name="adresse_x0020_ville" msprop:Generator_ColumnVarNameInTable="columnadresse_ville" msprop:Generator_ColumnPropNameInRow="adresse_ville" msprop:Generator_ColumnPropNameInTable="adresse_villeColumn" msprop:Generator_UserColumnName="adresse ville">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -197,17 +203,10 @@
                 </xs:simpleType>
               </xs:element>
               <xs:element name="numéro_x0020_Client" msprop:Generator_ColumnVarNameInTable="columnnuméro_Client" msprop:Generator_ColumnPropNameInRow="numéro_Client" msprop:Generator_ColumnPropNameInTable="numéro_ClientColumn" msprop:Generator_UserColumnName="numéro Client" type="xs:int" />
-              <xs:element name="adresse_x0020_code_x0020_postal1" msdata:Caption="adresse code postal" msprop:Generator_ColumnVarNameInTable="columnadresse_code_postal1" msprop:Generator_ColumnPropNameInRow="adresse_code_postal1" msprop:Generator_ColumnPropNameInTable="adresse_code_postal1Column" msprop:Generator_UserColumnName="adresse code postal1">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="5" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="ContactsBDD" msprop:Generator_TableClassName="ContactsBDDDataTable" msprop:Generator_TableVarName="tableContactsBDD" msprop:Generator_RowChangedName="ContactsBDDRowChanged" msprop:Generator_TablePropName="ContactsBDD" msprop:Generator_RowDeletingName="ContactsBDDRowDeleting" msprop:Generator_RowChangingName="ContactsBDDRowChanging" msprop:Generator_RowEvHandlerName="ContactsBDDRowChangeEventHandler" msprop:Generator_RowDeletedName="ContactsBDDRowDeleted" msprop:Generator_RowClassName="ContactsBDDRow" msprop:Generator_UserTableName="ContactsBDD" msprop:Generator_RowEvArgName="ContactsBDDRowChangeEvent">
+        <xs:element name="ContactsBDD" msprop:Generator_TableClassName="ContactsBDDDataTable" msprop:Generator_TableVarName="tableContactsBDD" msprop:Generator_TablePropName="ContactsBDD" msprop:Generator_RowDeletingName="ContactsBDDRowDeleting" msprop:Generator_RowChangingName="ContactsBDDRowChanging" msprop:Generator_RowEvHandlerName="ContactsBDDRowChangeEventHandler" msprop:Generator_RowDeletedName="ContactsBDDRowDeleted" msprop:Generator_UserTableName="ContactsBDD" msprop:Generator_RowChangedName="ContactsBDDRowChanged" msprop:Generator_RowEvArgName="ContactsBDDRowChangeEvent" msprop:Generator_RowClassName="ContactsBDDRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Nom" msprop:Generator_ColumnVarNameInTable="columnNom" msprop:Generator_ColumnPropNameInRow="Nom" msprop:Generator_ColumnPropNameInTable="NomColumn" msprop:Generator_UserColumnName="Nom">
