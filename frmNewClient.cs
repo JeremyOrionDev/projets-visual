@@ -62,24 +62,7 @@ namespace ABI
         {
             String mbText = "";
             ClientBDDRow client = DonneesClients.DataSetClient.ClientBDD.NewClientBDDRow();
-            if (tBxIdClient.Text != "")
-            {
-                Int32 num;
-                Boolean b = Int32.TryParse(tBxIdClient.Text.Trim(), out num);
-                if (b)
-                {
-                    client.numéro_Client = Int32.Parse(tBxIdClient.Text.Trim());
-                }
-                else
-                {
-                    mbText += "Attention le numero de client doit être un chiffre \n";
-                }
-            }
-            else
-            {
-                mbText += "Attention le numero de client ne peut être vide \n";
-            }
-
+            
             if (tBxNomClient.Text != "")
             {
                 client.nom = tBxNomClient.Text;
@@ -235,7 +218,7 @@ namespace ABI
             }
             else
             {
-                client.idClient = Int32.Parse(tBxIdClient.Text);
+                client.idClient = ++DonneesClients.nbreClient;
                 DonneesClients.DataSetClient.ClientBDD.AddClientBDDRow(client);
                 this.DialogResult = DialogResult.OK;
             }

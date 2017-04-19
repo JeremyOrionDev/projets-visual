@@ -42,6 +42,16 @@ namespace ABI
             //Renseigne le DataSource de la DataGridView avec la Table Client du DataSet
             dgrdClient.DataSource = DonneesClients.DataSetClient.ClientBDD;
 
+            int count = DonneesClients.DataSetClient.ClientBDD.Count;
+            if (count == 0)
+            {
+                DonneesClients.nbreClient = 0;
+            }
+            else
+            {
+                DonneesClients.nbreClient = DonneesClients.DataSetClient.ClientBDD[count-1].idClient;
+            }
+
             //dgrdClient.Columns[9].Visible = false;
         }
 
