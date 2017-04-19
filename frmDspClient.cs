@@ -69,29 +69,6 @@ namespace ABI
             
         }
 
-        private void deleteClient()
-        {
-            foreach(Client C1 in DonneesClients.ArrayClient)
-            {
-                if (C1.IdClient.ToString() == dgrdClient.CurrentRow.Cells[9].Value.ToString()) DonneesClients.ArrayClient.Remove(C1);
-            }
-            
-            
-            foreach(Client C in DonneesClients.ArrayClient)
-            {
-
-                if (C.IdClient>Convert.ToInt32( dgrdClient.CurrentRow.Cells[9].Value.ToString()))
-                {
-                    C.IdClient--;
-                    //Juste pour l'affichage le numero client sera géré par le client en fonction de ses normes
-                   // C.NumeroClient--;
-                   //test
-                   //DonneesClients.DataSetClient.ClientBD.RemoveClientBDRow()
-                }
-            }
-            dgrdClient.DataSource = DonneesClients.ArrayClient;
-
-        }
         /// <summary>
         /// on affiche tous les clients dans la datagrid
         /// </summary>
@@ -169,11 +146,29 @@ namespace ABI
             mbTexT = "Vous allez supprimer un client : \n";
             mbTexT += "----------------------------------\n";
             mbTexT += "Voici les informations du client à supprimer :\n";
-            mbTexT+="Numero Client"+dgrdClient.CurrentRow.Cells[0].Value.ToString() +" ---Nom Client:"+dgrdClient.CurrentRow.Cells[1].Value.ToString();
+            mbTexT+="Numero Client"+dgrdClient.CurrentRow.Cells[1].Value.ToString() +" ---Nom Client:"+dgrdClient.CurrentRow.Cells[1].Value.ToString();
             
             if(MessageBox.Show(mbTexT, "Attention Suppression client", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
-                deleteClient();
+                Int32 idClient = Convert.ToInt32(dgrdClient.CurrentRow.Cells[0].Value);
+                ClientBDDRow client = null;
+                //Parcours la Table ClientDBB dans le DataSet
+                for (int i = 0; i < DonneesClients.DataSetClient.ClientBDD.Count; i++)
+                {
+                    //Récupère le clientbddrow à chaque indice i
+                    ClientBDDRow c = DonneesClients.DataSetClient.ClientBDD[i];
+                    //si idclient du client à l'indice i = iclient de la ligne sélectionnée
+                    if (c.idClient == idClient)
+                    {
+                        //Client trouvé !
+                        client = c;
+                    }
+                }
+                if(client != null)
+                {
+                    DonneesClients.DataSetClient.ClientBDD.RemoveClientBDDRow(client);
+                    DonneesClients.DataSetClient.ClientBDD.AcceptChanges();
+                }
             }
             
         }

@@ -145,9 +145,20 @@ namespace ABI
                 leClient.nom = tBxNomClient.Text;
                 leClient._domaine_d_activité = tbxDomaineActivité.Text;
                 leClient.adresse_numéro = tBxAjoutClientAdresseNumero.Text;
-                leClient.numero_telephone = Convert.ToInt32(tBxClientTelephone.Text);
+                int tel;
+                Boolean b = Int32.TryParse(tBxClientTelephone.Text, out tel);
+                if (b)
+                {
+                    leClient.numero_telephone = tel;
+                }
                 leClient.type_tel = cBxClientTypeTelephone.SelectedText;
-                leClient.effectif = Convert.ToInt32(tBxClientEffectif.Text);
+                int eff;
+                b = Int32.TryParse(tBxClientEffectif.Text, out eff);
+                if (b)
+                {
+                    leClient.effectif = eff;
+                }
+                
                 leClient._chiffre_d_affaire = tBxChiffreAffaire.Text;
                 leClient.raison_sociale = tBxClientRaisonSociale.Text;
                 if (rbtnAjoutClientTypePrivé.Checked)
