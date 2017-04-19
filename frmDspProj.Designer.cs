@@ -260,6 +260,7 @@
             this.frmDspProjBtnModifierProjet.TabIndex = 9;
             this.frmDspProjBtnModifierProjet.Text = "&Modifier";
             this.frmDspProjBtnModifierProjet.UseVisualStyleBackColor = true;
+            this.frmDspProjBtnModifierProjet.Click += new System.EventHandler(this.frmDspProjBtnModifierProjet_Click);
             // 
             // frmDspProjBtnQuitterProjet
             // 

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Collections;
 using System.Reflection;
-
+using static ABI.DataSetAbi;
 
 namespace ABI
 {
@@ -26,8 +26,8 @@ namespace ABI
         {
             
             InitializeComponent();
-            afficheClient();
-            dgrdClient.Columns[9].Visible = false;
+            //afficheClient();
+            
             //si la dataGrid est vide le bouton modifier disparaît
             if (dgrdClient.RowCount!=0) btnModifierClient.Enabled = false;
             //On ajoute la selection  de type de recherche dans la ComboBox
@@ -43,30 +43,32 @@ namespace ABI
         {
             //Client unClient; 
             DonneesClients.taClient.Fill(DonneesClients.DataSetClient.ClientBDD);
-            foreach (DataSetAbi.ClientBDDRow ClientRow in DonneesClients.DataSetClient.ClientBDD)
-            {
-                leClient = new Client();
-                leClient.NumeroClient = ClientRow.numéro_Client;
-                leClient.NomClient = ClientRow.nom;
-                leClient.ClientRaisonSociale = ClientRow.raison_sociale;
-                leClient.TypeActivité = ClientRow._type_d_activité;
-                leClient.ClientDomaineActivite = ClientRow._domaine_d_activité;
-                leClient.AdresseClientNumeroRue = ClientRow.adresse_numéro;
-                leClient.AdresseClientRue = ClientRow.adresse_rue;
-                leClient.AdresseClientCodePostal =Convert.ToInt32( ClientRow.adresse_code_postal);
-                leClient.AdresseClientVille = ClientRow.adresse_ville;
-                leClient.AdresseClientPays = ClientRow.adresse_pays;
-                leClient.ClientTypeTelephone = ClientRow.type_tel;
-                leClient.ClientTelephoneNumero = ClientRow.numero_telephone.ToString();
-                leClient.ClientCA = ClientRow._chiffre_d_affaire;
-                leClient.ClientEffectif = ClientRow.effectif;
-                leClient.IdClient = ClientRow.idClient;
-                leClient.ClientCommentaire = ClientRow.Commentaires;
-                leClient.ClientNature = ClientRow.nature;
-                
-                DonneesClients.ArrayClient.Add(leClient);
-                afficheClient();
-            }
+            dgrdClient.DataSource = DonneesClients.DataSetClient.ClientBDD;
+            dgrdClient.Columns[9].Visible = false;
+            //foreach (DataSetAbi.ClientBDDRow ClientRow in DonneesClients.DataSetClient.ClientBDD)
+            //{
+            //    leClient = new Client();
+            //    leClient.NumeroClient = ClientRow.numéro_Client;
+            //    leClient.NomClient = ClientRow.nom;
+            //    leClient.ClientRaisonSociale = ClientRow.raison_sociale;
+            //    leClient.TypeActivité = ClientRow._type_d_activité;
+            //    leClient.ClientDomaineActivite = ClientRow._domaine_d_activité;
+            //    leClient.AdresseClientNumeroRue = ClientRow.adresse_numéro;
+            //    leClient.AdresseClientRue = ClientRow.adresse_rue;
+            //    leClient.AdresseClientCodePostal =Convert.ToInt32( ClientRow.adresse_code_postal);
+            //    leClient.AdresseClientVille = ClientRow.adresse_ville;
+            //    leClient.AdresseClientPays = ClientRow.adresse_pays;
+            //    leClient.ClientTypeTelephone = ClientRow.type_tel;
+            //    leClient.ClientTelephoneNumero = ClientRow.numero_telephone.ToString();
+            //    leClient.ClientCA = ClientRow._chiffre_d_affaire;
+            //    leClient.ClientEffectif = ClientRow.effectif;
+            //    leClient.IdClient = ClientRow.idClient;
+            //    leClient.ClientCommentaire = ClientRow.Commentaires;
+            //    leClient.ClientNature = ClientRow.nature;
+
+            //    DonneesClients.ArrayClient.Add(leClient);
+            //    afficheClient();
+            //}
 
         }
         /// <summary>
@@ -82,7 +84,7 @@ namespace ABI
         {
             frmNewClient frmNC;
             frmNC = new  frmNewClient();
-            frmNC.Show();
+            frmNC.ShowDialog();
             
         }
         /// <summary>
@@ -224,31 +226,7 @@ namespace ABI
 
         private void dgrdClient_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            Int32 iRow;
-            iRow = this.dgrdClient.CurrentRow.Index-1;
-            Int32 refClient =Convert.ToInt32( dgrdClient.Rows[iRow].Cells[9].Value);
-            foreach (DataRow dr in DonneesClients.DataSetClient.Tables[0].Rows)
-            {
-                if (dr[0] ==dgrdClient.Rows[iRow].Cells[0].Value)
-                {
-
-                   indexRow  = DonneesClients.DataSetClient.Tables[0].Rows.IndexOf(dr);
-                }
-            }
-
-            this.leClient = DonneesClients.ArrayClient[refClient];
-
-            frmUpdClient frmUC = new frmUpdClient(this.leClient);
-            frmUC.ShowDialog();
-            if (frmUC.DialogResult == DialogResult.OK)
-            {
-                this.btnSupprimerClient.Enabled = true;
-              
-                DonneesClients.taClient.Update(DonneesClients.DataSetClient.Tables[0].Rows[indexRow]);
-                DonneesClients.DataSetClient.AcceptChanges();
-                this.afficheClient();
-                dgrdClient.Refresh();
-            }
+            this.updateClient();
         }
         /// <summary>
         /// Supprime le client selectionné de la liste de clients
@@ -273,16 +251,36 @@ namespace ABI
 
         private void btnModifierClient_Click(object sender, EventArgs e)
         {
-            
-            iClient = this.dgrdClient.CurrentRow.Index;
-            Client leClient = DonneesClients.ArrayClient[iClient];
-            frmUpdClient frmUC = new frmUpdClient(leClient);
-            frmUC.ShowDialog();
-            if (frmUC.ShowDialog() == DialogResult.OK)
+            this.updateClient();
+        }
+
+        private void updateClient()
+        {
+            //récupere idClient en cellule 0 de la ligne selectionnée
+            iClient = Int32.Parse(this.dgrdClient.CurrentRow.Cells[0].Value.ToString());
+            //Créer un nouveau ClientBDDRow
+            ClientBDDRow client = null;
+            //Parcours la Table ClientDBB dans le DataSet
+            for (int i = 0; i < DonneesClients.DataSetClient.ClientBDD.Count; i++)
             {
-                this.btnSupprimerClient.Enabled = true;
-                this.afficheClient();
-                dgrdClient.Refresh();
+                //Récupère le clientbddrow à chaque indice i
+                ClientBDDRow c = DonneesClients.DataSetClient.ClientBDD[i];
+                //si idclient du client à l'indice i = iclient de la ligne sélectionnée
+                if (c.idClient == iClient)
+                {
+                    //Client trouvé !
+                    client = c;
+                }
+            }
+            //vérifie qu'un client à bien été trouvé
+            if (client != null)
+            {
+                frmUpdClient frmUC = new frmUpdClient(client);
+
+                if (frmUC.ShowDialog() == DialogResult.OK)
+                {
+                    this.btnSupprimerClient.Enabled = true;
+                }
             }
         }
 
