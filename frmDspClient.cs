@@ -106,6 +106,7 @@ namespace ABI
             dt.Columns.Add(new DataColumn("Chiffre d'affaire", typeof(System.Int32)));
             dt.Columns.Add(new DataColumn("Effectif", typeof(System.Int32)));
             dt.Columns.Add(new DataColumn("IdClient", typeof(Int32)));
+            dt.Columns.Add(new DataColumn("téléphone", typeof(Int32)));
             for (i=0;i < DonneesClients.ArrayClient.Count;i++)
             {
                 dr = dt.NewRow();
@@ -119,6 +120,7 @@ namespace ABI
                 dr[7] = DonneesClients.ArrayClient[i].ClientCA;
                 dr[8] = DonneesClients.ArrayClient[i].ClientEffectif;
                 dr[9] = DonneesClients.ArrayClient[i].IdClient;
+                dr[10] = DonneesClients.ArrayClient[i].ClientTelephoneNumero;
                 dt.Rows.Add(dr);
             }
 
@@ -212,28 +214,40 @@ namespace ABI
                
             }
         }
-        
-         
-       
 
-        
-        
-        
+
+
+
+
+        public int indexRow;
+
+
         private void dgrdClient_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             Int32 iRow;
             iRow = this.dgrdClient.CurrentRow.Index-1;
-            Int32 refClient =Convert.ToInt32( dgrdClient.Rows[iRow].Cells[9].Value.ToString());
+            Int32 refClient =Convert.ToInt32( dgrdClient.Rows[iRow].Cells[9].Value);
+            foreach (DataRow dr in DonneesClients.DataSetClient.Tables[0].Rows)
+            {
+                if (dr[0] ==dgrdClient.Rows[iRow].Cells[0].Value)
+                {
 
-            
+                   indexRow  = DonneesClients.DataSetClient.Tables[0].Rows.IndexOf(dr);
+                }
+            }
+
             this.leClient = DonneesClients.ArrayClient[refClient];
 
             frmUpdClient frmUC = new frmUpdClient(this.leClient);
             frmUC.ShowDialog();
-            if (frmUC.ShowDialog() == DialogResult.OK)
+            if (frmUC.DialogResult == DialogResult.OK)
             {
                 this.btnSupprimerClient.Enabled = true;
+              
+                DonneesClients.taClient.Update(DonneesClients.DataSetClient.Tables[0].Rows[indexRow]);
+                DonneesClients.DataSetClient.AcceptChanges();
                 this.afficheClient();
+                dgrdClient.Refresh();
             }
         }
         /// <summary>

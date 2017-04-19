@@ -48,6 +48,9 @@
   <ItemGroup>
     <Compile Include="Client.cs" />
     <Compile Include="Contact.cs" />
+    <Compile Include="DataSetABI.cs">
+      <DependentUpon>DataSetABI.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DataSetABI.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

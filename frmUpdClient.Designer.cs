@@ -39,6 +39,7 @@
             // 
             // btnEnregistrer
             // 
+            this.btnEnregistrer.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnEnregistrer.Location = new System.Drawing.Point(23, 812);
             this.btnEnregistrer.Name = "btnEnregistrer";
             this.btnEnregistrer.Size = new System.Drawing.Size(75, 23);

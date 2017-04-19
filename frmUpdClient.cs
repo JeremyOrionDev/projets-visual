@@ -141,33 +141,56 @@ namespace ABI
                 mbText += "\n" + " le pays : " + leClient.AdresseClientPays + " devient --> " + cbxAjoutClientPays.Text;
             }
 
+            if (mbText != "") MessageBox.Show("Validation des modifications éffectuées :" + "\n" + mbText, "Valider ?", MessageBoxButtons.OKCancel);
 
-            MessageBox.Show("Validation des modifications éffectuées :" + "\n"+ mbText , "Valider ?", MessageBoxButtons.OKCancel);
-            if (tBxAjoutClientAdresseCodePostal.Text != leClient.AdresseClientCodePostal.ToString()) leClient.AdresseClientCodePostal = Convert.ToInt32(tBxAjoutClientAdresseCodePostal.Text);
             if (DialogResult == DialogResult.OK)
             {
                 leClient.NumeroClient = Convert.ToInt32(tBxIdClient.Text);
+                DonneesClients.DataSetClient.Tables[0].Rows[referenceClient].ItemArray[0]= Convert.ToInt32(tBxIdClient.Text);
                 leClient.AdresseClientCodePostal = Convert.ToInt32(tBxAjoutClientAdresseCodePostal.Text);
+                DonneesClients.DataSetClient.Tables[0].Rows[referenceClient].ItemArray[5] = tBxAjoutClientAdresseNumero.Text + tBxAjoutClientAdresseTypeNom.Text + tBxAjoutClientAdresseCodePostal.Text + tBxAjoutClientAdresseVille.Text;
+                
                 leClient.AdresseClientNumeroRue = tBxAjoutClientAdresseNumero.Text;
                 leClient.ClientTelephoneNumero = tBxClientTelephone.Text;
+                DonneesClients.DataSetClient.Tables[0].Rows[referenceClient].ItemArray[10]= Convert.ToInt32(tBxClientTelephone.Text);
+                //DonneesClients.taClient.Update(referenceClient, DonneesClients.DataSetClient.Tables[0].Rows[referenceClient].ItemArray[5].ToString(),referenceClient, tBxClientTelephone.Text);
                 leClient.ClientEffectif = Convert.ToInt32(tBxClientEffectif.Text);
+                DonneesClients.DataSetClient.Tables[0].Rows[referenceClient].ItemArray[8] = Convert.ToInt32(tBxClientEffectif.Text);
+
                 leClient.ClientCA = tBxChiffreAffaire.Text;
+                DonneesClients.DataSetClient.Tables[0].Rows[referenceClient].ItemArray[7] = Convert.ToInt32(tBxChiffreAffaire.Text);
+
                 leClient.ClientRaisonSociale = tBxClientRaisonSociale.Text;
                 if (rbtnAjoutClientTypePrivé.Checked)
                 {
                     leClient.TypeActivité = "privé";
+                    DonneesClients.DataSetClient.Tables[0].Rows[referenceClient].ItemArray[3] = "privé";
+
                 }
                 if (rBtnAjoutClientTypePublic.Checked)
                 {
                     leClient.TypeActivité = "public";
+                    DonneesClients.DataSetClient.Tables[0].Rows[referenceClient].ItemArray[3]="public";
+
                 }
                 leClient.AdresseClientRue = tBxAjoutClientAdresseVille.Text;
+
                 leClient.AdresseClientPays = cbxAjoutClientPays.SelectedItem.ToString();
+                
+
                 leClient.ClientNature = tBxNature.Text;
                 
-                if (tBxIdClient.Text != DonneesClients.DataSetClient.ClientBDD[referenceClient].numéro_Client.ToString()) DonneesClients.DataSetClient.ClientBDD[referenceClient].numéro_Client = Int32.Parse(tBxIdClient.Text);
+                DonneesClients.taClient.Update(DonneesClients.DataSetClient);
+               // DonneesClients.taClient.Update(DonneesClients.DataSetClient.Tables[0].Rows[referenceClient]);
                 DonneesClients.DataSetClient.ClientBDD.AcceptChanges();
-                DonneesClients.taClient.Update(DonneesClients.DataSetClient.ClientBDD[referenceClient]);
+                
+                //DonneesClients.DataSetClient.
+              
+                
+                this.DialogResult = DialogResult.OK;
+
+
+
             }
             else DialogResult = DialogResult.Cancel;
             this.Close();

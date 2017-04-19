@@ -66,7 +66,6 @@ namespace ABI
             //this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
-        
 
         
         private void btnValider_Click(object sender, EventArgs e)
