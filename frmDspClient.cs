@@ -168,6 +168,7 @@ namespace ABI
                 {
                     DonneesClients.DataSetClient.ClientBDD.RemoveClientBDDRow(client);
                     DonneesClients.DataSetClient.ClientBDD.AcceptChanges();
+                    DonneesClients.taClient.Delete(client.idClient, client.adresse_code_postal, client.numero_telephone, client.effectif, client.numéro_Client);
                 }
             }
             
