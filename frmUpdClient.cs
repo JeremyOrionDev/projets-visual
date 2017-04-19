@@ -174,6 +174,7 @@ namespace ABI
                 leClient.Commentaires = tBxCommentaire.Text;
                 leClient.nature = tBxNature.Text;
 
+
                 DonneesClients.taClient.Update(DonneesClients.DataSetClient.ClientBDD);
                 this.DialogResult = DialogResult.OK;
             }

@@ -221,13 +221,13 @@ namespace ABI
                 client.idClient = ++DonneesClients.nbreClient;
                 DonneesClients.DataSetClient.ClientBDD.AddClientBDDRow(client);
                 DonneesClients.DataSetClient.ClientBDD.AcceptChanges();
-                DonneesClients.taClient.Insert(client.idClient, client.nom, client.raison_sociale, 
-                                                client._type_d_activité, client._domaine_d_activité, 
-                                                client.adresse_numéro, client.adresse_rue, 
-                                                client.adresse_code_postal, client.adresse_ville, 
-                                                client.adresse_pays, client.type_tel, 
-                                                client.numero_telephone, client._chiffre_d_affaire, 
-                                                client.effectif, client.Commentaires, client.nature, 
+                DonneesClients.taClient.Insert(client.idClient, client.nom, client.raison_sociale,
+                                                client._type_d_activité, client._domaine_d_activité,
+                                                client.adresse_numéro, client.adresse_rue,
+                                                client.adresse_code_postal, client.adresse_ville,
+                                                client.adresse_pays, client.type_tel,
+                                                client.numero_telephone, client._chiffre_d_affaire,
+                                                client.effectif, client.Commentaires, client.nature,
                                                 client.idClient);
                 this.DialogResult = DialogResult.OK;
             }
