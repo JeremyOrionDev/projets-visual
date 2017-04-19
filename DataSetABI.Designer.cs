@@ -348,6 +348,8 @@ namespace ABI {
             
             private global::System.Data.DataColumn columnnuméro_Client;
             
+            private global::System.Data.DataColumn columnadresse_code_postal1;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public ClientBDDDataTable() {
@@ -519,6 +521,14 @@ namespace ABI {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn adresse_code_postal1Column {
+                get {
+                    return this.columnadresse_code_postal1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -571,7 +581,8 @@ namespace ABI {
                         int idClient, 
                         string Commentaires, 
                         string nature, 
-                        int numéro_Client) {
+                        int numéro_Client, 
+                        string adresse_code_postal1) {
                 ClientBDDRow rowClientBDDRow = ((ClientBDDRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         nom,
@@ -590,7 +601,8 @@ namespace ABI {
                         idClient,
                         Commentaires,
                         nature,
-                        numéro_Client};
+                        numéro_Client,
+                        adresse_code_postal1};
                 rowClientBDDRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowClientBDDRow);
                 return rowClientBDDRow;
@@ -630,6 +642,7 @@ namespace ABI {
                 this.columnCommentaires = base.Columns["Commentaires"];
                 this.columnnature = base.Columns["nature"];
                 this.columnnuméro_Client = base.Columns["numéro Client"];
+                this.columnadresse_code_postal1 = base.Columns["adresse code postal1"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -675,6 +688,8 @@ namespace ABI {
                 base.Columns.Add(this.columnnature);
                 this.columnnuméro_Client = new global::System.Data.DataColumn("numéro Client", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnuméro_Client);
+                this.columnadresse_code_postal1 = new global::System.Data.DataColumn("adresse code postal1", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnadresse_code_postal1);
                 this.columnnom.AllowDBNull = false;
                 this.columnnom.MaxLength = 2147483647;
                 this.columnraison_sociale.AllowDBNull = false;
@@ -703,6 +718,9 @@ namespace ABI {
                 this.columnnature.AllowDBNull = false;
                 this.columnnature.MaxLength = 2147483647;
                 this.columnnuméro_Client.AllowDBNull = false;
+                this.columnadresse_code_postal1.AllowDBNull = false;
+                this.columnadresse_code_postal1.Caption = "adresse code postal";
+                this.columnadresse_code_postal1.MaxLength = 5;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1365,6 +1383,17 @@ namespace ABI {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string adresse_code_postal1 {
+                get {
+                    return ((string)(this[this.tableClientBDD.adresse_code_postal1Column]));
+                }
+                set {
+                    this[this.tableClientBDD.adresse_code_postal1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsCommentairesNull() {
                 return this.IsNull(this.tableClientBDD.CommentairesColumn);
             }
@@ -1656,7 +1685,6 @@ namespace ABI.DataSetABITableAdapters {
             tableMapping.ColumnMappings.Add("domaine d\'activité", "domaine d\'activité");
             tableMapping.ColumnMappings.Add("adresse numéro", "adresse numéro");
             tableMapping.ColumnMappings.Add("adresse rue", "adresse rue");
-            tableMapping.ColumnMappings.Add("adresse code postal", "adresse code postal");
             tableMapping.ColumnMappings.Add("adresse ville", "adresse ville");
             tableMapping.ColumnMappings.Add("adresse pays", "adresse pays");
             tableMapping.ColumnMappings.Add("type tel", "type tel");
@@ -1667,6 +1695,7 @@ namespace ABI.DataSetABITableAdapters {
             tableMapping.ColumnMappings.Add("Commentaires", "Commentaires");
             tableMapping.ColumnMappings.Add("nature", "nature");
             tableMapping.ColumnMappings.Add("numéro Client", "numéro Client");
+            tableMapping.ColumnMappings.Add("adresse code postal", "adresse code postal1");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
@@ -1678,7 +1707,7 @@ namespace ABI.DataSetABITableAdapters {
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p3", global::System.Data.SqlDbType.Text, 0, global::System.Data.ParameterDirection.Input, 0, 0, "domaine d\'activité", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@adresse_numéro", global::System.Data.SqlDbType.Text, 0, global::System.Data.ParameterDirection.Input, 0, 0, "adresse numéro", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@adresse_rue", global::System.Data.SqlDbType.Text, 0, global::System.Data.ParameterDirection.Input, 0, 0, "adresse rue", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@adresse_code_postal", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "adresse code postal", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@adresse_code_postal", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "adresse code postal", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@adresse_ville", global::System.Data.SqlDbType.Text, 0, global::System.Data.ParameterDirection.Input, 0, 0, "adresse ville", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@adresse_pays", global::System.Data.SqlDbType.Text, 0, global::System.Data.ParameterDirection.Input, 0, 0, "adresse pays", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@type_tel", global::System.Data.SqlDbType.Text, 0, global::System.Data.ParameterDirection.Input, 0, 0, "type tel", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1772,7 +1801,7 @@ namespace ABI.DataSetABITableAdapters {
                     string p3, 
                     string adresse_numéro, 
                     string adresse_rue, 
-                    int adresse_code_postal, 
+                    string adresse_code_postal, 
                     string adresse_ville, 
                     string adresse_pays, 
                     string type_tel, 
@@ -1819,7 +1848,12 @@ namespace ABI.DataSetABITableAdapters {
             else {
                 this.Adapter.InsertCommand.Parameters[5].Value = ((string)(adresse_rue));
             }
-            this.Adapter.InsertCommand.Parameters[6].Value = ((int)(adresse_code_postal));
+            if ((adresse_code_postal == null)) {
+                throw new global::System.ArgumentNullException("adresse_code_postal");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(adresse_code_postal));
+            }
             if ((adresse_ville == null)) {
                 throw new global::System.ArgumentNullException("adresse_ville");
             }

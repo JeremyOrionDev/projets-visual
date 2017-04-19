@@ -69,7 +69,7 @@ namespace ABI
             tBxNature.Text = leClient.ClientNature;
             tBxCommentaire.Text = leClient.ClientCommentaire;
         }
-        
+        public int indexRow;
         private void frmUpdClient_Load(object sender, EventArgs e)
         {
 
@@ -145,44 +145,52 @@ namespace ABI
 
             if (DialogResult == DialogResult.OK)
             {
+
+                //DataSetABI.ClientBDDRow ClientRow;
+                //ClientRow = DonneesClients.DataSetClient.ClientBDD.NewClientBDDRow();
                 leClient.NumeroClient = Convert.ToInt32(tBxIdClient.Text);
-                DonneesClients.DataSetClient.Tables[0].Rows[referenceClient].ItemArray[0]= Convert.ToInt32(tBxIdClient.Text);
                 leClient.AdresseClientCodePostal = Convert.ToInt32(tBxAjoutClientAdresseCodePostal.Text);
-                DonneesClients.DataSetClient.Tables[0].Rows[referenceClient].ItemArray[5] = tBxAjoutClientAdresseNumero.Text + tBxAjoutClientAdresseTypeNom.Text + tBxAjoutClientAdresseCodePostal.Text + tBxAjoutClientAdresseVille.Text;
-                
+                leClient.NomClient = tBxNomClient.Text;
+                leClient.ClientDomaineActivite= tbxDomaineActivité.Text;
                 leClient.AdresseClientNumeroRue = tBxAjoutClientAdresseNumero.Text;
-                leClient.ClientTelephoneNumero = tBxClientTelephone.Text;
-                DonneesClients.DataSetClient.Tables[0].Rows[referenceClient].ItemArray[10]= Convert.ToInt32(tBxClientTelephone.Text);
-                //DonneesClients.taClient.Update(referenceClient, DonneesClients.DataSetClient.Tables[0].Rows[referenceClient].ItemArray[5].ToString(),referenceClient, tBxClientTelephone.Text);
-                leClient.ClientEffectif = Convert.ToInt32(tBxClientEffectif.Text);
-                DonneesClients.DataSetClient.Tables[0].Rows[referenceClient].ItemArray[8] = Convert.ToInt32(tBxClientEffectif.Text);
-
+                leClient.ClientTelephoneNumero=tBxClientTelephone.Text;
+                leClient.ClientTypeTelephone = cBxClientTypeTelephone.SelectedText;
+                leClient.ClientEffectif= Convert.ToInt32(tBxClientEffectif.Text);
                 leClient.ClientCA = tBxChiffreAffaire.Text;
-                DonneesClients.DataSetClient.Tables[0].Rows[referenceClient].ItemArray[7] = Convert.ToInt32(tBxChiffreAffaire.Text);
-
-                leClient.ClientRaisonSociale = tBxClientRaisonSociale.Text;
+                leClient.ClientRaisonSociale= tBxClientRaisonSociale.Text;
                 if (rbtnAjoutClientTypePrivé.Checked)
                 {
-                    leClient.TypeActivité = "privé";
-                    DonneesClients.DataSetClient.Tables[0].Rows[referenceClient].ItemArray[3] = "privé";
-
+                    leClient.TypeActivité= "privé";
                 }
                 if (rBtnAjoutClientTypePublic.Checked)
                 {
                     leClient.TypeActivité = "public";
-                    DonneesClients.DataSetClient.Tables[0].Rows[referenceClient].ItemArray[3]="public";
 
                 }
-                leClient.AdresseClientRue = tBxAjoutClientAdresseVille.Text;
-
+                leClient.AdresseClientVille = tBxAjoutClientAdresseVille.Text;
+                leClient.AdresseClientRue = tBxAjoutClientAdresseTypeNom.Text;
                 leClient.AdresseClientPays = cbxAjoutClientPays.SelectedItem.ToString();
-                
-
+                leClient.ClientCommentaire = tBxCommentaire.Text;
+                leClient.IdClient = 5;
                 leClient.ClientNature = tBxNature.Text;
-                
-                DonneesClients.taClient.Update(DonneesClients.DataSetClient);
-               // DonneesClients.taClient.Update(DonneesClients.DataSetClient.Tables[0].Rows[referenceClient]);
+                foreach (DataRow dr in DonneesClients.DataSetClient.ClientBDD.Rows)
+                {
+                    if (dr.ItemArray[13].Equals(leClient.NumeroClient))
+                    {
+                        
+                        indexRow = DonneesClients.DataSetClient.ClientBDD.Rows.IndexOf(dr);
+                       
+                    }
+                }
+                DonneesClients.DataSetClient.AcceptChanges();
+                DataSetABI.ClientBDDRow row = (DataSetABI.ClientBDDRow) DonneesClients.DataSetClient.ClientBDD.Rows.Find(leClient);
+                DonneesClients.DataSetClient.ClientBDD.RemoveClientBDDRow(row);
+               // DonneesClients.DataSetClient.ClientBDD.Rows.RemoveAt(indexRow);
+              
                 DonneesClients.DataSetClient.ClientBDD.AcceptChanges();
+               
+                
+                
                 
                 //DonneesClients.DataSetClient.
               

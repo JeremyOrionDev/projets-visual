@@ -282,6 +282,7 @@ namespace ABI
             {
                 this.btnSupprimerClient.Enabled = true;
                 this.afficheClient();
+                dgrdClient.Refresh();
             }
         }
 
