@@ -352,11 +352,7 @@
             this.button1.Text = "Clients test";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // donneesClientsBindingSource
-            // 
-            this.donneesClientsBindingSource.DataSource = typeof(ABI.DonneesClients);
-            // 
+            
             // frmDspClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
