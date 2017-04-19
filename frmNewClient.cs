@@ -13,14 +13,11 @@ namespace ABI
 {
     public   partial class frmNewClient : Form
     {
-        public Int32 referenceClient;
-
+        public int referenceClient;
         public frmNewClient()
         {
             InitializeComponent();
-
             
-            //this.frmNewClientBtnEnregistrer.Visible = false;
             this.btnAjoutClientValider.Visible = true;
             this.cBxClientTypeTelephone.Items.AddRange(new String[]
                 { "Société","Portable","Privé"});
@@ -54,200 +51,195 @@ namespace ABI
                     "Timor Oriental","Togo","Tonga","Trinité et Tobago","Tunisie","Turkmenistan",
                     "Turquie","Tuvalu","Ukraine","Uruguay","Vanuatu","Vatican","Vénézuéla","Vietnam",
                     "Yémen","Yougoslavie","Zambie","Zimbabwe" });
-
         }
-
-
-
 
         private void btnQuitter_Click(object sender, EventArgs e)
         {
-            //this.DialogResult = DialogResult.Cancel;
-            this.Close();
+            this.DialogResult = DialogResult.Cancel;
         }
 
-        
         private void btnValider_Click(object sender, EventArgs e)
         {
-            //Client nouveauClient = new Client();
+            String mbText = "";
             ClientBDDRow client = DonneesClients.DataSetClient.ClientBDD.NewClientBDDRow();
-            //if (tBxIdClient.Text != "")
-            //{
-            //    nouveauClient.NumeroClient = Int32.Parse(tBxIdClient.Text.Trim());
-            //    ClientRow.numéro_Client = nouveauClient.NumeroClient;
+            if (tBxIdClient.Text != "")
+            {
+                Int32 num;
+                Boolean b = Int32.TryParse(tBxIdClient.Text.Trim(), out num);
+                if (b)
+                {
+                    client.numéro_Client = Int32.Parse(tBxIdClient.Text.Trim());
+                }
+                else
+                {
+                    mbText += "Attention le numero de client doit être un chiffre \n";
+                }
+            }
+            else
+            {
+                mbText += "Attention le numero de client ne peut être vide \n";
+            }
 
-            //}
-            //else
-            //{
-            //    mbText += "Attention le numero de client ne peut être vide \n";
-            //}
-            //if(tBxNomClient.Text!="")
-            //{
-            //    nouveauClient.NomClient = tBxNomClient.Text;
-            //    ClientRow.nom = nouveauClient.NomClient;
-            //}
-            //else
-            //{
-            //    mbText += " Attention le nom du client ne peut être vide \n";
-            //}
-            //if(tBxClientRaisonSociale.Text!="")
-            //{
-            //    nouveauClient.ClientRaisonSociale = tBxClientRaisonSociale.Text;
-            //    ClientRow.raison_sociale = nouveauClient.ClientRaisonSociale;
+            if (tBxNomClient.Text != "")
+            {
+                client.nom = tBxNomClient.Text;
+            }
+            else
+            {
+                mbText += " Attention le nom du client ne peut être vide \n";
+            }
 
-            //}
-            //else
-            //{
-            //    mbText += "Attention la raison sociale ne peut être vide \n";
-            //}
-            //if (rbtnAjoutClientTypePrivé.Checked)
-            //{
-            //    nouveauClient.TypeActivité = "privé";
-            //    ClientRow._type_d_activité = nouveauClient.TypeActivité;
+            if (tBxClientRaisonSociale.Text != "")
+            {
+                client.raison_sociale = tBxClientRaisonSociale.Text;
+            }
+            else
+            {
+                mbText += "Attention la raison sociale ne peut être vide \n";
+            }
 
-            //}
-            //if (rBtnAjoutClientTypePublic.Checked)
-            //{
-            //    nouveauClient.TypeActivité = "public";
-            //    ClientRow._type_d_activité = nouveauClient.TypeActivité;
+            if (rbtnAjoutClientTypePrivé.Checked)
+            {
+                client._type_d_activité = "privé";
+            }
+            if (rBtnAjoutClientTypePublic.Checked)
+            {
+                client._type_d_activité = "public";
+            }
+            if (!rbtnAjoutClientTypePrivé.Checked && !rBtnAjoutClientTypePublic.Checked)
+            {
+                mbText += "Attention le type du client ne peut être vide \n";
+            }
 
-            //}
-            //if (!rbtnAjoutClientTypePrivé.Checked&&!rBtnAjoutClientTypePublic.Checked)
-            //{
-            //    mbText += "Attention le type du client ne peut être vide \n";
-            //}
-            //if (tbxDomaineActivité.Text != "")
-            //{
-            //    nouveauClient.ClientDomaineActivite = tbxDomaineActivité.Text;
-            //    ClientRow._domaine_d_activité = nouveauClient.ClientDomaineActivite;
+            if (tbxDomaineActivité.Text != "")
+            {
+                client._domaine_d_activité = tbxDomaineActivité.Text;
+            }
+            else
+            {
+                mbText += "Attention le domaine d'activité ne peut être vide \n";
+            }
+            if (tBxAjoutClientAdresseNumero.Text != "")
+            {
+                client.adresse_numéro = tBxAjoutClientAdresseNumero.Text;
+            }
+            else
+            {
+                mbText += "Attention le numero de rue ne peut être vide \n";
+            }
 
-            //}
-            //else
-            //{
-            //    mbText += "Attention le domaine d'activité ne peut être vide \n";
-            //}
-            //if(tBxAjoutClientAdresseNumero.Text!="")
-            //{
-            //    nouveauClient.AdresseClientNumeroRue = tBxAjoutClientAdresseNumero.Text;
-            //    ClientRow.adresse_numéro = nouveauClient.AdresseClientNumeroRue;
+            if (tBxAjoutClientAdresseTypeNom.Text != "")
+            {
+                client.adresse_rue = tBxAjoutClientAdresseTypeNom.Text;
+            }
+            else
+            {
+                mbText += "Attention l'adresse ne peut être vide \n";
+            }
 
-            //}
-            //else
-            //{
-            //    mbText += "Attention le numero de rue ne peut être vide \n";
-            //}
-            //if(tBxAjoutClientAdresseTypeNom.Text!="")
-            //{
-            //    nouveauClient.AdresseClientRue = tBxAjoutClientAdresseTypeNom.Text;
-            //    ClientRow.adresse_rue = nouveauClient.AdresseClientRue;
+            if (tBxAjoutClientAdresseCodePostal.Text != "")
+            {
+                client.adresse_code_postal = tBxAjoutClientAdresseCodePostal.Text;
+            }
+            else
+            {
+                mbText += "Attention le code postal ne peut être vide \n";
+            }
 
-            //}
-            //else
-            //{
-            //    mbText += "Attention l'adresse ne peut être vide \n";
-            //}
-            //if(tBxAjoutClientAdresseCodePostal.Text!="")
-            //{
-            //    nouveauClient.AdresseClientCodePostal =Convert.ToInt32( tBxAjoutClientAdresseCodePostal.Text);
-            //    ClientRow.adresse_code_postal = nouveauClient.AdresseClientCodePostal.ToString();
+            if (tBxAjoutClientAdresseVille.Text != "")
+            {
+                client.adresse_ville = tBxAjoutClientAdresseVille.Text;
+            }
+            else
+            {
+                mbText += "Attention la ville ne peut être vide \n";
+            }
 
-            //}
-            //else
-            //{
-            //    mbText += "Attention le code postal ne peut être vide \n";
+            if (cbxAjoutClientPays.SelectedItem != null)
+            {
+                client.adresse_pays = cbxAjoutClientPays.Text.ToString();
+            }
+            else
+            {
+                mbText += "Attention le pays ne peut être vide \n";
+            }
+            if (cBxClientTypeTelephone.SelectedItem != null)
+            {
+                client.type_tel = cBxClientTypeTelephone.SelectedItem.ToString();
+            }
+            else
+            {
+                mbText += "Attention le type de téléphone ne peut être vide \n";
+            }
 
-            //}
-            //if(tBxAjoutClientAdresseVille.Text!="")
-            //{
-            //    nouveauClient.AdresseClientVille = tBxAjoutClientAdresseVille.Text;
-            //    ClientRow.adresse_ville = nouveauClient.AdresseClientVille;
+            if (tBxClientTelephone.Text.ToString() != "")
+            {
+                int tel;
+                Boolean b = Int32.TryParse(tBxClientTelephone.Text, out tel);
+                if (b)
+                {
+                    client.numero_telephone = tel;
+                }
+                else
+                {
+                    mbText += "Attention le numéro de téléphone doit contenir seulement des chifrres \n";
+                }
 
-            //}
-            //else
-            //{
-            //    mbText += "Attention la ville ne peut être vide \n";
+            }
+            else if (tBxClientTelephone.Text.Length != 10)
+            {
+                mbText += "Attention le numéro de téléphone doit avoir 10 chiffres \n";
+            }
 
-            //}
-            //if (cbxAjoutClientPays.SelectedItem != null)
-            //{
-            //    nouveauClient.AdresseClientPays = cbxAjoutClientPays.Text.ToString();
-            //    ClientRow.adresse_pays = nouveauClient.AdresseClientPays;
+            if (tBxChiffreAffaire.Text.ToString() != "")
+            {
+                client._chiffre_d_affaire = tBxChiffreAffaire.Text;
+            }
+            else
+            {
+                mbText += "Attention le chiffre d'affaire ne peut être vide \n";
+            }
 
-            //}
-            //else
-            //{
-            //    mbText += "Attention le pays ne peut être vide \n";
-            //}
-            //if(cBxClientTypeTelephone.SelectedItem!=null)
-            //{
-            //    nouveauClient.ClientTypeTelephone = cBxClientTypeTelephone.SelectedItem.ToString();
-            //    ClientRow.type_tel = nouveauClient.ClientTypeTelephone;
+            if (tBxClientEffectif.Text.ToString() != "")
+            {
+                Int32 eff;
+                Boolean b = Int32.TryParse(tBxClientEffectif.Text, out eff);
+                if (b)
+                {
+                    client.effectif = eff;
+                }
+                else
+                {
+                    mbText += "Attention l'effectif doit être des chiffres \n";
+                }
+            }
+            else
+            {
+                mbText += "Attention l'effectif ne peut être vide \n";
+            }
 
-            //}
-            //else
-            //{
-            //    mbText += "Attention le type de téléphone ne peut être vide \n";
-            //}
-            //if(tBxClientTelephone.Text.ToString()!="")
-            //{
-            //    nouveauClient.ClientTelephoneNumero = tBxClientTelephone.Text;
-            //    ClientRow.numero_telephone =Convert.ToInt32( nouveauClient.ClientTelephoneNumero);
+            client.Commentaires = tBxCommentaire.Text;
 
-            //}
-            //else if(tBxClientTelephone.Text.Length!=10)
-            //{
-            //    mbText += "Attention le numéro de téléphone doit avoir 10 chiffres \n";
-            //}
-            
-            //if(tBxChiffreAffaire.Text.ToString()!="")
-            //{
-            //    nouveauClient.ClientCA = tBxChiffreAffaire.Text;
-            //    ClientRow._chiffre_d_affaire =nouveauClient.ClientCA;
+            if (tBxNature.Text != "")
+            {
+                client.nature = tBxNature.Text;
+            }
+            else
+            {
+                mbText += "Attention la nature du client ne peut être vide \n";
+            }
 
-            //}
-            //else
-            //{
-            //    mbText += "Attention le chiffre d'affaire ne peut être vide \n";
-            //}
-            //if (tBxClientEffectif.Text.ToString() != "")
-            //{
-            //    nouveauClient.ClientEffectif =Convert.ToInt32( tBxClientEffectif.Text);
-            //    ClientRow.effectif = nouveauClient.ClientEffectif;
-
-            //}
-            //else
-            //{
-            //    mbText += "Attention l'effectif ne peut être vide \n";
-            //}
-            //nouveauClient.ClientCommentaire = tBxCommentaire.Text;
-            //if (tBxNature.Text != "")
-            //{
-            //    nouveauClient.ClientNature = tBxNature.Text;
-            //    ClientRow.nature = nouveauClient.ClientNature;
-
-            //}
-            //else
-            //{
-            //    mbText += "Attention la nature du client ne peut être vide \n";
-            //}
-            
-            //if (mbText.ToString() != "")
-            //{
-            //    MessageBox.Show(mbText,"Erreur dans le formulaire", MessageBoxButtons.OK);
-            //}
-            //else
-            //{
-            client.idClient = Int32.Parse(tBxIdClient.Text);
-            client.nom = "salut";
-                //DonneesClients.ArrayClient.Add(nouveauClient);
-                //DonneesClients.NClient++;
-            DonneesClients.DataSetClient.ClientBDD.AddClientBDDRow(client);
-                //DonneesClients.taClient.Update(DonneesClients.DataSetClient.ClientBDD);
-           this.DialogResult = DialogResult.OK;
-            //}
-
-
-        }
+            if (mbText.ToString() != "")
+            {
+                MessageBox.Show(mbText, "Erreur dans le formulaire", MessageBoxButtons.OK);
+            }
+            else
+            {
+                client.idClient = Int32.Parse(tBxIdClient.Text);
+                DonneesClients.DataSetClient.ClientBDD.AddClientBDDRow(client);
+                this.DialogResult = DialogResult.OK;
+            }
+    }
 
 
         private void btnAjouterContact_Click(object sender, EventArgs e)
