@@ -13,10 +13,8 @@ namespace ABI
 {
     public   partial class frmNewClient : Form
     {
-        List<string> _items = new List<string>();
-        String mbText="";
         public Int32 referenceClient;
-        
+
         public frmNewClient()
         {
             InitializeComponent();

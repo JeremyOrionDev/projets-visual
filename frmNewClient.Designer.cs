@@ -262,6 +262,7 @@
             // 
             this.tBxIdClient.Location = new System.Drawing.Point(109, 16);
             this.tBxIdClient.Name = "tBxIdClient";
+            this.tBxIdClient.ReadOnly = true;
             this.tBxIdClient.Size = new System.Drawing.Size(100, 20);
             this.tBxIdClient.TabIndex = 1;
             // 

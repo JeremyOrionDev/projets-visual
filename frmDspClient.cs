@@ -26,54 +26,25 @@ namespace ABI
         {
             
             InitializeComponent();
-            //afficheClient();
             
             //si la dataGrid est vide le bouton modifier disparaît
             if (dgrdClient.RowCount!=0) btnModifierClient.Enabled = false;
             //On ajoute la selection  de type de recherche dans la ComboBox
             this.cbxChoixrecherche.Items.AddRange(new String[]
                 { "nom client", "NumeroClient", "nature", "raison sociale" });
-            
 
-            ////    Donnees.ArrayStag.Add(unStagiaire);
-            ////    afficheStagiaires();
         }
 
         private void frmDspClient_Load(object sender, EventArgs e)
         {
-            //Client unClient; 
+            //Rempli la TableAdapter avec la Table Client du DataSet
             DonneesClients.taClient.Fill(DonneesClients.DataSetClient.ClientBDD);
+            //Renseigne le DataSource de la DataGridView avec la Table Client du DataSet
             dgrdClient.DataSource = DonneesClients.DataSetClient.ClientBDD;
-            dgrdClient.Columns[9].Visible = false;
-            //foreach (DataSetAbi.ClientBDDRow ClientRow in DonneesClients.DataSetClient.ClientBDD)
-            //{
-            //    leClient = new Client();
-            //    leClient.NumeroClient = ClientRow.numéro_Client;
-            //    leClient.NomClient = ClientRow.nom;
-            //    leClient.ClientRaisonSociale = ClientRow.raison_sociale;
-            //    leClient.TypeActivité = ClientRow._type_d_activité;
-            //    leClient.ClientDomaineActivite = ClientRow._domaine_d_activité;
-            //    leClient.AdresseClientNumeroRue = ClientRow.adresse_numéro;
-            //    leClient.AdresseClientRue = ClientRow.adresse_rue;
-            //    leClient.AdresseClientCodePostal =Convert.ToInt32( ClientRow.adresse_code_postal);
-            //    leClient.AdresseClientVille = ClientRow.adresse_ville;
-            //    leClient.AdresseClientPays = ClientRow.adresse_pays;
-            //    leClient.ClientTypeTelephone = ClientRow.type_tel;
-            //    leClient.ClientTelephoneNumero = ClientRow.numero_telephone.ToString();
-            //    leClient.ClientCA = ClientRow._chiffre_d_affaire;
-            //    leClient.ClientEffectif = ClientRow.effectif;
-            //    leClient.IdClient = ClientRow.idClient;
-            //    leClient.ClientCommentaire = ClientRow.Commentaires;
-            //    leClient.ClientNature = ClientRow.nature;
 
-            //    DonneesClients.ArrayClient.Add(leClient);
-            //    afficheClient();
-            //}
-
+            //dgrdClient.Columns[9].Visible = false;
         }
-        /// <summary>
-        /// Client test pour remplir la datagrid au démarrage
-        /// </summary>
+
 
         /// <summary>
         /// On veut ajouter un client le form d'ajout de client s'ouvre
@@ -87,56 +58,12 @@ namespace ABI
             frmNC.ShowDialog();
             
         }
-        /// <summary>
-        /// Constructeur de la datagrid en ajoutant les colonnes
-        /// </summary>
-        private void afficheClient()
-        {
-            //DataTable: pour enregistrer les clients
-            // liés au DataGridView
-            DataTable dt = new DataTable();
-            DataRow dr;
-            
-            Int32 i;
-            dt.Columns.Add(new DataColumn("NumeroClient", typeof(System.Int32)));
-            dt.Columns.Add(new DataColumn("nom client", typeof(String)));
-            dt.Columns.Add(new DataColumn("Raison sociale", typeof(System.String)));            
-            dt.Columns.Add(new DataColumn("type", typeof(System.String)));
-            dt.Columns.Add(new DataColumn("Domaine d'activité", typeof(System.String)));
-            dt.Columns.Add(new DataColumn("Adresse", typeof(System.String)));
-            dt.Columns.Add(new DataColumn("Nature", typeof(System.String)));
-            dt.Columns.Add(new DataColumn("Chiffre d'affaire", typeof(System.Int32)));
-            dt.Columns.Add(new DataColumn("Effectif", typeof(System.Int32)));
-            dt.Columns.Add(new DataColumn("IdClient", typeof(Int32)));
-            dt.Columns.Add(new DataColumn("téléphone", typeof(Int32)));
-            for (i=0;i < DonneesClients.ArrayClient.Count;i++)
-            {
-                dr = dt.NewRow();
-                dr[0] = DonneesClients.ArrayClient[i].NumeroClient;
-                dr[1] = DonneesClients.ArrayClient[i].NomClient;
-                dr[2] = DonneesClients.ArrayClient[i].ClientRaisonSociale;
-                dr[3] = DonneesClients.ArrayClient[i].TypeActivité;
-                dr[4] = DonneesClients.ArrayClient[i].ClientDomaineActivite;
-                dr[5] = DonneesClients.ArrayClient[i].AdresseClientNumeroRue.ToString() + DonneesClients.ArrayClient[i].AdresseClientRue + DonneesClients.ArrayClient[i].AdresseClientCodePostal.ToString() + DonneesClients.ArrayClient[i].AdresseClientVille;
-                dr[6] = DonneesClients.ArrayClient[i].ClientNature;
-                dr[7] = DonneesClients.ArrayClient[i].ClientCA;
-                dr[8] = DonneesClients.ArrayClient[i].ClientEffectif;
-                dr[9] = DonneesClients.ArrayClient[i].IdClient;
-                dr[10] = DonneesClients.ArrayClient[i].ClientTelephoneNumero;
-                dt.Rows.Add(dr);
-            }
-
-            //rempli les colonnes avec les valeurs du client
-            this.dgrdClient.DataSource = dt.DefaultView;
-        }
 
         private void deleteClient()
         {
-            
             foreach(Client C1 in DonneesClients.ArrayClient)
             {
                 if (C1.IdClient.ToString() == dgrdClient.CurrentRow.Cells[9].Value.ToString()) DonneesClients.ArrayClient.Remove(C1);
-                
             }
             
             
@@ -174,7 +101,7 @@ namespace ABI
         {
             Application.Exit();
         }
-        DataSet ds = new DataSet();
+
         private void btnListeRechercheClient_Click(object sender, EventArgs e)
         {
             if (cbxChoixrecherche.Text == "nom client")
@@ -200,8 +127,6 @@ namespace ABI
             }
             dgrdClient.Refresh();
         }
-            //"[nom client] like '%" + txtBxRecherche.Text.ToString() + "%'"
-        
 
         private void cbxChoixrecherche_SelectedIndexChanged_1(object sender, EventArgs e)
         {
@@ -218,16 +143,11 @@ namespace ABI
         }
 
 
-
-
-
-        public int indexRow;
-
-
         private void dgrdClient_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             this.updateClient();
         }
+
         /// <summary>
         /// Supprime le client selectionné de la liste de clients
         /// </summary>
@@ -244,7 +164,6 @@ namespace ABI
             if(MessageBox.Show(mbTexT, "Attention Suppression client", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
                 deleteClient();
-                
             }
             
         }
@@ -282,13 +201,6 @@ namespace ABI
                     this.btnSupprimerClient.Enabled = true;
                 }
             }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            
-            
-            
         }
     }
 }
