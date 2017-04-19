@@ -80,8 +80,6 @@ namespace ABI
 
         }
         
-
-
         /// <summary>
         /// Ajoute le client dans la Liste de clients et l'affiche dans le form DspClient 
         /// après avoir validé tous les tests
