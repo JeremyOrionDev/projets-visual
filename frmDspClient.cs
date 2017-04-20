@@ -38,20 +38,16 @@ namespace ABI
         private void frmDspClient_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'dataSetAbi.ClientBDD' table. You can move, or remove it, as needed.
-            this.clientBDDTableAdapter.Fill(this.dataSetAbi.ClientBDD);
-            DonneesClients.taClient = this.clientBDDTableAdapter;
-            
-
-            DonneesClients.DataSetClient = this.dataSetAbi;
-
-            int count = this.dataSetAbi.ClientBDD.Count;
+            DonneesClients.taClient.Fill(DonneesClients.DataSetClient.ClientBDD);
+           
+            int count = DonneesClients.DataSetClient.ClientBDD.Count;
             if (count == 0)
             {
                 DonneesClients.nbreClient = 0;
             }
             else
             {
-                DonneesClients.nbreClient = this.dataSetAbi.ClientBDD[count-1].idClient;
+                DonneesClients.nbreClient = DonneesClients.DataSetClient.ClientBDD[count-1].idClient;
             }
 
             //dgrdClient.Columns[9].Visible = false;
@@ -155,10 +151,10 @@ namespace ABI
                 Int32 idClient = Convert.ToInt32(dgrdClient.CurrentRow.Cells[0].Value);
                 ClientBDDRow client = null;
                 //Parcours la Table ClientDBB dans le DataSet
-                for (int i = 0; i < this.dataSetAbi.ClientBDD.Count; i++)
+                for (int i = 0; i < DonneesClients.DataSetClient.ClientBDD.Count; i++)
                 {
                     //Récupère le clientbddrow à chaque indice i
-                    ClientBDDRow c = this.dataSetAbi.ClientBDD[i];
+                    ClientBDDRow c = DonneesClients.DataSetClient.ClientBDD[i];
                     //si idclient du client à l'indice i = iclient de la ligne sélectionnée
                     if (c.idClient == idClient)
                     {
@@ -169,9 +165,9 @@ namespace ABI
                 if(client != null)
                 {
 
-                    this.dataSetAbi.ClientBDD.RemoveClientBDDRow(client);
-                    this.dataSetAbi.ClientBDD.AcceptChanges();
-                    this.clientBDDTableAdapter.Delete(client.idClient, client.adresse_code_postal, client.numero_telephone, client.effectif, client.numéro_Client);
+                    DonneesClients.DataSetClient.ClientBDD.RemoveClientBDDRow(client);
+                    DonneesClients.DataSetClient.ClientBDD.AcceptChanges();
+                    DonneesClients.taClient.Delete(client.idClient, client.adresse_code_postal, client.numero_telephone, client.effectif, client.numéro_Client);
                 }
             }
             
@@ -189,10 +185,10 @@ namespace ABI
             //Créer un nouveau ClientBDDRow
             ClientBDDRow client = null;
             //Parcours la Table ClientDBB dans le DataSet
-            for (int i = 0; i < this.dataSetAbi.ClientBDD.Count; i++)
+            for (int i = 0; i < DonneesClients.DataSetClient.ClientBDD.Count; i++)
             {
                 //Récupère le clientbddrow à chaque indice i
-                ClientBDDRow c = this.dataSetAbi.ClientBDD[i];
+                ClientBDDRow c = DonneesClients.DataSetClient.ClientBDD[i];
                 //si idclient du client à l'indice i = iclient de la ligne sélectionnée
                 if (c.idClient == iClient)
                 {
@@ -212,17 +208,6 @@ namespace ABI
             }
         }
 
-        private void donneesClientsBindingSource_CurrentChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void clientBDDBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.clientBDDBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.dataSetAbi);
-
-        }
+       
     }
 }
