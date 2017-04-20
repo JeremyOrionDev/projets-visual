@@ -219,6 +219,7 @@ namespace ABI
             else
             {
                 client.idClient = ++DonneesClients.nbreClient;
+                client.numéro_Client = client.idClient;
                 DonneesClients.taClient.Update(DonneesClients.DataSetClient.ClientBDD);
                 DonneesClients.DataSetClient.ClientBDD.AddClientBDDRow(client);
                 
