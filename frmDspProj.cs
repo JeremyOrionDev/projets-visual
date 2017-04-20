@@ -96,5 +96,10 @@ namespace ABI
                 afficheProjet();
             }
         }
+
+        private void frmDspProjBtnModifierProjet_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

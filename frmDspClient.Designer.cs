@@ -28,10 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fichierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.enregistrerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -58,14 +54,12 @@
             this.btnListeRechercheClient = new System.Windows.Forms.Button();
             this.btnAfficherTout = new System.Windows.Forms.Button();
             this.btnModifierClient = new System.Windows.Forms.Button();
-            this.dgrdClient = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dgrdClient = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
-            this.donneesClientsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgrdClient)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.donneesClientsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgrdClient)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -196,7 +190,7 @@
             // 
             // btnQuitter
             // 
-            this.btnQuitter.Location = new System.Drawing.Point(679, 245);
+            this.btnQuitter.Location = new System.Drawing.Point(679, 325);
             this.btnQuitter.Name = "btnQuitter";
             this.btnQuitter.Size = new System.Drawing.Size(75, 23);
             this.btnQuitter.TabIndex = 7;
@@ -206,7 +200,7 @@
             // 
             // btnSupprimerClient
             // 
-            this.btnSupprimerClient.Location = new System.Drawing.Point(202, 245);
+            this.btnSupprimerClient.Location = new System.Drawing.Point(202, 325);
             this.btnSupprimerClient.Name = "btnSupprimerClient";
             this.btnSupprimerClient.Size = new System.Drawing.Size(75, 23);
             this.btnSupprimerClient.TabIndex = 6;
@@ -216,7 +210,7 @@
             // 
             // btnAjouterClient
             // 
-            this.btnAjouterClient.Location = new System.Drawing.Point(19, 245);
+            this.btnAjouterClient.Location = new System.Drawing.Point(19, 325);
             this.btnAjouterClient.Name = "btnAjouterClient";
             this.btnAjouterClient.Size = new System.Drawing.Size(84, 23);
             this.btnAjouterClient.TabIndex = 5;
@@ -273,7 +267,7 @@
             // 
             // btnModifierClient
             // 
-            this.btnModifierClient.Location = new System.Drawing.Point(412, 245);
+            this.btnModifierClient.Location = new System.Drawing.Point(412, 325);
             this.btnModifierClient.Name = "btnModifierClient";
             this.btnModifierClient.Size = new System.Drawing.Size(75, 23);
             this.btnModifierClient.TabIndex = 13;
@@ -281,51 +275,10 @@
             this.btnModifierClient.UseVisualStyleBackColor = true;
             this.btnModifierClient.Click += new System.EventHandler(this.btnModifierClient_Click);
             // 
-            // dgrdClient
-            // 
-            this.dgrdClient.AllowUserToAddRows = false;
-            this.dgrdClient.AllowUserToDeleteRows = false;
-            this.dgrdClient.AllowUserToOrderColumns = true;
-            this.dgrdClient.AllowUserToResizeRows = false;
-            this.dgrdClient.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgrdClient.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgrdClient.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgrdClient.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgrdClient.Location = new System.Drawing.Point(19, 68);
-            this.dgrdClient.Name = "dgrdClient";
-            this.dgrdClient.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgrdClient.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgrdClient.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
-            this.dgrdClient.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgrdClient.Size = new System.Drawing.Size(917, 150);
-            this.dgrdClient.TabIndex = 14;
-            this.dgrdClient.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrdClient_CellDoubleClick);
-            // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.dgrdClient);
+            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.btnModifierClient);
             this.groupBox1.Controls.Add(this.btnQuitter);
             this.groupBox1.Controls.Add(this.btnAfficherTout);
@@ -337,31 +290,34 @@
             this.groupBox1.Controls.Add(this.btnAjouterClient);
             this.groupBox1.Location = new System.Drawing.Point(12, 27);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(958, 285);
+            this.groupBox1.Size = new System.Drawing.Size(958, 370);
             this.groupBox1.TabIndex = 15;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Clients";
             // 
+            // dgrdClient
+            // 
+            this.dgrdClient.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgrdClient.Location = new System.Drawing.Point(17, 61);
+            this.dgrdClient.Name = "dgrdClient";
+            this.dgrdClient.Size = new System.Drawing.Size(933, 235);
+            this.dgrdClient.TabIndex = 15;
+            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(698, 29);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(56, 19);
             this.button1.TabIndex = 15;
             this.button1.Text = "Clients test";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // donneesClientsBindingSource
-            // 
-            this.donneesClientsBindingSource.DataSource = typeof(ABI.DonneesClients);
             // 
             // frmDspClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1063, 350);
+            this.ClientSize = new System.Drawing.Size(1063, 397);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -370,10 +326,9 @@
             this.Load += new System.EventHandler(this.frmDspClient_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgrdClient)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.donneesClientsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgrdClient)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -407,10 +362,9 @@
         private System.Windows.Forms.Button btnModifierClient;
         private System.Windows.Forms.ToolStripMenuItem enCoursToolStripMenuItem;
         private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
-        private System.Windows.Forms.BindingSource donneesClientsBindingSource;
         private System.Windows.Forms.GroupBox groupBox1;
-        protected System.Windows.Forms.DataGridView dgrdClient;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridView dgrdClient;
     }
 }
 
