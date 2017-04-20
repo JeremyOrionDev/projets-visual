@@ -37,8 +37,8 @@ namespace ABI
 
         private void frmDspClient_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'dataSetAbi.ClientBDD' table. You can move, or remove it, as needed.
             DonneesClients.taClient.Fill(DonneesClients.DataSetClient.ClientBDD);
+            dgrdClient.DataSource = DonneesClients.DataSetClient.ClientBDD;
            
             int count = DonneesClients.DataSetClient.ClientBDD.Count;
             if (count == 0)
@@ -164,10 +164,8 @@ namespace ABI
                 }
                 if(client != null)
                 {
-
-                    DonneesClients.DataSetClient.ClientBDD.RemoveClientBDDRow(client);
-                    DonneesClients.DataSetClient.ClientBDD.AcceptChanges();
                     DonneesClients.taClient.Delete(client.idClient, client.adresse_code_postal, client.numero_telephone, client.effectif, client.numéro_Client);
+                    DonneesClients.DataSetClient.ClientBDD.RemoveClientBDDRow(client);
                 }
             }
             
@@ -207,7 +205,5 @@ namespace ABI
                 }
             }
         }
-
-       
     }
 }
