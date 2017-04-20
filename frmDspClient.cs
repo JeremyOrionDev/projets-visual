@@ -31,23 +31,23 @@ namespace ABI
             if (dgrdClient.RowCount!=0) btnModifierClient.Enabled = false;
             //On ajoute la selection  de type de recherche dans la ComboBox
             this.cbxChoixrecherche.Items.AddRange(new String[]
-                { "nom client", "NumeroClient", "nature", "raison sociale" });
+                { "nom client", "Numero Client", "nature", "raison sociale" });
 
         }
 
         private void frmDspClient_Load(object sender, EventArgs e)
         {
             DonneesClients.taClient.Fill(DonneesClients.DataSetClient.ClientBDD);
-            dgrdClient.DataSource = DonneesClients.DataSetClient.ClientBDD;
+            dgrdClient.DataSource = DonneesClients.DataSetClient.ClientBDD.DefaultView;
            
-            int count = DonneesClients.DataSetClient.ClientBDD.Count;
-            if (count == 0)
+            int iClient = DonneesClients.DataSetClient.ClientBDD.Count;
+            if (iClient == 0)
             {
                 DonneesClients.nbreClient = 0;
             }
             else
             {
-                DonneesClients.nbreClient = DonneesClients.DataSetClient.ClientBDD[count-1].idClient;
+                DonneesClients.nbreClient = DonneesClients.DataSetClient.ClientBDD[iClient-1].idClient;
             }
 
             //dgrdClient.Columns[9].Visible = false;
@@ -86,7 +86,11 @@ namespace ABI
         {
             Application.Exit();
         }
-
+        /// <summary>
+        /// Recherche d'un client par choix de filtre (nom client, raison sociale, numéro client ou nature)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnListeRechercheClient_Click(object sender, EventArgs e)
         {
             if (cbxChoixrecherche.Text == "nom client")
@@ -113,10 +117,7 @@ namespace ABI
             dgrdClient.Refresh();
         }
 
-        private void cbxChoixrecherche_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
 
-        }
         private void enCoursToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmDspProj frmDP;
@@ -127,7 +128,11 @@ namespace ABI
             }
         }
 
-
+        /// <summary>
+        /// ouvre le frmUpdClient pour modifier le client sélectionné
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dgrdClient_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             this.updateClient();
@@ -144,7 +149,7 @@ namespace ABI
             mbTexT = "Vous allez supprimer un client : \n";
             mbTexT += "----------------------------------\n";
             mbTexT += "Voici les informations du client à supprimer :\n";
-            mbTexT+="Numero Client"+dgrdClient.CurrentRow.Cells[1].Value.ToString() +" ---Nom Client:"+dgrdClient.CurrentRow.Cells[1].Value.ToString();
+            mbTexT+="Numero Client"+dgrdClient.CurrentRow.Cells[1].Value.ToString() +" -- Nom Client:"+dgrdClient.CurrentRow.Cells[1].Value.ToString();
             
             if(MessageBox.Show(mbTexT, "Attention Suppression client", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
@@ -153,7 +158,7 @@ namespace ABI
                 //Parcours la Table ClientDBB dans le DataSet
                 for (int i = 0; i < DonneesClients.DataSetClient.ClientBDD.Count; i++)
                 {
-                    //Récupère le clientbddrow à chaque indice i
+                    //Récupère la ligne du client à chaque tour
                     ClientBDDRow c = DonneesClients.DataSetClient.ClientBDD[i];
                     //si idclient du client à l'indice i = iclient de la ligne sélectionnée
                     if (c.idClient == idClient)
@@ -170,12 +175,18 @@ namespace ABI
             }
             
         }
-
+        /// <summary>
+        /// au click sur le bouton modifier ouvre le form updClient
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnModifierClient_Click(object sender, EventArgs e)
         {
             this.updateClient();
         }
-
+        /// <summary>
+        /// fonction de mise a jour client
+        /// </summary>
         private void updateClient()
         {
             //récupere idClient en cellule 0 de la ligne selectionnée

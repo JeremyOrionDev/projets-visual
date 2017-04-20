@@ -294,7 +294,6 @@
             this.cBxClientTypeTelephone.Name = "cBxClientTypeTelephone";
             this.cBxClientTypeTelephone.Size = new System.Drawing.Size(72, 21);
             this.cBxClientTypeTelephone.TabIndex = 4;
-            this.cBxClientTypeTelephone.SelectedIndexChanged += new System.EventHandler(this.cBxClientTypeTelephone_SelectedIndexChanged);
             // 
             // lblAjoutClientChiffreAffaire
             // 

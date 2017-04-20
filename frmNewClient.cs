@@ -57,7 +57,12 @@ namespace ABI
         {
             this.DialogResult = DialogResult.Cancel;
         }
-
+        /// <summary>
+        /// Lors du click sur le bouton valider on instancie le nouveau client dans la BDD si
+        /// tous les textBox sont bien remplis et valide
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnValider_Click(object sender, EventArgs e)
         {
             String mbText = "";
@@ -227,7 +232,11 @@ namespace ABI
             }
     }
 
-
+        /// <summary>
+        /// Ajout de contact pour le client en cours de création avec récupération de l'IdClient
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAjouterContact_Click(object sender, EventArgs e)
         {
             frmNewContact frmNCC = new frmNewContact(this);
@@ -235,9 +244,6 @@ namespace ABI
             frmNCC.ShowDialog();
         }
 
-        private void cBxClientTypeTelephone_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
-        }
     }
 }

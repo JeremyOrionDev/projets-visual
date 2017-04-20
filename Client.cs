@@ -11,7 +11,7 @@ namespace ABI
         private Int32 numeroClient =0;
         private String nomClient;
         private String clientRaisonSociale;
-        private String typeActivité;
+        private String typeActivite;
         private String clientDomaineActivite;
         private String adresseClientNumeroRue;
         private String adresseClientRue;
@@ -61,16 +61,16 @@ namespace ABI
             }
         }
 
-        public string TypeActivité
+        public string TypeActivite
         {
             get
             {
-                return typeActivité;
+                return typeActivite;
             }
 
             set
             {
-                typeActivité = value;
+                typeActivite = value;
             }
         }
 

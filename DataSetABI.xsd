@@ -2,9 +2,10 @@
 <xs:schema id="DataSetAbi" targetNamespace="http://tempuri.org/DataSetAbi.xsd" xmlns:mstns="http://tempuri.org/DataSetAbi.xsd" xmlns="http://tempuri.org/DataSetAbi.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
-      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
           <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="AbiBDDConnectionString1" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="AbiBDDConnectionString1 (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.ABI.Properties.Settings.GlobalReference.Default.AbiBDDConnectionString1" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="AbiBDDConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="AbiBDDConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.ABI.Properties.Settings.GlobalReference.Default.AbiBDDConnectionString" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ClientBDDTableAdapter" GeneratorDataComponentClassName="ClientBDDTableAdapter" Name="ClientBDD" UserDataComponentName="ClientBDDTableAdapter">
@@ -116,7 +117,7 @@ SELECT idClient, nom, [raison sociale], [type d'activité], [domaine d'activité
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ContactsBDDTableAdapter" GeneratorDataComponentClassName="ContactsBDDTableAdapter" Name="ContactsBDD" UserDataComponentName="ContactsBDDTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="AbiBDDConnectionString1 (Settings)" DbObjectName="AbiBDD.dbo.ContactsBDD" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="AbiBDDConnectionString (Settings)" DbObjectName="AbiBDD.dbo.ContactsBDD" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>INSERT INTO [dbo].[ContactsBDD] ([Nom], [Prénom], [Fonction], [Téléphone pro], [Téléphone portable], [IdClientLier]) VALUES (@Nom, @Prénom, @Fonction, @Téléphone_pro, @Téléphone_portable, @IdClientLier)</CommandText>
@@ -131,7 +132,7 @@ SELECT idClient, nom, [raison sociale], [type d'activité], [domaine d'activité
                   </DbCommand>
                 </InsertCommand>
                 <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT Nom, Prénom, Fonction, [Téléphone pro], [Téléphone portable], IdClientLier FROM dbo.ContactsBDD</CommandText>
                     <Parameters />
                   </DbCommand>
@@ -156,7 +157,7 @@ SELECT idClient, nom, [raison sociale], [type d'activité], [domaine d'activité
   <xs:element name="DataSetAbi" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSetAbi" msprop:Generator_UserDSName="DataSetAbi">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="ClientBDD" msprop:Generator_TableClassName="ClientBDDDataTable" msprop:Generator_TableVarName="tableClientBDD" msprop:Generator_TablePropName="ClientBDD" msprop:Generator_RowDeletingName="ClientBDDRowDeleting" msprop:Generator_RowChangingName="ClientBDDRowChanging" msprop:Generator_RowEvHandlerName="ClientBDDRowChangeEventHandler" msprop:Generator_RowDeletedName="ClientBDDRowDeleted" msprop:Generator_UserTableName="ClientBDD" msprop:Generator_RowChangedName="ClientBDDRowChanged" msprop:Generator_RowEvArgName="ClientBDDRowChangeEvent" msprop:Generator_RowClassName="ClientBDDRow">
+        <xs:element name="ClientBDD" msprop:Generator_TableClassName="ClientBDDDataTable" msprop:Generator_TableVarName="tableClientBDD" msprop:Generator_RowChangedName="ClientBDDRowChanged" msprop:Generator_TablePropName="ClientBDD" msprop:Generator_RowDeletingName="ClientBDDRowDeleting" msprop:Generator_RowChangingName="ClientBDDRowChanging" msprop:Generator_RowEvHandlerName="ClientBDDRowChangeEventHandler" msprop:Generator_RowDeletedName="ClientBDDRowDeleted" msprop:Generator_RowClassName="ClientBDDRow" msprop:Generator_UserTableName="ClientBDD" msprop:Generator_RowEvArgName="ClientBDDRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="idClient" msprop:Generator_ColumnVarNameInTable="columnidClient" msprop:Generator_ColumnPropNameInRow="idClient" msprop:Generator_ColumnPropNameInTable="idClientColumn" msprop:Generator_UserColumnName="idClient" type="xs:int" />
@@ -257,7 +258,7 @@ SELECT idClient, nom, [raison sociale], [type d'activité], [domaine d'activité
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="ContactsBDD" msprop:Generator_TableClassName="ContactsBDDDataTable" msprop:Generator_TableVarName="tableContactsBDD" msprop:Generator_TablePropName="ContactsBDD" msprop:Generator_RowDeletingName="ContactsBDDRowDeleting" msprop:Generator_RowChangingName="ContactsBDDRowChanging" msprop:Generator_RowEvHandlerName="ContactsBDDRowChangeEventHandler" msprop:Generator_RowDeletedName="ContactsBDDRowDeleted" msprop:Generator_UserTableName="ContactsBDD" msprop:Generator_RowChangedName="ContactsBDDRowChanged" msprop:Generator_RowEvArgName="ContactsBDDRowChangeEvent" msprop:Generator_RowClassName="ContactsBDDRow">
+        <xs:element name="ContactsBDD" msprop:Generator_TableClassName="ContactsBDDDataTable" msprop:Generator_TableVarName="tableContactsBDD" msprop:Generator_RowChangedName="ContactsBDDRowChanged" msprop:Generator_TablePropName="ContactsBDD" msprop:Generator_RowDeletingName="ContactsBDDRowDeleting" msprop:Generator_RowChangingName="ContactsBDDRowChanging" msprop:Generator_RowEvHandlerName="ContactsBDDRowChangeEventHandler" msprop:Generator_RowDeletedName="ContactsBDDRowDeleted" msprop:Generator_RowClassName="ContactsBDDRow" msprop:Generator_UserTableName="ContactsBDD" msprop:Generator_RowEvArgName="ContactsBDDRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Nom" msprop:Generator_ColumnVarNameInTable="columnNom" msprop:Generator_ColumnPropNameInRow="Nom" msprop:Generator_ColumnPropNameInTable="NomColumn" msprop:Generator_UserColumnName="Nom">

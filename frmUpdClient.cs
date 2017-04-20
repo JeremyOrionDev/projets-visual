@@ -22,7 +22,7 @@ namespace ABI
         String mbText;
         
         /// <summary>
-        /// le client a modifier
+        /// la ligne du client a modifier
         /// </summary>
         private ClientBDDRow leClient;
         
@@ -41,7 +41,7 @@ namespace ABI
         }
         /// <summary>
         /// fonction affichage client rempli les textBox avec les valeurs 
-        /// correspondantes enregistrées dans la liste de clients
+        /// correspondantes enregistrées dans la BDD
         /// </summary>
         private void afficheUnClient(ClientBDDRow leClient)
         {
@@ -64,12 +64,17 @@ namespace ABI
             tBxNature.Text = leClient.nature;
             tBxCommentaire.Text = leClient.Commentaires;
         }
+        /// <summary>
+        /// index de la ligne à trouver/éditer/supprimer
+        /// </summary>
         public int indexRow;
+
         private void frmUpdClient_Load(object sender, EventArgs e)
         {
 
         }
         /// <summary>
+        /// Bouton ajout contact pour le client en cours
         /// On récupère l'idclient auquel on veut ajouter un contact
         /// </summary>
         /// <param name="sender"></param>
@@ -133,9 +138,9 @@ namespace ABI
             {
                 mbText += "\n" + " le pays : " + leClient.adresse_pays + " devient --> " + cbxAjoutClientPays.Text;
             }
-
+            //si le MbText n'est pas vide on affiche les erreurs retenues
             if (mbText != "") MessageBox.Show("Validation des modifications éffectuées :" + "\n" + mbText, "Valider ?", MessageBoxButtons.OKCancel);
-
+            //si pas d'erreur
             if (DialogResult == DialogResult.OK)
             {
 
@@ -174,7 +179,7 @@ namespace ABI
                 leClient.Commentaires = tBxCommentaire.Text;
                 leClient.nature = tBxNature.Text;
 
-
+                //mise a jour de la BDD avec les données
                 DonneesClients.taClient.Update(DonneesClients.DataSetClient.ClientBDD);
                 this.DialogResult = DialogResult.OK;
             }

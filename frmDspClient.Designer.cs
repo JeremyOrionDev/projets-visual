@@ -242,7 +242,6 @@
             this.cbxChoixrecherche.Name = "cbxChoixrecherche";
             this.cbxChoixrecherche.Size = new System.Drawing.Size(121, 21);
             this.cbxChoixrecherche.TabIndex = 10;
-            this.cbxChoixrecherche.SelectedIndexChanged += new System.EventHandler(this.cbxChoixrecherche_SelectedIndexChanged_1);
             // 
             // btnListeRechercheClient
             // 
